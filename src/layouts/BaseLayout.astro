@@ -1,0 +1,17 @@
+---
+import Header from "../components/header.astro";
+---
+
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Melas Rezepte</title>
+    </head>
+    <body class="bg-black text-white p-3">
+        <Header />
+        <slot />
+    </body>
+</html>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("rezepte");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout>
+    <div class="prose prose-invert max-w-xl m-auto py-10">
+        <h2>{post.data.title}</h2>
+        <content>
+            {
+                post.data.ingredients.length > 0 && (
+                    <>
+                        <h3>Zutaten</h3>
+                        <ul>
+                            {post.data.ingredients.map((i) => (
+                                <li>
+                                    {i.name}: {i.amount}
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                )
+            }
+            <h3>Anleitung</h3>
+            <Content />
+        </content>
+    </div>
+</BaseLayout>
