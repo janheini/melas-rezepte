@@ -1,24 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-const rezepte = await getCollection("rezepte");
 ---
-
 <BaseLayout>
     <div class="prose prose-invert">
-        <ul class="list-disc p-4">
-            {
-                rezepte.map((rezept) => (
-                    <li>
-                        <a
-                            href={rezept.slug}
-                            class="no-underline hover:underline"
-                        >
-                            {rezept.data.title}
-                        </a>
-                    </li>
-                ))
-            }
+        <ul id="rezepte" class="list-disc p-4" hx-post="api/rezepte" hx-trigger="load">
         </ul>
+        <form hx-target="#rezepte">
+            <input name="filter" value="Vegetarisch" type="checkbox" hx-post="api/rezepte">Vegetarisch</input>
+            <input name="filter" value="Fleisch" type="checkbox" hx-post="api/rezepte">Fleisch</input>
+            <input name="filter" value="Fisch" type="checkbox" hx-post="api/rezepte">Fisch</input>
+        </form>
     </div>
 </BaseLayout>
