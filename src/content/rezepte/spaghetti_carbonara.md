@@ -5,14 +5,10 @@ tags:
   - Fleisch
 time: Schnell
 ingredients:
-  - name: Spaghetti
-    amount: 250g
-  - name: Kochschinken
-    amount: 100g
-  - name: Parmesan
-    amount: 75g
-  - name: Eier
-    amount: 4
+  - 250g Spaghetti
+  - 100g Kochschinken
+  - 75g Parmesan
+  - 4 Eier
 ---
 1. Spaghetti kochen. 
 2. Die Eier, Sahne und Parmesan zusammen mit Salz und Pfeffer zu einer Soße

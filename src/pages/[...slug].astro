@@ -20,16 +20,12 @@ const { Content } = await post.render();
         <content>
             {
                 post.data.ingredients.length > 0 && (
-                    <>
                         <h3>Zutaten</h3>
                         <ul>
                             {post.data.ingredients.map((i) => (
-                                <li>
-                                    {i.name}: {i.amount}
-                                </li>
+                                <li>{i.name}</li>
                             ))}
                         </ul>
-                    </>
                 )
             }
             <h3>Anleitung</h3>

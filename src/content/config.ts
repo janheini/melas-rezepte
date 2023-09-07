@@ -10,6 +10,7 @@ export const tags = z.enum([
   "Reis",
   "Nudeln",
   "Kartoffeln",
+  "Gnocchi",
 ]);
 
 const time = z.enum(["Schnell", "Mittel", "Lange"]);
@@ -21,10 +22,7 @@ const rezepte = defineCollection({
     image: z.string().optional(),
     tags: z.array(tags).optional(),
     time: time,
-    ingredients: z.array(z.object({
-            name: z.string(), 
-            amount: z.union([z.string(), z.number()])
-        })),
+    ingredients: z.array(z.string()),
   }),
 });
 
