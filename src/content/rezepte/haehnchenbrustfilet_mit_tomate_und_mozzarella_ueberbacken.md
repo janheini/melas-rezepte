@@ -1,7 +1,7 @@
 ---
 title: Hähnchenbrustfilet mit Tomate und Mozzarella überbacken
 tags:
-  - Hähnchen
+  - Huhn
 time: Mittel
 ingredients:
   - 600g Hähnchenbrustfilet

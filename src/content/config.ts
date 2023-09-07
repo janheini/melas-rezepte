@@ -4,7 +4,7 @@ export const tags = z.enum([
   "Vegetarisch",
   "Fleisch",
   // "Schwein",
-  "Hähnchen",
+  "Huhn",
   // "Rind",
   "Fisch",
   "Garnelen",

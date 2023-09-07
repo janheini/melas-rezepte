@@ -2,7 +2,7 @@
 title: Nudeln in Spinatsauce (mit Hähnchen)
 tags:
   - Nudeln
-  - Hähnchen
+  - Huhn
 time: Mittel
 ingredients:
   - 50g Nudeln
