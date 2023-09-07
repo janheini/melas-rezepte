@@ -1,0 +1,19 @@
+---
+const { tag } = Astro.props;
+---
+
+<div>
+    <input
+        id={tag}
+        name="filter"
+        value={tag}
+        type="checkbox"
+        hx-post="api/rezepte"
+        class="appearance-none peer"
+    />
+    <label
+        for={tag}
+        class="border-2 rounded-full p-2 peer-checked:bg-white peer-checked:text-black"
+        >{tag}
+    </label>
+</div>

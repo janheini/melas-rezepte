@@ -1,14 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { tags } from "../content/config.ts";
+import Filter from "../components/filter.astro";
 ---
+
 <BaseLayout>
     <div class="prose prose-invert">
-        <ul id="rezepte" class="list-disc p-4" hx-post="api/rezepte" hx-trigger="load">
-        </ul>
-        <form hx-target="#rezepte">
-            <input name="filter" value="Vegetarisch" type="checkbox" hx-post="api/rezepte">Vegetarisch</input>
-            <input name="filter" value="Fleisch" type="checkbox" hx-post="api/rezepte">Fleisch</input>
-            <input name="filter" value="Fisch" type="checkbox" hx-post="api/rezepte">Fisch</input>
+        <form hx-target="#rezepte" class="flex flex-wrap gap-5 gap-y-6">
+            {tags.options.map((tag) => <Filter tag={tag} />)}
         </form>
+        <ul
+            id="rezepte"
+            class="list-disc p-4"
+            hx-post="api/rezepte"
+            hx-trigger="load"
+        >
+        </ul>
     </div>
 </BaseLayout>
