@@ -3,9 +3,9 @@ import { z, defineCollection } from "astro:content";
 export const tags = z.enum([
   "Vegetarisch",
   "Fleisch",
-  "Schwein",
+  // "Schwein",
   "Huhn",
-  "Rind",
+  // "Rind",
   "Fisch",
   "Reis",
   "Nudeln",

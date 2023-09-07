@@ -2,7 +2,6 @@
 title: Spaghetti Carbonara
 tags:
   - Nudeln
-  - Schwein
   - Fleisch
 time: Schnell
 ingredients:
