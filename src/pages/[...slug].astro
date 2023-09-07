@@ -23,7 +23,7 @@ const { Content } = await post.render();
                         <h3>Zutaten</h3>
                         <ul>
                             {post.data.ingredients.map((i) => (
-                                <li>{i.name}</li>
+                                <li>{i}</li>
                             ))}
                         </ul>
                 )

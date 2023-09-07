@@ -14,14 +14,11 @@ export async function POST({request}) {
     }
     const response = rezepte.map((rezept) => (`
                     <li>
-                        <a
-                            href=${rezept.slug}
-                            class="no-underline hover:underline"
-                        >
+                        <a href=${rezept.slug} class="no-underline hover:underline">
                             ${rezept.data.title}
                         </a>
                     </li>
-                `));
+                `)).join("");
 
     return new Response(response);
 }
