@@ -1,3 +1,4 @@
+export const prerender = false;
 import { getCollection } from "astro:content";
 import { tags } from "../../content/config.ts";
 
