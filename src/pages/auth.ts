@@ -1,8 +1,8 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { AuthorizationCode } from "simple-oauth2";
 import { randomBytes } from "crypto";
-import { config, Provider } from "../../lib/config";
-import { scopes } from "../../lib/scopes";
+import { config, Provider } from "../lib/config";
+import { scopes } from "../lib/scopes";
 
 export const randomString = () => randomBytes(4).toString("hex");
 
