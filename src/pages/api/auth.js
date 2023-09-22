@@ -1,5 +1,5 @@
-const crypto = require("crypto");
-const { create } = require("./_lib/oauth2");
+import crypto from "crypto";
+import { create } from "./_lib/oauth2";
 
 const randomString = () => crypto.randomBytes(4).toString(`hex`);
 

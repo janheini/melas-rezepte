@@ -1,4 +1,4 @@
-const simpleOauthModule = require("simple-oauth2");
+import simpleOauthModule from "simple-oauth2";
 
 const create = () =>
   simpleOauthModule.create({

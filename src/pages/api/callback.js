@@ -1,4 +1,4 @@
-const { create, renderBody } = require("./_lib/oauth2");
+import { create, renderBody } from "./_lib/oauth2"
 
 const handler = async (req, res) => {
   const code = req.query.code;
