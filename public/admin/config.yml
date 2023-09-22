@@ -6,6 +6,7 @@ backend:
   repo: janheini/melas-rezepte
   branch: main
   base_url: https://melas-rezepte.vercel.app
+  auth_endpoint: "api/auth"
 
 # npx netlify-cms-proxy-server
 local_backend: true
