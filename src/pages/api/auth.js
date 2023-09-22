@@ -3,7 +3,7 @@ import { create } from "./_lib/oauth2";
 
 const randomString = () => crypto.randomBytes(4).toString(`hex`);
 
-const handler = (req, res) => {
+export const handler = (req, res) => {
   const { host } = req.headers;
 
   const oauth2 = create();
@@ -17,5 +17,3 @@ const handler = (req, res) => {
   res.writeHead(301, { Location: url });
   res.end();
 };
-
-module.exports = handler;

@@ -1,6 +1,6 @@
 import { create, renderBody } from "./_lib/oauth2"
 
-const handler = async (req, res) => {
+export const handler = async (req, res) => {
   const code = req.query.code;
   const { host } = req.headers;
 
@@ -23,5 +23,3 @@ const handler = async (req, res) => {
     res.status(200).send(renderBody("error", e));
   }
 };
-
-module.exports = handler;

@@ -1,6 +1,6 @@
 import simpleOauthModule from "simple-oauth2";
 
-const create = () =>
+export const create = () =>
   simpleOauthModule.create({
     client: {
       id: process.env.OAUTH_CLIENT_ID,
@@ -13,7 +13,7 @@ const create = () =>
     },
   });
 
-const renderBody = (status, content) => `
+export const renderBody = (status, content) => `
 <script>
   const receiveMessage = (message) => {
     window.opener.postMessage(
@@ -28,6 +28,3 @@ const renderBody = (status, content) => `
   window.opener.postMessage("authorizing:github", "*");
 </script>
 `;
-
-exports.create = create;
-exports.renderBody = renderBody;
