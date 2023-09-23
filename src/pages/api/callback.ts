@@ -28,7 +28,11 @@ export const GET: APIRoute = async ({ request }) => {
             provider
         });
 
-        return new Response(typeof(responseBody));
+        return new Response(responseBody, {
+            headers: {
+                "Content-Type": "text/html",
+            }
+        });
     } catch (e) {
         return new Response(e);
     }
