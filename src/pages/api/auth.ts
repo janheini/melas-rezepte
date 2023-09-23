@@ -7,7 +7,7 @@ import type { APIRoute } from "astro";
 export const randomString = () => randomBytes(4).toString("hex");
 
 export const GET: APIRoute = async ({ request, redirect }) => {
-  const { host } = request.headers;
+  const host = request.headers.get('host');
   const url = new URL(`https://${host}/${request.url}`);
   const urlParams = url.searchParams;
   const provider = urlParams.get("provider") as Provider;

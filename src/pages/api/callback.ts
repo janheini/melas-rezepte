@@ -3,7 +3,7 @@ import { config, type Provider } from "../../lib/config";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async ({ request }) => {
-  const { host } = request.headers;
+  const host = request.headers.get('host');
   const url = new URL(`https://${host}/${request.url}`);
   const urlParams = url.searchParams;
   const code = urlParams.get("code");
