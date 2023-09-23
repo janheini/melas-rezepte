@@ -6,7 +6,7 @@ import { scopes } from "../../lib/scopes";
 
 export const randomString = () => randomBytes(4).toString("hex");
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
+export async function GET({req}) {
   const { host } = req.headers;
   const url = new URL(`https://${host}/${req.url}`);
   const urlParams = url.searchParams;
@@ -20,6 +20,5 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     state: randomString(),
   });
 
-  res.writeHead(301, { Location: authorizationUri });
-  res.end();
+  return redirect(authorizationUri, 301);
 };

@@ -2,7 +2,7 @@ import { IncomingMessage, ServerResponse } from "http";
 import { AuthorizationCode } from "simple-oauth2";
 import { config, Provider } from "../../lib/config";
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
+export async function GET({req}) {
   const { host } = req.headers;
   const url = new URL(`https://${host}/${req.url}`);
   const urlParams = url.searchParams;
@@ -26,11 +26,9 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
       provider,
     });
 
-    res.statusCode = 200;
-    res.end(responseBody);
+    return new Response(responseBody);
   } catch (e) {
-    res.statusCode = 200;
-    res.end(renderBody("error", e));
+    return new Response(e);
   }
 };
 
