@@ -1,16 +1,34 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
 
-export async function getStaticPaths() {
-    const posts = await getCollection("rezepte");
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: { post },
-    }));
+// export async function getStaticPaths() {
+//     const posts = await getCollection("rezepte");
+//     return posts.map((post) => ({
+//         params: { slug: post.slug },
+//         props: { post },
+//     }));
+// }
+
+const { slug } = Astro.params;
+
+if (!slug) {
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
+    });
 }
 
-const { post } = Astro.props;
+
+const post = await getEntry('rezepte', slug);
+
+if (!post) {
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
+    });
+}
+
 const { Content } = await post.render();
 ---
 

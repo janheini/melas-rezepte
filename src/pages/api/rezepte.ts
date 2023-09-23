@@ -15,7 +15,7 @@ export async function POST({request}) {
     }
     const response = rezepte.map((rezept) => (`
                     <li>
-                        <a href=${rezept.slug} class="no-underline hover:underline">
+                        <a href=${"rezepte/" + rezept.slug} class="no-underline hover:underline">
                             ${rezept.data.title}
                         </a>
                     </li>
