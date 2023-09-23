@@ -28,7 +28,7 @@ export const GET: APIRoute = async ({ request }) => {
             provider
         });
 
-        return new Response(responseBody);
+        return responseBody;
     } catch (e) {
         return new Response(e);
     }
