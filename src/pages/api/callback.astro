@@ -1,0 +1,34 @@
+<script>
+    import { AuthorizationCode } from "simple-oauth2";
+    import { config, type Provider } from "../../lib/config";
+
+    const host = Astro.request.headers.get("host");
+    const url = new URL(`https://${host}/${Astro.request.url}`);
+    const urlParams = url.searchParams;
+    const code = urlParams.get("code");
+    const provider = urlParams.get("provider") as Provider;
+
+    if (!code) throw new Error(`Missing code ${code}`);
+
+    const client = new AuthorizationCode(config(provider));
+    const tokenParams = {
+        code,
+        redirect_uri: `https://${host}/api/callback?provider=${provider}`,
+    };
+
+    const accessToken = await client.getToken(tokenParams);
+    const token = accessToken.token["access_token"] as string;
+
+    const receiveMessage = (message: MessageEvent) => {
+        window.opener.postMessage(
+            `authorization:${provider}:${status}:${JSON.stringify({
+                token,
+                provider,
+            })}`,
+            message.origin,
+        );
+        window.removeEventListener("message", receiveMessage, false);
+    };
+    window.addEventListener("message", receiveMessage, false);
+    window.opener.postMessage(`authorizing:${provider}`, "*");
+</script>
