@@ -38,6 +38,8 @@ export const GET: APIRoute = async ({ request }) => {
 // to communicate with its opener 
 function renderBody(status, content) {
     return `
+<html>
+<head>
     <script>
       const receiveMessage = (message) => {
         window.opener.postMessage(
@@ -51,5 +53,8 @@ function renderBody(status, content) {
       window.addEventListener("message", receiveMessage, false);
       window.opener.postMessage("authorizing:${content.provider}", "*");
     </script>
+</head>
+<body> </body>
+</html>
   `;
 }
