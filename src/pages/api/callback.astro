@@ -37,7 +37,7 @@ console.log(blaa);
                 window.removeEventListener("message", receiveMessage, false);
             };
             window.addEventListener("message", receiveMessage, false);
-            window.opener.postMessage(`authorizing:${provider}`, "*");
+            window.opener.postMessage("authorizing:github", "*");
         </script>
     </head>
     <body> </body>
