@@ -1,5 +1,7 @@
 <html>
     <head>
+    </head>
+    <body>
         <script>
             import { AuthorizationCode } from "simple-oauth2";
             import { config, type Provider } from "../../lib/config";
@@ -34,6 +36,5 @@
             window.addEventListener("message", receiveMessage, false);
             window.opener.postMessage(`authorizing:${provider}`, "*");
         </script>
-    </head>
-    <body> </body>
+    </body>
 </html>
