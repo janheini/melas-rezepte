@@ -1,10 +1,9 @@
-import { IncomingMessage, ServerResponse } from "http";
 import { AuthorizationCode } from "simple-oauth2";
 import { config, Provider } from "../../lib/config";
 
-export async function GET({req}) {
-  const { host } = req.headers;
-  const url = new URL(`https://${host}/${req.url}`);
+export async function GET({request}) {
+  const { host } = request.headers;
+  const url = new URL(`https://${host}/${request.url}`);
   const urlParams = url.searchParams;
   const code = urlParams.get("code");
   const provider = urlParams.get("provider") as Provider;
