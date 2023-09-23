@@ -1,7 +1,8 @@
 import { AuthorizationCode } from "simple-oauth2";
-import { config, Provider } from "../../lib/config";
+import { config, type Provider } from "../../lib/config";
+import type { APIRoute } from "astro";
 
-export async function GET({request}) {
+export const GET: APIRoute = async ({ request }) => {
   const { host } = request.headers;
   const url = new URL(`https://${host}/${request.url}`);
   const urlParams = url.searchParams;
