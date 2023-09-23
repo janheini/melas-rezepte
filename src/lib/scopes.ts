@@ -1,6 +1,6 @@
-import { Provider } from "./config";
+import { type Provider } from "./config";
 
 export const scopes: Record<Provider, string> = {
-  github: "repo,user",
+  github: "public_repo,user",
   gitlab: "api",
 };
