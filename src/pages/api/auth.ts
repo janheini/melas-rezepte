@@ -15,7 +15,7 @@ export const GET: APIRoute = async ({ request, redirect }) => {
   const client = new AuthorizationCode(config(provider));
 
   const authorizationUri = client.authorizeURL({
-    redirect_uri: `https://${host}/callback?provider=${provider}`,
+    redirect_uri: `https://${host}/api/callback?provider=${provider}`,
     scope: scopes[provider],
     state: randomString(),
   });
