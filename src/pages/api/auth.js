@@ -4,6 +4,8 @@ import { create } from "./_lib/oauth2";
 const randomString = () => crypto.randomBytes(4).toString(`hex`);
 
 export const handler = (req, res) => {
+
+  console.log("test");
   const { host } = req.headers;
 
   const oauth2 = create();
