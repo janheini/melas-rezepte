@@ -5,7 +5,7 @@ import Filter from "../components/filter.astro";
 ---
 
 <BaseLayout>
-    <div class="prose prose-invert">
+    <div class="prose">
         <form hx-target="#rezepte" class="flex flex-wrap gap-5 gap-y-6">
             {tags.options.map((tag) => <Filter tag={tag} />)}
         </form>
