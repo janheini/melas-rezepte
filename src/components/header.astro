@@ -1,3 +1,21 @@
+---
+const session = await Astro.locals.auth.validate();
+---
 <div class="pb-8">
     <h1 class="text-4xl font-black">Melas Rezepte</h1>
+    {
+        session && (
+            <div class="flex gap-2">
+                <span>Hallo {session.user.username}</span>
+                <form class="inline" method="post" action="/logout">
+                    <input class="cursor-pointer" type="submit" value="(ausloggen)" />
+                </form>
+            </div>
+        )
+    }
+    {
+        !session && (
+            <a href="/login">einloggen</a>
+        )
+    }
 </div>

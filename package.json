@@ -12,8 +12,8 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
     "@astrojs/vercel": "^4.0.4",
+    "@libsql/client": "^0.3.5",
     "@lucia-auth/adapter-sqlite": "^2.0.0",
-    "@staticcms/core": "^3.3.2",
     "astro": "^3.0.10",
     "lucia": "^2.7.1",
     "simple-oauth2": "^5.0.0",
