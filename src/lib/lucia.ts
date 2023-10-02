@@ -4,7 +4,8 @@ import { libsql } from "@lucia-auth/adapter-sqlite";
 import { createClient } from "@libsql/client";
 
 const db = createClient({
-    url: "file:melas-rezepte.sqlite3"
+    url: import.meta.env.TURSO_URL,
+    authToken: import.meta.env.TURSO_TOKEN
 });
 
 export const auth = lucia({
