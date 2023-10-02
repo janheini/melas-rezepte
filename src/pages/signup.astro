@@ -1,6 +1,13 @@
 ---
 import { auth } from "../lib/lucia";
 
+if (import.meta.env.PROD) {
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
+    });
+}
+
 let usernameInput = "";
 let errorMessage = "";
 
