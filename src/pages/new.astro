@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { tags } from "../content/config.ts";
+
+const session = await Astro.locals.auth.validate();
+if (!session) return Astro.redirect("/login", 302); // redirect to profile page
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    console.log(formData);
+    const zutaten = formData.getAll("zutaten");
+    console.log(zutaten);
+    return Astro.redirect("/new");
+}
+---
+
+<BaseLayout>
+    <h2 class="pb-2 font-black">Neues Rezept erstellen</h2>
+    <form class="grid gap-4 max-w-md" method="post">
+        <input
+            id="title"
+            name="title"
+            type="text"
+            class="input input-bordered input-md"
+            placeholder="Titel"
+        />
+        <div class="flex flex-wrap gap-2">
+            {
+                tags.options.map((tag) => (
+                    <div class="py-2">
+                        <input
+                            id={tag}
+                            name="filter"
+                            value={tag}
+                            type="checkbox"
+                            class="appearance-none peer"
+                        />
+                        <label
+                            for={tag}
+                            class="border-2 rounded-full p-2 peer-checked:bg-accent peer-checked:text-black"
+                        >
+                            {tag}
+                        </label>
+                    </div>
+                ))
+            }
+        </div>
+        <label for="time">Zeit</label>
+        <input
+            id="time"
+            name="time"
+            type="range"
+            class="range range-sm"
+            min="0"
+            max="2"
+            value="0"
+            step="1"
+        />
+        <div class="w-full flex justify-between text-xs px-2">
+            <span>Schnell</span>
+            <span>Mittel</span>
+            <span>Lange</span>
+        </div>
+        <input
+            id="zutaten"
+            name="zutaten"
+            type="text"
+            class="input input-bordered input-sm"
+            placeholder="Zutat"
+        />
+        <textarea
+            id="anleitung"
+            name="anleitung"
+            class="textarea textarea-bordered textarea-sm"
+            placeholder="Anleitung"
+            rows="5"></textarea>
+        <input type="submit" class="btn btn-sm btn-outline" value="Speichern" />
+    </form>
+</BaseLayout>
+
+<script>
+    const addNewField = (event: Event) => {
+        const node = event.target as HTMLInputElement;
+        if (node.value == "") return;
+        let clone = node.cloneNode(true) as HTMLInputElement;
+        clone.value = "";
+        clone.addEventListener("keyup", addNewField);
+        node.parentNode?.insertBefore(clone, node.nextSibling);
+        node.removeEventListener("keyup", addNewField);
+    };
+
+    const zutaten = document.querySelectorAll("#zutaten");
+    zutaten.forEach((zutat) => {
+        zutat.addEventListener("keyup", addNewField);
+    });
+</script>

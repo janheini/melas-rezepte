@@ -14,7 +14,7 @@ export const tags = z.enum([
   "Gnocchi",
 ]);
 
-const time = z.enum(["Schnell", "Mittel", "Lange"]);
+export const time = z.enum(["Schnell", "Mittel", "Lange"]);
 
 const rezepte = defineCollection({
   type: "content",
