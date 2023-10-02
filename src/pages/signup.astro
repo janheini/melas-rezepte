@@ -1,10 +1,11 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { auth } from "../lib/lucia";
 
 if (import.meta.env.PROD) {
     return new Response(null, {
         status: 404,
-        statusText: 'Not found'
+        statusText: "Not found",
     });
 }
 
@@ -67,24 +68,50 @@ const session = await Astro.locals.auth.validate();
 if (session) return Astro.redirect("/", 302); // redirect to profile page
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Username & password auth with Lucia</title>
-    </head>
-    <body>
-        <h1>Sign up</h1>
-        <form method="post">
-            <label for="username">Username</label>
-            <input name="username" id="username" value={usernameInput} /><br />
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" /><br />
-            <input type="submit" />
-        </form>
-        <p class="error">{errorMessage}</p>
-        <a href="/login">Sign in</a>
-    </body>
-</html>
+<BaseLayout>
+    <h2 class="pb-2 font-black">Create new account</h2>
+    <form class="grid max-w-xs gap-2" method="post">
+        <input
+            id="username"
+            name="username"
+            type="text"
+            class="input input-bordered input-sm"
+            placeholder="username"
+        />
+        <input
+            id="password"
+            name="password"
+            type="password"
+            class="input input-bordered input-sm"
+            placeholder="password"
+        />
+        <input
+            type="submit"
+            class="btn btn-sm btn-outline"
+            value="Create account"
+        />
+        <a class="btn btn-sm btn-outline" href="/login"> Login instead</a>
+    </form>
+    {
+        errorMessage && (
+            <div class="py-4">
+                <div class="alert alert-error max-w-xs">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="stroke-current shrink-0 h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                    </svg>
+                    <span>{errorMessage}</span>
+                </div>
+            </div>
+        )
+    }
+</BaseLayout>
