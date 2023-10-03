@@ -3,7 +3,6 @@ title: Nudeln mit Frischkäse-Champignon-Sauce
 tags:
   - Nudeln
   - Vegetarisch
-time: Schnell
 ingredients:
   - 500g Nudeln
   - 700g Champignons

@@ -3,7 +3,6 @@ title: Spaghetti Carbonara
 tags:
   - Nudeln
   - Fleisch
-time: Schnell
 ingredients:
   - 250g Spaghetti
   - 100g Kochschinken

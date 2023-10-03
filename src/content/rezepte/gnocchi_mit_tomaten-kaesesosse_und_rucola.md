@@ -3,7 +3,6 @@ title: Gnocchi mit Tomaten-Käsesoße und Rucola
 tags:
   - Gnocchi
   - Vegetarisch
-time: Schnell
 ingredients:
   - 1 Zwiebel
   - 1 Knoblauchzehe

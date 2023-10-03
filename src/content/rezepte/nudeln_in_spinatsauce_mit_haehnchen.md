@@ -3,7 +3,6 @@ title: Nudeln in Spinatsauce (mit Hähnchen)
 tags:
   - Nudeln
   - Huhn
-time: Mittel
 ingredients:
   - 50g Nudeln
   - 200g Spinat (frisch oder tiefgekühlt)

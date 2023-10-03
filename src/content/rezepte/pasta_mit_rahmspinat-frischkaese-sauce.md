@@ -3,7 +3,6 @@ title: Pasta mit Rahmspinat-Frischkäse-Sauce
 tags:
   - Nudeln
   - Vegetarisch
-time: Schnell
 ingredients:
   - 500g Nudeln
   - 1 kleine Zwiebel

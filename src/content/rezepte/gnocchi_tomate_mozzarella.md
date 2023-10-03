@@ -3,7 +3,6 @@ title: Gnocchi Tomate Mozzarella
 tags:
   - Gnocchi
   - Vegetarisch
-time: Schnell
 ingredients:
   - 1 Packung Gnocchi
   - 1 Zwiebel, gewürfelt

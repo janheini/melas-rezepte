@@ -3,7 +3,6 @@ title: One Pot Nudeln
 tags:
   - Nudeln
   - Vegetarisch
-time: Schnell
 ingredients:
   - 250g passierte Tomaten
   - 1 Becher Sahne

@@ -3,7 +3,6 @@ title: One Pot Pasta Primavera
 tags:
   - Nudeln
   - Vegetarisch
-time: Schnell
 ingredients:
   - 250g braune Champignons
   - 1 Brokkoli

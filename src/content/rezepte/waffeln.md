@@ -2,7 +2,6 @@
 title: Waffeln
 tags:
   - Vegetarisch
-time: Schnell
 ingredients:
   - 120g Magarine
   - 50g Zucker

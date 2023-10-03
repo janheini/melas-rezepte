@@ -2,7 +2,6 @@
 title: Wraps mit Fischstäbchen
 tags:
   - Fisch
-time: Schnell
 ingredients:
   - Fisch-/Lachsstäbchen
   - Tortillas/Wraps

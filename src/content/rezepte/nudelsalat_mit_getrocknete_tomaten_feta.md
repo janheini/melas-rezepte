@@ -2,7 +2,6 @@
 title: Nudelsalat mit getrockneten Tomaten und Feta
 tags:
   - Vegetarisch
-time: Mittel
 ingredients:
   - 500g Penne
   - Salz

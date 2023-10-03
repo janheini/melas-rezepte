@@ -3,7 +3,6 @@ title: Rucola-Spaghetti in sahniger Frischkäsesoße
 tags:
   - Nudeln
   - Huhn
-time: Schnell
 ingredients:
   - 250g Spaghetti
   - 1 El Olivenöl
