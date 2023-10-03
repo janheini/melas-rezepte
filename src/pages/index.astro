@@ -2,6 +2,37 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { tags } from "../content/config.ts";
 import Filter from "../components/filter.astro";
+import { getCollection } from "astro:content";
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    const filters = formData.getAll("filter");
+
+    let rezepte = await getCollection("rezepte");
+
+    for (const filter of filters) {
+        const f = tags.parse(filter);
+        rezepte = rezepte.filter(
+            (rezept) =>
+                rezept.data.tags && rezept.data.tags.indexOf(f) > -1
+        );
+    }
+    return new Response(
+        rezepte
+            .map(
+                (rezept) => `
+                    <li>
+                        <a href=${
+                            "rezepte/" + rezept.slug
+                        } class="no-underline hover:underline">
+                            ${rezept.data.title}
+                        </a>
+                    </li>
+                `,
+            )
+            .join(""),
+    );
+}
 ---
 
 <BaseLayout>
@@ -12,7 +43,7 @@ import Filter from "../components/filter.astro";
         <ul
             id="rezepte"
             class="list-disc p-4"
-            hx-post="api/rezepte"
+            hx-post="/"
             hx-trigger="load"
         >
         </ul>
