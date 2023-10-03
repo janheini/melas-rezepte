@@ -15,14 +15,17 @@ const session = await Astro.locals.auth.validate();
                 </label>
                 <ul
                     tabindex="0"
-                    class="dropdown-content z-[1] menu shadow bg-neutral"
+                    class="dropdown-content z-[1] menu shadow bg-neutral min-w-max"
                 >
                     <li>
-                        <form class="p-1" method="post" action="/logout">
+                        <a href="/new">Neues Rezept</a>
+                    </li>
+                    <li>
+                        <form method="post" action="/logout">
                             <input
                                 class="cursor-pointer"
                                 type="submit"
-                                value="ausloggen"
+                                value="Ausloggen"
                             />
                         </form>
                     </li>
