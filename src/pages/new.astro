@@ -1,16 +1,82 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { tags } from "../content/config.ts";
+import { request } from "@octokit/request";
 
 const session = await Astro.locals.auth.validate();
-if (!session) return Astro.redirect("/login", 302); // redirect to profile page
+if (!session) return Astro.redirect("/login", 302);
+
+function createValidFilename(str: string) {
+    str =
+        str
+            .replace(/[\/\\:*?"<>|]/g, "_") // Replace invalid characters with underscores
+            .replace(/\s+/g, "_") // Replace spaces with underscores
+            .replace(/^\s+|\s+$/g, "") // Remove leading/trailing spaces
+            .toLowerCase() + ".md"; // add markdown extension
+
+    if (str.length > 255) {
+        return str.slice(0, 255);
+    }
+    return str;
+}
 
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
     console.log(formData);
-    const zutaten = formData.getAll("zutaten");
-    console.log(zutaten);
-    return Astro.redirect("/new");
+
+    let ingredients = formData.getAll("ingredients") as Array<string>;
+    ingredients = ingredients
+        .map((ingredient) => ingredient.trim())
+        .filter((ingredient) => ingredient.length > 0);
+
+    const title = formData.get("title")?.toString().trim() as string;
+    console.log(title);
+
+    const filename = createValidFilename(title);
+    console.log(filename);
+
+    const path = `src/content/rezepte/${filename}`;
+    console.log(path);
+
+    const tags = formData.getAll("tags") as Array<string>;
+    console.log(tags);
+
+    const body = formData.get("body") as string;
+    console.log(body);
+
+    const frontmatter = {
+        title: title,
+        tags: tags,
+        ingredients: ingredients,
+    };
+    console.log(frontmatter);
+
+    const content = `
+---
+${JSON.stringify(frontmatter)}
+---
+
+${body}
+`.trim();
+    console.log(content);
+
+    const result = await request(
+        `PUT /repos/janheini/melas-rezepte/contents/${path}`,
+        {
+            owner: "janheini",
+            repo: "melas-rezepte",
+            path: path,
+            message: `added recipe ${title}`,
+            branch: "testing-github-api",
+            content: btoa(content),
+            headers: {
+                "X-GitHub-Api-Version": "2022-11-28",
+                authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
+            },
+        },
+    );
+    console.log(result);
+    return new Response(JSON.stringify(result));
 }
 ---
 
@@ -23,6 +89,8 @@ if (Astro.request.method === "POST") {
             type="text"
             class="input input-bordered input-md"
             placeholder="Titel"
+            autofocus
+            required
         />
         <div class="flex flex-wrap gap-2">
             {
@@ -30,7 +98,7 @@ if (Astro.request.method === "POST") {
                     <div class="py-2">
                         <input
                             id={tag}
-                            name="filter"
+                            name="tags"
                             value={tag}
                             type="checkbox"
                             class="appearance-none peer"
@@ -46,15 +114,15 @@ if (Astro.request.method === "POST") {
             }
         </div>
         <input
-            id="zutaten"
-            name="zutaten"
+            id="ingredients"
+            name="ingredients"
             type="text"
             class="input input-bordered input-sm"
             placeholder="Zutat"
         />
         <textarea
-            id="anleitung"
-            name="anleitung"
+            id="body"
+            name="body"
             class="textarea textarea-bordered textarea-sm"
             placeholder="Anleitung"
             rows="5"></textarea>
@@ -73,7 +141,7 @@ if (Astro.request.method === "POST") {
         node.removeEventListener("keyup", addNewField);
     };
 
-    const zutaten = document.querySelectorAll("#zutaten");
+    const zutaten = document.querySelectorAll("#ingredients");
     zutaten.forEach((zutat) => {
         zutat.addEventListener("keyup", addNewField);
     });

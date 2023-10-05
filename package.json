@@ -14,6 +14,7 @@
     "@astrojs/vercel": "^4.0.4",
     "@libsql/client": "^0.3.5",
     "@lucia-auth/adapter-sqlite": "^2.0.0",
+    "@octokit/request": "^8.1.2",
     "astro": "^3.0.10",
     "lucia": "^2.7.1",
     "simple-oauth2": "^5.0.0",
