@@ -13,7 +13,7 @@ dependencies:
     version: 4.0.4(astro@3.0.10)
   '@libsql/client':
     specifier: ^0.3.5
-    version: 0.3.5
+    version: 0.3.5(utf-8-validate@6.0.3)
   '@lucia-auth/adapter-sqlite':
     specifier: ^2.0.0
     version: 2.0.0(@libsql/client@0.3.5)(lucia@2.7.1)
@@ -32,6 +32,9 @@ dependencies:
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
+  utf-8-validate:
+    specifier: ^6.0.3
+    version: 6.0.3
 
 devDependencies:
   '@tailwindcss/typography':
@@ -839,10 +842,10 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@libsql/client@0.3.5:
+  /@libsql/client@0.3.5(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-4fZxGh0qKW5dtp1yuQLRvRAtbt02V4jzjM9sHSmz5k25xZTLg7/GlNudKdqKZrjJXEV5PvDNsczupBtedZZovw==}
     dependencies:
-      '@libsql/hrana-client': 0.5.5
+      '@libsql/hrana-client': 0.5.5(utf-8-validate@6.0.3)
       js-base64: 3.7.5
       libsql: 0.1.24
     transitivePeerDependencies:
@@ -867,11 +870,11 @@ packages:
     dev: false
     optional: true
 
-  /@libsql/hrana-client@0.5.5:
+  /@libsql/hrana-client@0.5.5(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-i+hDBpiV719poqEiHupUUZYKJ9YSbCRFe5Q2PQ0v3mHIftePH6gayLjp2u6TXbqbO/Dv6y8yyvYlBXf/kFfRZA==}
     dependencies:
       '@libsql/isomorphic-fetch': 0.1.10
-      '@libsql/isomorphic-ws': 0.1.5
+      '@libsql/isomorphic-ws': 0.1.5(utf-8-validate@6.0.3)
       js-base64: 3.7.5
       node-fetch: 3.3.2
     transitivePeerDependencies:
@@ -889,11 +892,11 @@ packages:
       - encoding
     dev: false
 
-  /@libsql/isomorphic-ws@0.1.5:
+  /@libsql/isomorphic-ws@0.1.5(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-DtLWIH29onUYR00i0GlQ3UdcTRC6EP4u9w/h9LxpUZJWRMARk6dQwZ6Jkd+QdwVpuAOrdxt18v0K2uIYR3fwFg==}
     dependencies:
       '@types/ws': 8.5.6
-      ws: 8.14.2
+      ws: 8.14.2(utf-8-validate@6.0.3)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -935,7 +938,7 @@ packages:
       better-sqlite3:
         optional: true
     dependencies:
-      '@libsql/client': 0.3.5
+      '@libsql/client': 0.3.5(utf-8-validate@6.0.3)
       lucia: 2.7.1
     dev: false
 
@@ -4116,6 +4119,14 @@ packages:
       picocolors: 1.0.0
     dev: false
 
+  /utf-8-validate@6.0.3:
+    resolution: {integrity: sha512-uIuGf9TWQ/y+0Lp+KGZCMuJWc3N9BHA+l/UmHd/oUHwJJDeysyTRxNQVkbzsIWfGFbRe3OcgML/i0mvVRPOyDA==}
+    engines: {node: '>=6.14.2'}
+    requiresBuild: true
+    dependencies:
+      node-gyp-build: 4.6.1
+    dev: false
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -4285,7 +4296,7 @@ packages:
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  /ws@8.14.2:
+  /ws@8.14.2(utf-8-validate@6.0.3):
     resolution: {integrity: sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -4296,6 +4307,8 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dependencies:
+      utf-8-validate: 6.0.3
     dev: false
 
   /yallist@3.1.1:
