@@ -11,6 +11,7 @@ ingredients:
   - 150g passierte Tomaten
   - Thymian, Salz und Pfeffer
 ---
+
 Nudeln kochen. Währenddessen die Champignons putzen, schälen und in Scheiben
 schneiden. In einer großen Pfanne mit etwas Wasser so lange dünsten, bis das
 Wasser verdunstet ist. In der Zwischenzeit Tomaten entkernen und in Würfel

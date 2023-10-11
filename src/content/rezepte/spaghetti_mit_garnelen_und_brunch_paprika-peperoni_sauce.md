@@ -10,9 +10,10 @@ ingredients:
   - 1 Packung Cocktailtomaten
   - 250g Garnelen
 ---
+
 1. Nudeln kochen
 2. Währenddessen die Cocktailtomaten halbieren und den Knoblauch hacken. Den
-   Knoblauch in einer Pfanne mit Olivenöl anschwitzen 
+   Knoblauch in einer Pfanne mit Olivenöl anschwitzen
 3. Garnelen tiefgefroren hinzufügen
 4. Sobald die Garnelen aufgetaut sind, die Tomaten beimengen und ca. 6 Minuten
    anbraten

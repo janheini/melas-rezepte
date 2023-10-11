@@ -6,7 +6,7 @@ tags:
 ingredients:
   - 250g passierte Tomaten
   - 1 Becher Sahne
-  - 100ml Wasser 
+  - 100ml Wasser
   - Gemüsebrühe
   - 250g Nudeln
   - Brokkoli

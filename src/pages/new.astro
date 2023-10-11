@@ -81,7 +81,7 @@ ${body}
 
 <BaseLayout>
     <h2 class="pb-2 font-black">Neues Rezept erstellen</h2>
-    <form class="grid gap-4 max-w-md" method="post">
+    <form class="grid max-w-md gap-4" method="post">
         <input
             id="title"
             name="title"
@@ -100,11 +100,11 @@ ${body}
                             name="tags"
                             value={tag}
                             type="checkbox"
-                            class="appearance-none peer"
+                            class="peer appearance-none"
                         />
                         <label
                             for={tag}
-                            class="border-2 rounded-full p-2 peer-checked:bg-accent peer-checked:text-black"
+                            class="rounded-full border-2 p-2 peer-checked:bg-accent peer-checked:text-black"
                         >
                             {tag}
                         </label>
@@ -125,7 +125,7 @@ ${body}
             class="textarea textarea-bordered textarea-sm"
             placeholder="Anleitung"
             rows="5"></textarea>
-        <input type="submit" class="btn btn-sm btn-outline" value="Speichern" />
+        <input type="submit" class="btn btn-outline btn-sm" value="Speichern" />
     </form>
 </BaseLayout>
 

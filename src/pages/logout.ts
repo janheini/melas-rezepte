@@ -6,7 +6,7 @@ export const POST: APIRoute = async (context) => {
     const session = await context.locals.auth.validate();
     if (!session) {
         return new Response("Unauthorized", {
-            status: 401
+            status: 401,
         });
     }
     // make sure to invalidate the current session!

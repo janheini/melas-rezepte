@@ -14,6 +14,7 @@ ingredients:
   - Basilikum
   - Mozzarella
 ---
+
 1. Olivenöl in einer Pfanne erhitzen und darin die Zwiebeln mit Knoblauch und
    Tomatenmark schmoren
 2. Gnocchi hinzugeben und alles zusammenmischen

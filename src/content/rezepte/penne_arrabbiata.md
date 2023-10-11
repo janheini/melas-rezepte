@@ -1,5 +1,21 @@
 ---
-{"title":"Penne Arrabbiata","tags":["Vegetarisch","Nudeln"],"ingredients":["450g Penne","3EL Olivenöl","2 Knoblauchzehen","2TL Chiliflocken","800g gestückelte Tomaten","2EL Tomatenmark","1/2 Bund Petersilie","1/3 Bund Basilikum","100g Parmesan","Salz, Pfeffer"]}
+{
+  "title": "Penne Arrabbiata",
+  "tags": ["Vegetarisch", "Nudeln"],
+  "ingredients":
+    [
+      "450g Penne",
+      "3EL Olivenöl",
+      "2 Knoblauchzehen",
+      "2TL Chiliflocken",
+      "800g gestückelte Tomaten",
+      "2EL Tomatenmark",
+      "1/2 Bund Petersilie",
+      "1/3 Bund Basilikum",
+      "100g Parmesan",
+      "Salz, Pfeffer",
+    ],
+}
 ---
 
 1. Salzwasser aufkochen. Penne nach Packungsanweisung al dente kochen und abseihen.

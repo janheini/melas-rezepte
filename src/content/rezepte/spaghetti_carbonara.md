@@ -9,7 +9,8 @@ ingredients:
   - 75g Parmesan
   - 4 Eier
 ---
-1. Spaghetti kochen. 
+
+1. Spaghetti kochen.
 2. Die Eier, Sahne und Parmesan zusammen mit Salz und Pfeffer zu einer Soße
    zusammenrühren.
 3. Den gewürfelten Schinken in der Wokpfanne anbraten.
