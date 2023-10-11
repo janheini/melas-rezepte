@@ -3,6 +3,7 @@ on: push
 
 jobs:
   convert:
+    name: Convert ISO-8859-1 recipes to UTF-8
     runs-on: ubuntu-latest
     permissions:
       contents: write
