@@ -2,6 +2,10 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
 import { tags } from "../../../content/config.ts";
+import { request } from "@octokit/request";
+
+const session = await Astro.locals.auth.validate();
+if (!session) return Astro.redirect("/login", 302);
 
 const slug = Astro.params.slug;
 
@@ -12,6 +16,24 @@ if (!slug) {
   });
 }
 
+const filename = `${slug}.md`;
+
+async function getSha(): Promise<string> {
+    const path = `src/content/rezepte/${filename}`;
+    const result = await request(
+        `GET /repos/janheini/melas-rezepte/contents/${path}`,
+        {
+            owner: "janheini",
+            repo: "melas-rezepte",
+            path: path,
+            headers: {
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+        },
+    );
+    return result.data.sha as string;
+}
+
 const post = await getEntry('rezepte', slug);
 
 if (!post) {
@@ -19,6 +41,64 @@ if (!post) {
     status: 404,
     statusText: 'Not found'
   });
+}
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    console.log(formData);
+
+    let ingredients = formData.getAll("ingredients") as Array<string>;
+    ingredients = ingredients
+        .map((ingredient) => ingredient.trim())
+        .filter((ingredient) => ingredient.length > 0);
+
+    const title = formData.get("title")?.toString().trim() as string;
+    console.log(title);
+
+    console.log(filename);
+
+    const path = `src/content/rezepte/${filename}`;
+    console.log(path);
+
+    const tags = formData.getAll("tags") as Array<string>;
+    console.log(tags);
+
+    const body = formData.get("body") as string;
+    console.log(body);
+
+    const frontmatter = {
+        title: title,
+        tags: tags,
+        ingredients: ingredients,
+    };
+    console.log(frontmatter);
+
+    const content = `
+---
+${JSON.stringify(frontmatter)}
+---
+
+${body}
+`.trim();
+    console.log(content);
+
+    const result = await request(
+        `PUT /repos/janheini/melas-rezepte/contents/${path}`,
+        {
+            owner: "janheini",
+            repo: "melas-rezepte",
+            path: path,
+            sha: await getSha(),
+            message: `changed recipe ${title}`,
+            content: btoa(content),
+            headers: {
+                "X-GitHub-Api-Version": "2022-11-28",
+                authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
+            },
+        },
+    );
+    console.log(result);
+    return new Response(JSON.stringify(result));
 }
 
 ---
