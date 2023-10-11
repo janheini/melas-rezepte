@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
+import { tags } from "../../../content/config.ts";
+
+const slug = Astro.params.slug;
+
+if (!slug) {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not found'
+  });
+}
+
+const post = await getEntry('rezepte', slug);
+
+if (!post) {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not found'
+  });
+}
+
+---
+
+<BaseLayout>
+    <form class="grid gap-4 max-w-md" method="post">
+        <input
+            id="title"
+            name="title"
+            type="text"
+            class="input input-bordered input-md"
+            placeholder="Titel"
+            value={post.data.title}
+            autofocus
+            required
+        />
+        <div class="flex flex-wrap gap-2">
+            {
+                tags.options.map((tag) => (
+                    <div class="py-2">
+                        <input
+                            id={tag}
+                            name="tags"
+                            value={tag}
+                            type="checkbox"
+                            class="appearance-none peer"
+                            checked={ post.data.tags && post.data.tags.indexOf(tag) > -1 }
+                        />
+                        <label
+                            for={tag}
+                            class="border-2 rounded-full p-2 peer-checked:bg-accent peer-checked:text-black"
+                        >
+                            {tag}
+                        </label>
+                    </div>
+                ))
+            }
+        </div>
+        { post.data.ingredients.map((ingredient) => (
+        <input
+        id="ingredients"
+        name="ingredients"
+        type="text"
+        class="input input-bordered input-sm"
+        placeholder="Zutat"
+        value={ingredient}
+        />
+        )) }
+        <input
+            id="ingredients"
+            name="ingredients"
+            type="text"
+            class="input input-bordered input-sm"
+            placeholder="Zutat"
+        />
+        <textarea
+            id="body"
+            name="body"
+            class="textarea textarea-bordered textarea-sm"
+            placeholder="Anleitung"
+            rows="10"
+        >{post.body}</textarea>
+        <input type="submit" class="btn btn-sm btn-outline" value="Speichern" />
+    </form>
+</BaseLayout>
+
+<script>
+    const addNewField = (event: Event) => {
+        const node = event.target as HTMLInputElement;
+        if (node.value == "") return;
+        let clone = node.cloneNode(true) as HTMLInputElement;
+        clone.value = "";
+        clone.addEventListener("keyup", addNewField);
+        node.parentNode?.insertBefore(clone, node.nextSibling);
+        node.removeEventListener("keyup", addNewField);
+    };
+
+    const zutaten = document.querySelectorAll("#ingredients");
+    zutaten.forEach((zutat) => {
+        const z = zutat as HTMLInputElement; // there has to be a better way
+        if (!z.value) {
+            zutat.addEventListener("keyup", addNewField);
+        }
+    });
+</script>
