@@ -14,8 +14,6 @@ jobs:
             file "$file" | grep -q UTF-8 || iconv -f ISO-8859-1 -t UTF-8 "$file" -o "$file";
           done
 
-          git config user.name github-actions
-          git config user.email github-actions@github.com
           git add .
           git commit -m "convert non-utf-8 files to utf-8" || true
           git push
