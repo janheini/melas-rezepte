@@ -58,7 +58,7 @@ const rezepte = await getRecipes();
                 rezepte.map((rezept) => (
                     <li>
                         <a
-                            href="rezepte/{rezept.slug}/"
+                            href=`rezepte/${rezept.slug}/`
                             class="no-underline hover:underline"
                         >
                             {rezept.title}
