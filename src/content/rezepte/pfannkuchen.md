@@ -1,7 +1,7 @@
 ---
 {
   "title": "Pfannkuchen",
-  "tags": ["Vegetarisch"],
+  "tags": ["Vegetarisch", "Dessert"],
   "ingredients": ["125ml Milch", "4EL Mehl", "1 Ei"],
 }
 ---

@@ -2,6 +2,7 @@
 title: Waffeln
 tags:
   - Vegetarisch
+  - Dessert
 ingredients:
   - 120g Magarine
   - 50g Zucker

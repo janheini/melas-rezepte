@@ -12,6 +12,7 @@ export const tags = z.enum([
     "Nudeln",
     "Kartoffeln",
     "Gnocchi",
+    "Dessert",
 ]);
 
 const rezepte = defineCollection({
