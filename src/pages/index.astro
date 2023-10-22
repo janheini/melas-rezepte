@@ -13,8 +13,7 @@ if (Astro.request.method === "POST") {
     for (const filter of filters) {
         const f = tags.parse(filter);
         rezepte = rezepte.filter(
-            (rezept) =>
-                rezept.data.tags && rezept.data.tags.indexOf(f) > -1
+            (rezept) => rezept.data.tags && rezept.data.tags.indexOf(f) > -1,
         );
     }
     return new Response(
@@ -40,12 +39,7 @@ if (Astro.request.method === "POST") {
         <form hx-target="#rezepte" class="flex flex-wrap gap-5 gap-y-6">
             {tags.options.map((tag) => <Filter tag={tag} />)}
         </form>
-        <ul
-            id="rezepte"
-            class="list-disc p-4"
-            hx-post="/"
-            hx-trigger="load"
-        >
+        <ul id="rezepte" class="list-disc p-4" hx-post="/" hx-trigger="load">
         </ul>
     </div>
 </BaseLayout>
