@@ -2,12 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { tags } from "../content/config.ts";
 import Filter from "../components/filter.astro";
+import RecipeList from "../components/recipe_list.astro";
 import { getCollection } from "astro:content";
 
-if (Astro.request.method === "POST") {
-    const formData = await Astro.request.formData();
-    const filters = formData.getAll("filter");
-
+async function getRecipes(filters: Array<FormDataEntryValue> = []) {
     let rezepte = await getCollection("rezepte");
 
     for (const filter of filters) {
@@ -16,14 +14,29 @@ if (Astro.request.method === "POST") {
             (rezept) => rezept.data.tags && rezept.data.tags.indexOf(f) > -1,
         );
     }
+
+    return rezepte.map((rezept) => ({
+        title: rezept.data.title,
+        slug: rezept.slug,
+    }));
+}
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    const filters = formData.getAll("filter");
+    const rezepte = await getRecipes(filters);
     return new Response(
         rezepte
             .map(
+                // so the problem ist with htmx I need to return a 'string' of
+                // html like this
+                // but astro won't render a string as html for obvious reasons
+                // that's why we need this twice
                 (rezept) => `
                     <li>
                         <a href="rezepte/${rezept.slug}/"
                             class="no-underline hover:underline">
-                            ${rezept.data.title}
+                            ${rezept.title}
                         </a>
                     </li>
                 `,
@@ -31,6 +44,8 @@ if (Astro.request.method === "POST") {
             .join(""),
     );
 }
+
+const rezepte = await getRecipes();
 ---
 
 <BaseLayout>
@@ -38,7 +53,19 @@ if (Astro.request.method === "POST") {
         <form hx-target="#rezepte" class="flex flex-wrap gap-5 gap-y-6">
             {tags.options.map((tag) => <Filter tag={tag} />)}
         </form>
-        <ul id="rezepte" class="list-disc p-4" hx-post="/" hx-trigger="load">
+        <ul id="rezepte" class="list-disc p-4">
+            {
+                rezepte.map((rezept) => (
+                    <li>
+                        <a
+                            href="rezepte/{rezept.slug}/"
+                            class="no-underline hover:underline"
+                        >
+                            {rezept.title}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </div>
 </BaseLayout>
