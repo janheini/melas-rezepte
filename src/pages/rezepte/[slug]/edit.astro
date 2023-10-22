@@ -10,10 +10,10 @@ if (!session) return Astro.redirect("/login", 302);
 const slug = Astro.params.slug;
 
 if (!slug) {
-  return new Response(null, {
-    status: 404,
-    statusText: 'Not found'
-  });
+    return new Response(null, {
+        status: 404,
+        statusText: "Not found",
+    });
 }
 
 const filename = `${slug}.md`;
@@ -34,13 +34,13 @@ async function getSha(): Promise<string> {
     return result.data.sha as string;
 }
 
-const post = await getEntry('rezepte', slug);
+const post = await getEntry("rezepte", slug);
 
 if (!post) {
-  return new Response(null, {
-    status: 404,
-    statusText: 'Not found'
-  });
+    return new Response(null, {
+        status: 404,
+        statusText: "Not found",
+    });
 }
 
 if (Astro.request.method === "POST") {
@@ -97,14 +97,17 @@ ${body}
             },
         },
     );
+
+    if (result.status == 200) {
+        return Astro.redirect(".");
+    }
     console.log(result);
     return new Response(JSON.stringify(result));
 }
-
 ---
 
 <BaseLayout>
-    <form class="grid gap-4 max-w-md" method="post">
+    <form class="grid max-w-md gap-4" method="post">
         <input
             id="title"
             name="title"
@@ -124,12 +127,15 @@ ${body}
                             name="tags"
                             value={tag}
                             type="checkbox"
-                            class="appearance-none peer"
-                            checked={ post.data.tags && post.data.tags.indexOf(tag) > -1 }
+                            class="peer appearance-none"
+                            checked={
+                                post.data.tags &&
+                                post.data.tags.indexOf(tag) > -1
+                            }
                         />
                         <label
                             for={tag}
-                            class="border-2 rounded-full p-2 peer-checked:bg-accent peer-checked:text-black"
+                            class="rounded-full border-2 p-2 peer-checked:bg-accent peer-checked:text-black"
                         >
                             {tag}
                         </label>
@@ -137,16 +143,18 @@ ${body}
                 ))
             }
         </div>
-        { post.data.ingredients.map((ingredient) => (
-        <input
-        id="ingredients"
-        name="ingredients"
-        type="text"
-        class="input input-bordered input-sm"
-        placeholder="Zutat"
-        value={ingredient}
-        />
-        )) }
+        {
+            post.data.ingredients.map((ingredient) => (
+                <input
+                    id="ingredients"
+                    name="ingredients"
+                    type="text"
+                    class="input input-bordered input-sm"
+                    placeholder="Zutat"
+                    value={ingredient}
+                />
+            ))
+        }
         <input
             id="ingredients"
             name="ingredients"
@@ -159,9 +167,9 @@ ${body}
             name="body"
             class="textarea textarea-bordered textarea-sm"
             placeholder="Anleitung"
-            rows="10"
-        >{post.body}</textarea>
-        <input type="submit" class="btn btn-sm btn-outline" value="Speichern" />
+            rows="10">{post.body}</textarea
+        >
+        <input type="submit" class="btn btn-outline btn-sm" value="Speichern" />
     </form>
 </BaseLayout>
 

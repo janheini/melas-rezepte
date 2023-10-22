@@ -74,6 +74,11 @@ ${body}
             },
         },
     );
+
+    if (result.status == 201) {
+        return Astro.redirect(".");
+    }
+
     console.log(result);
     return new Response(JSON.stringify(result));
 }
