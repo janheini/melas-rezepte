@@ -1,15 +1,15 @@
 ---
-{"title":"Apfel-Pudding-Kuchen mit Streuseln","tags":["Dessert"],"ingredients":["550g Mehl","320g Butter","175g Zucker","1 Packung Vanillezucker","2 Eier","2 Prisen Salz","2 Packungen Vanillepudding","500ml Milch","6 EL Zucker","5 Ã„pfel"]}
+{"title":"Apfel-Pudding-Kuchen mit Streuseln","tags":["Dessert"],"ingredients":["550g Mehl","320g Butter","175g Zucker","1 Packung Vanillezucker","2 Eier","2 Prisen Salz","2 Packungen Vanillepudding","500ml Milch","6 EL Zucker","5 Äpfel"]}
 ---
 
-*FÃ¼r eine 26er Springform*
+*Für eine 26er Springform*
 
-Bereitet zunÃ¤chst den MÃ¼rbeteig zu. Verknetet dafÃ¼r 250 g Mehl mit 120 g weicher Butter, einer Prise Salz, einem PÃ¤ckchen Vanillezucker, 75 g Zucker und einem Ei zu einem glatten Teig. Stellt den MÃ¼rbeteig fÃ¼r mindestens eine halbe Stunde kalt.
+Bereitet zunächst den Mürbeteig zu. Verknetet dafür 250 g Mehl mit 120 g weicher Butter, einer Prise Salz, einem Päckchen Vanillezucker, 75 g Zucker und einem Ei zu einem glatten Teig. Stellt den Mürbeteig für mindestens eine halbe Stunde kalt.
 
-Die KÃ¼hlzeit kÃ¶nnt ihr fÃ¼r die Vanillepudding-Zubereitung nutzen. VerrÃ¼hrt dafÃ¼r das Puddingpulver mit 100 ml Milch sowie 6 EsslÃ¶ffeln Zucker. Lasst die restliche Milch aufkochen und rÃ¼hrt anschlieÃŸend das Puddingpulver unter. Damit der Pudding eindickt, lasst ihn noch einmal kurz aufkochen.
+Die Kühlzeit könnt ihr für die Vanillepudding-Zubereitung nutzen. Verrührt dafür das Puddingpulver mit 100 ml Milch sowie 6 Esslöffeln Zucker. Lasst die restliche Milch aufkochen und rührt anschließend das Puddingpulver unter. Damit der Pudding eindickt, lasst ihn noch einmal kurz aufkochen.
 
-AnschlieÃŸend muss er abkÃ¼hlen. Damit sich dabei keine Haut bildet, solltet ihr den Topf mit einer Frischhaltefolie abdecken. Nutzt die weitere KÃ¼hlzeit fÃ¼r eure Streusel. Diese werden aus 300 g Mehl, 200 g Butter, 100 g Zucker und einer Prise Salz zubereitet, die von Hand miteinander verknetet werden.
+Anschließend muss er abkühlen. Damit sich dabei keine Haut bildet, solltet ihr den Topf mit einer Frischhaltefolie abdecken. Nutzt die weitere Kühlzeit für eure Streusel. Diese werden aus 300 g Mehl, 200 g Butter, 100 g Zucker und einer Prise Salz zubereitet, die von Hand miteinander verknetet werden.
 
-Fettet und mehlt nun eure Springform (Affiliate-Link). DrÃ¼ckt den MÃ¼rbeteig in die Springform und zieht ihn an den RÃ¤ndern nach oben. SchÃ¤lt anschlieÃŸend die Ã„pfel und schneidet sie in Spalten.
+Fettet und mehlt nun eure Springform. Drückt den Mürbeteig in die Springform und zieht ihn an den Rändern nach oben. Schält anschließend die Äpfel und schneidet sie in Spalten.
 
-Nun kÃ¶nnt ihr unter den abgekÃ¼hlten Pudding das zweite Ei rÃ¼hren. Verteilt den Pudding auf dem MÃ¼rbeteig. Dann folgen erst die Apfelspalten und dann die Streusel. Backt den Apfel-Pudding-Kuchen mit Streuseln im vorgeheiztem Backofen bei 180 Grad Ober- und Unterhitze fÃ¼r etwa 40 Minuten goldbraun und lasst ihn, wie beschrieben, vor dem Anschneiden gut auskÃ¼hlen.
+Nun könnt ihr unter den abgekühlten Pudding das zweite Ei rühren. Verteilt den Pudding auf dem Mürbeteig. Dann folgen erst die Apfelspalten und dann die Streusel. Backt den Apfel-Pudding-Kuchen mit Streuseln im vorgeheiztem Backofen bei 180 Grad Ober- und Unterhitze für etwa 40 Minuten goldbraun und lasst ihn, wie beschrieben, vor dem Anschneiden gut auskühlen.
