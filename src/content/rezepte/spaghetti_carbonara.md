@@ -3,11 +3,11 @@
 ---
 
 1. Spaghetti kochen.
-2. Die Eier, Sahne und Parmesan zusammen mit Salz und Pfeffer zu einer Soße
-   zusammenrühren.
-3. Den gewürfelten Schinken in der Wokpfanne anbraten.
+2. Die Eier, Sahne und Parmesan zusammen mit Salz und Pfeffer zu einer SoÃŸe
+   zusammenrÃ¼hren.
+3. Den gewÃ¼rfelten Schinken in der Wokpfanne anbraten.
 4. Die gekochten Spaghetti zu dem Schinken in die Wokpfanne geben, es ist nicht
-   nötig, die Spaghetti vorher abzugießen. Einfach direkt reinheben, das
+   nÃ¶tig, die Spaghetti vorher abzugieÃŸen. Einfach direkt reinheben, das
    Nudelwasser ist gut.
-5. Die Hitze ganz herunterstellen und die Soße in die Wokpfanne geben. Langsam
-   unter regelmäßigem Rühren erhitzen, bis die Soße stockt.
+5. Die Hitze ganz herunterstellen und die SoÃŸe in die Wokpfanne geben. Langsam
+   unter regelmÃ¤ÃŸigem RÃ¼hren erhitzen, bis die SoÃŸe stockt.
