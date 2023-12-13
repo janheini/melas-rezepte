@@ -1,6 +1,6 @@
 ---
-{"title":"Ofengemüse","tags":["Vegetarisch"],"ingredients":["Süßkartoffeln","Paprika","Zucchini","Zwiebeln"]}
+{"title":"OfengemÃ¼se","tags":["Vegetarisch"],"ingredients":["SÃ¼ÃŸkartoffeln","Paprika","Zucchini","Zwiebeln"]}
 ---
 
 Alles mit einem roten Pesto einschmieren und dann bei 220 Grad Ober- und
-Unterhitze für 30-45min in den Ofen.
+Unterhitze fÃ¼r 30-45min in den Ofen.
