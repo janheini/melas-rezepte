@@ -5,7 +5,7 @@
         "config": "tailwind.config.mjs",
         "css": "src/styles/globals.css",
         "baseColor": "slate",
-        "cssVariables": false
+        "cssVariables": true
     },
     "framework": "astro",
     "aliases": {
