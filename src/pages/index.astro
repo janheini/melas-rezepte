@@ -48,7 +48,7 @@ const rezepte = await getRecipes();
 ---
 
 <BaseLayout>
-    <div class="prose">
+    <div class="prose prose-default">
         <form hx-target="#rezepte" class="flex flex-wrap gap-5 gap-y-6">
             {tags.options.map((tag) => <Filter tag={tag} />)}
         </form>
