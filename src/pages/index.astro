@@ -55,18 +55,16 @@ const rezepte = await getRecipes();
         </form>
         <ul id="rezepte" class="list-disc p-4">
             {
-                rezepte.map(
-                    (rezept) => `
+                rezepte.map((rezept) => (
                     <li>
                         <a
-                            href="/rezepte/${rezept.slug}"
+                            href={"/rezepte/" + rezept.slug}
                             class="no-underline hover:underline"
                         >
-                            ${rezept.title}
+                            {rezept.title}
                         </a>
                     </li>
-                `,
-                )
+                ))
             }
         </ul>
     </div>
