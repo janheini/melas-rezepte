@@ -2,7 +2,7 @@
 const session = await Astro.locals.auth.validate();
 ---
 
-<div class="flex flex-wrap justify-between items-center pb-8 pr-4">
+<div class="flex flex-wrap items-center justify-between pb-8 pr-4">
     <h1 class="text-4xl font-black"><a href="/">Melas Rezepte</a></h1>
     {
         session && (
@@ -15,7 +15,7 @@ const session = await Astro.locals.auth.validate();
                 </label>
                 <ul
                     tabindex="0"
-                    class="dropdown-content z-[1] menu shadow bg-neutral min-w-max"
+                    class="menu dropdown-content z-[1] min-w-max bg-neutral shadow"
                 >
                     <li>
                         <a href="/new">Neues Rezept</a>

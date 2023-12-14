@@ -87,10 +87,10 @@ if (session) return Astro.redirect("/", 302); // redirect to profile page
         />
         <input
             type="submit"
-            class="btn btn-sm btn-outline"
+            class="btn btn-outline btn-sm"
             value="Create account"
         />
-        <a class="btn btn-sm btn-outline" href="/login"> Login instead</a>
+        <a class="btn btn-outline btn-sm" href="/login"> Login instead</a>
     </form>
     {
         errorMessage && (
@@ -98,7 +98,7 @@ if (session) return Astro.redirect("/", 302); // redirect to profile page
                 <div class="alert alert-error max-w-xs">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="stroke-current shrink-0 h-6 w-6"
+                        class="h-6 w-6 shrink-0 stroke-current"
                         fill="none"
                         viewBox="0 0 24 24"
                     >

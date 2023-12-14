@@ -9,11 +9,11 @@ const { tag } = Astro.props;
         value={tag}
         type="checkbox"
         hx-post="/"
-        class="appearance-none peer"
+        class="peer appearance-none"
     />
     <label
         for={tag}
-        class="border-2 rounded-full p-2 peer-checked:bg-accent peer-checked:text-black"
+        class="rounded-full border-2 p-2 peer-checked:bg-accent peer-checked:text-black"
         >{tag}
     </label>
 </div>
