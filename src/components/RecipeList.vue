@@ -42,7 +42,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
     <ul class="p-4">
         <li v-for="recipe of recipes" :key="recipe.slug">
             <a
-                :href="`/rezepte/${recipe.slug}`"
+                :href="`/rezepte/${recipe.slug}/`"
                 class="no-underline hover:underline"
                 >{{ recipe.data.title }}</a
             >
