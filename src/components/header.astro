@@ -9,7 +9,7 @@ const session = await Astro.locals.auth.validate();
             <div class="dropdown dropdown-end">
                 <label
                     tabindex="0"
-                    class="text-accent hover:text-accent-focus cursor-pointer"
+                    class="cursor-pointer text-accent hover:text-[color-mix(in_oklab,oklch(var(--a)),black_7%)]"
                 >
                     {session.user.username}
                 </label>

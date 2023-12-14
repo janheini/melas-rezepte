@@ -10,9 +10,7 @@ module.exports = {
             "light",
             {
                 dark: {
-                    ...require("daisyui/src/theming/themes")[
-                        "[data-theme=business]"
-                    ],
+                    ...require("daisyui/src/theming/themes")["business"],
                     neutral: "#111111",
                     "base-100": "black",
                 },
