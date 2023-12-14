@@ -11,12 +11,13 @@
     },
     "dependencies": {
         "@astrojs/tailwind": "^5.0.3",
-        "@astrojs/vercel": "^4.0.5",
-        "@libsql/client": "^0.3.6",
+        "@astrojs/vercel": "^6.0.2",
+        "@libsql/client": "0.3.6",
         "@lucia-auth/adapter-sqlite": "^2.0.1",
         "@octokit/request": "^8.1.6",
-        "astro": "^3.6.4",
+        "astro": "^4.0.4",
         "lucia": "^2.7.4",
+        "pnpm": "^8.12.1",
         "simple-oauth2": "^5.0.0",
         "tailwindcss": "^3.3.6",
         "utf-8-validate": "^6.0.3"
@@ -24,7 +25,7 @@
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.10",
         "@types/simple-oauth2": "^5.0.7",
-        "daisyui": "^3.9.4",
+        "daisyui": "^4.4.19",
         "prettier": "^3.1.1",
         "prettier-plugin-astro": "^0.12.2",
         "prettier-plugin-tailwindcss": "^0.5.9"
