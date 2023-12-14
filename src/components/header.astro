@@ -1,37 +1,16 @@
 ---
 const session = await Astro.locals.auth.validate();
+import UserDropdown from "./UserDropdown.vue";
 ---
 
 <div class="flex flex-wrap items-center justify-between pb-8 pr-4">
     <h1 class="text-4xl font-black"><a href="/">Melas Rezepte</a></h1>
+    {session && <UserDropdown client:load user={session.user.username} />}
     {
-        session && (
-            <div class="dropdown dropdown-end">
-                <label
-                    tabindex="0"
-                    class="cursor-pointer text-accent hover:text-[color-mix(in_oklab,oklch(var(--a)),black_7%)]"
-                >
-                    {session.user.username}
-                </label>
-                <ul
-                    tabindex="0"
-                    class="menu dropdown-content z-[1] min-w-max bg-neutral shadow"
-                >
-                    <li>
-                        <a href="/new">Neues Rezept</a>
-                    </li>
-                    <li>
-                        <form method="post" action="/logout">
-                            <input
-                                class="cursor-pointer"
-                                type="submit"
-                                value="Ausloggen"
-                            />
-                        </form>
-                    </li>
-                </ul>
-            </div>
+        !session && (
+            <a href="/login" class="text-muted-foreground">
+                login
+            </a>
         )
     }
-    {!session && <a href="/login">Login</a>}
 </div>
