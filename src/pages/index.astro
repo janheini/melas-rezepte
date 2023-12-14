@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { tags } from "../content/config.ts";
 import Filter from "../components/filter.astro";
-import RecipeList from "../components/recipe_list.astro";
 import { getCollection } from "astro:content";
 
 async function getRecipes(filters: Array<FormDataEntryValue> = []) {
