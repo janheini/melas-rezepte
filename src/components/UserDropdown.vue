@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LogOut } from "lucide-vue-next";
+import { ListPlus, LogOut } from "lucide-vue-next";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -19,11 +19,12 @@ const props = defineProps({
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger
-            class="text-muted-foreground open:text-primary-foreground focus:text-primary-foreground"
+            class="text-muted-foreground hover:text-primary-foreground"
             >{{ props.user }}</DropdownMenuTrigger
         >
         <DropdownMenuContent>
             <DropdownMenuItem>
+                <ListPlus class="mr-2 h-4 w-4" />
                 <a href="/new">Neues Rezept</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
