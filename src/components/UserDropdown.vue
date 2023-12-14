@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger
-            class="text-muted-foreground hover:text-primary-foreground"
+            class="text-muted-foreground hover:text-foreground"
             >{{ props.user }}</DropdownMenuTrigger
         >
         <DropdownMenuContent>
