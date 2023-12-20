@@ -6,6 +6,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import DarkModeToggle from "@/components/DarkModeToggle.vue";
 
 const props = defineProps({
     user: {
@@ -36,6 +37,9 @@ const props = defineProps({
                         value="Ausloggen"
                     />
                 </form>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+                <DarkModeToggle client:load />
             </DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>
