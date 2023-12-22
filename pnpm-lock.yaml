@@ -14,6 +14,9 @@ dependencies:
   '@astrojs/vue':
     specifier: ^4.0.3
     version: 4.0.3(@babel/core@7.23.6)(astro@4.0.4)(vite@5.0.8)(vue@3.3.11)
+  '@headlessui/vue':
+    specifier: ^1.7.16
+    version: 1.7.16(vue@3.3.11)
   '@libsql/client':
     specifier: 0.3.6
     version: 0.3.6(utf-8-validate@6.0.3)
@@ -771,6 +774,15 @@ packages:
       '@hapi/boom': 10.0.1
       '@hapi/bourne': 3.0.0
       '@hapi/hoek': 11.0.4
+    dev: false
+
+  /@headlessui/vue@1.7.16(vue@3.3.11):
+    resolution: {integrity: sha512-nKT+nf/q6x198SsyK54mSszaQl/z+QxtASmgMEJtpxSX2Q0OPJX0upS/9daDyiECpeAsvjkoOrm2O/6PyBQ+Qg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.3.11(typescript@5.3.3)
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
