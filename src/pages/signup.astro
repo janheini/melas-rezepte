@@ -75,22 +75,27 @@ if (session) return Astro.redirect("/", 302); // redirect to profile page
             id="username"
             name="username"
             type="text"
-            class="input input-bordered input-sm"
+            class="border p-1 dark:bg-black"
             placeholder="username"
         />
         <input
             id="password"
             name="password"
             type="password"
-            class="input input-bordered input-sm"
+            class="border p-1 dark:bg-black"
             placeholder="password"
         />
         <input
             type="submit"
-            class="btn btn-outline btn-sm"
+            class="cursor-pointer border p-1 hover:bg-gray-300 hover:text-black dark:hover:bg-white"
             value="Create account"
         />
-        <a class="btn btn-outline btn-sm" href="/login"> Login instead</a>
+        <a
+            class="cursor-pointer border p-1 text-center hover:bg-gray-300 hover:text-black dark:hover:bg-white"
+            href="/login"
+        >
+            Login instead</a
+        >
     </form>
     {
         errorMessage && (

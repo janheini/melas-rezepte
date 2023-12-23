@@ -82,13 +82,13 @@ if (session) return Astro.redirect("/", 302);
         />
         <input
             type="submit"
-            class="cursor-pointer border p-1 hover:bg-white hover:text-black"
+            class="cursor-pointer border p-1 hover:bg-gray-300 hover:text-black dark:hover:bg-white"
             value="Login"
         />
         {
             import.meta.env.DEV && (
                 <a
-                    class="cursor-pointer border p-1 text-center hover:bg-white hover:text-black"
+                    class="cursor-pointer border p-1 text-center hover:bg-gray-300 hover:text-black dark:hover:bg-white"
                     href="/signup"
                 >
                     Create an account
