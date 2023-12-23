@@ -60,7 +60,7 @@ if (Astro.request.method === "POST") {
 }
 
 const session = await Astro.locals.auth.validate();
-if (session) return Astro.redirect("/", 302); // redirect to profile page
+if (session) return Astro.redirect("/", 302);
 ---
 
 <BaseLayout>
@@ -70,20 +70,27 @@ if (session) return Astro.redirect("/", 302); // redirect to profile page
             id="username"
             name="username"
             type="text"
-            class="input input-bordered input-sm"
+            class="border p-1 dark:bg-black"
             placeholder="username"
         />
         <input
             id="password"
             name="password"
             type="password"
-            class="input input-bordered input-sm"
+            class="border p-1 dark:bg-black"
             placeholder="password"
         />
-        <input type="submit" class="btn btn-outline btn-sm" value="Login" />
+        <input
+            type="submit"
+            class="cursor-pointer border p-1 hover:bg-white hover:text-black"
+            value="Login"
+        />
         {
             import.meta.env.DEV && (
-                <a class="btn btn-outline btn-sm" href="/signup">
+                <a
+                    class="cursor-pointer border p-1 text-center hover:bg-white hover:text-black"
+                    href="/signup"
+                >
                     Create an account
                 </a>
             )

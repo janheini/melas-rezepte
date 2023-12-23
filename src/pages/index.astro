@@ -7,7 +7,7 @@ const recipes = await getCollection("rezepte");
 ---
 
 <BaseLayout>
-    <div class="prose prose-default">
+    <div class="prose-default prose dark:prose-invert">
         <RecipeList recipes={recipes} client:load />
     </div>
 </BaseLayout>

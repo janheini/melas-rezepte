@@ -1,38 +1,20 @@
 ---
-import "@/styles/globals.css";
 import Header from "../components/header.astro";
 import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
-<html lang="de" class="dark">
+<html lang="de">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <script src="../htmx.min.js"></script>
         <title>Melas Rezepte</title>
     </head>
-    <body class="m-auto max-w-prose bg-background p-3 text-foreground">
+    <body class="m-auto max-w-prose p-3 dark:bg-black dark:text-gray-300">
         <Header />
         <main>
             <slot />
         </main>
     </body>
 </html>
-
-<script>
-    window.onload = () => {
-        console.log("mounted");
-        if ("theme" in localStorage) {
-            if (localStorage.theme === "light") {
-                document.documentElement.classList.remove("dark");
-            }
-            if (localStorage.theme === "dark") {
-                document.documentElement.classList.add("dark");
-            }
-        } else {
-            localStorage.theme = "dark";
-        }
-    };
-</script>

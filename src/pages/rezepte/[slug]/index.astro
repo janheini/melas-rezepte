@@ -1,7 +1,7 @@
 ---
-import { PenSquare } from "lucide-vue-next";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 
 const { slug } = Astro.params;
 
@@ -27,13 +27,15 @@ const session = await Astro.locals.auth.validate();
 ---
 
 <BaseLayout>
-    <div class="prose prose-default m-auto max-w-xl py-10">
+    <div
+        class="prose-default prose m-auto max-w-xl py-10 dark:prose-invert dark:text-gray-300"
+    >
         <h2 class="flex items-center justify-between">
             {post.data.title}
             {
                 session && (
                     <a href="edit">
-                        <PenSquare />
+                        <PencilSquareIcon class="h-5 w-5" />
                     </a>
                 )
             }

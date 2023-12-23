@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import type { CollectionEntry } from "astro:content";
 import { tags } from "../content/config.ts";
-import { Toggle } from "@/components/ui/toggle";
+import { Switch } from "@headlessui/vue";
 import { z } from "astro:content";
 
 const props = defineProps<{
@@ -11,7 +11,6 @@ const props = defineProps<{
 
 const recipes = ref(props.recipes);
 const filters = ref<Array<z.infer<typeof tags>>>([]);
-const active = ref(false);
 
 function filter(name: z.infer<typeof tags>, state: boolean) {
     if (state == false) {
@@ -31,19 +30,28 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
 
 <template>
     <div class="flex flex-wrap gap-5 gap-y-6">
-        <Toggle
+        <Switch
             v-for="tag in tags.options"
-            v-model:pressed="active"
-            @update:pressed="filter(tag, active)"
-            class="rounded-full border-2"
-            >{{ tag }}</Toggle
+            :default-checked="false"
+            @update:model-value="(value) => filter(tag, value)"
+            v-slot="{ checked }"
         >
+            <div
+                class="rounded-full border border-gray-300 px-2 py-1"
+                :class="{
+                    'dark:border-white dark:bg-white dark:text-black': checked,
+                    'border-gray-300 bg-gray-300 text-black': checked,
+                }"
+            >
+                {{ tag }}
+            </div>
+        </Switch>
     </div>
     <ul class="p-4">
         <li v-for="recipe of recipes" :key="recipe.slug">
             <a
                 :href="`/rezepte/${recipe.slug}/`"
-                class="no-underline hover:underline"
+                class="no-underline hover:underline dark:text-gray-300"
                 >{{ recipe.data.title }}</a
             >
         </li>

@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { ListPlus, LogOut } from "lucide-vue-next";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import DarkModeToggle from "@/components/DarkModeToggle.vue";
+    PencilSquareIcon,
+    ArrowRightStartOnRectangleIcon,
+} from "@heroicons/vue/24/solid";
 
 const props = defineProps({
     user: {
@@ -15,32 +12,45 @@ const props = defineProps({
         readonly: true,
     },
 });
+
+async function logout() {
+    await fetch("/logout", { method: "POST" });
+    window.location.href = "/";
+}
 </script>
 
 <template>
-    <DropdownMenu>
-        <DropdownMenuTrigger
-            class="text-muted-foreground hover:text-foreground"
-            >{{ props.user }}</DropdownMenuTrigger
+    <Menu as="div" class="relative">
+        <MenuButton class="text-black dark:text-white">{{
+            props.user
+        }}</MenuButton>
+        <MenuItems
+            class="absolute right-0 mt-1 min-w-max rounded border border-gray-800 bg-white dark:border-gray-300 dark:bg-black"
         >
-        <DropdownMenuContent>
-            <DropdownMenuItem>
-                <ListPlus class="mr-2 h-4 w-4" />
-                <a href="/new">Neues Rezept</a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-                <LogOut class="mr-2 h-4 w-4" />
-                <form method="post" action="/logout">
-                    <input
-                        class="cursor-pointer"
-                        type="submit"
-                        value="Ausloggen"
-                    />
-                </form>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-                <DarkModeToggle client:load />
-            </DropdownMenuItem>
-        </DropdownMenuContent>
-    </DropdownMenu>
+            <MenuItem v-slot="{ active }">
+                <a href="/new">
+                    <div
+                        class="flex items-center gap-2 rounded p-1.5 text-sm"
+                        :class="{ 'bg-gray-300 text-black': active }"
+                    >
+                        <PencilSquareIcon class="h-4 w-4" />
+                        Neues Rezept
+                    </div>
+                </a>
+            </MenuItem>
+            <MenuItem
+                v-slot="{ active }"
+                @click="logout"
+                class="cursor-pointer"
+            >
+                <div
+                    class="flex items-center gap-2 rounded p-1.5 text-sm"
+                    :class="{ 'bg-gray-300 text-black': active }"
+                >
+                    <ArrowRightStartOnRectangleIcon class="h-4 w-4" />
+                    Ausloggen
+                </div>
+            </MenuItem>
+        </MenuItems>
+    </Menu>
 </template>

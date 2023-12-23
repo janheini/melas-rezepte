@@ -85,13 +85,13 @@ ${body}
 ---
 
 <BaseLayout>
-    <h2 class="pb-2 font-black">Neues Rezept erstellen</h2>
-    <form class="grid max-w-md gap-4" method="post">
+    <h2 class="pb-2 font-black dark:text-white">Neues Rezept erstellen</h2>
+    <form class="prose grid max-w-md gap-4 dark:prose-invert" method="post">
         <input
             id="title"
             name="title"
             type="text"
-            class="input input-bordered input-md"
+            class="border p-1 dark:bg-black"
             placeholder="Titel"
             autofocus
             required
@@ -109,7 +109,7 @@ ${body}
                         />
                         <label
                             for={tag}
-                            class="rounded-full border-2 p-2 peer-checked:bg-accent peer-checked:text-black"
+                            class="rounded-full border border-gray-300 p-2 peer-checked:bg-gray-300 peer-checked:text-black dark:peer-checked:border-white dark:peer-checked:bg-white"
                         >
                             {tag}
                         </label>
@@ -121,16 +121,20 @@ ${body}
             id="ingredients"
             name="ingredients"
             type="text"
-            class="input input-bordered input-sm"
+            class="border p-1 dark:bg-black"
             placeholder="Zutat"
         />
         <textarea
             id="body"
             name="body"
-            class="textarea textarea-bordered textarea-sm leading-4"
+            class="border p-1 leading-4 dark:bg-black"
             placeholder="Anleitung"
             rows="10"></textarea>
-        <input type="submit" class="btn btn-outline btn-sm" value="Speichern" />
+        <input
+            type="submit"
+            class="cursor-pointer border p-1 hover:bg-white hover:text-black"
+            value="Speichern"
+        />
     </form>
 </BaseLayout>
 

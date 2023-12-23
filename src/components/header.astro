@@ -4,13 +4,9 @@ import UserDropdown from "./UserDropdown.vue";
 ---
 
 <div class="flex flex-wrap items-center justify-between pb-8 pr-4">
-    <h1 class="text-4xl font-black"><a href="/">Melas Rezepte</a></h1>
+    <h1 class="text-4xl font-black text-black dark:text-white">
+        <a href="/">Melas Rezepte</a>
+    </h1>
     {session && <UserDropdown client:load user={session.user.username} />}
-    {
-        !session && (
-            <a href="/login" class="text-muted-foreground">
-                login
-            </a>
-        )
-    }
+    {!session && <a href="/login">login</a>}
 </div>
