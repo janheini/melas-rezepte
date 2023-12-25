@@ -90,7 +90,7 @@ ${body}
             path: path,
             sha: await getSha(),
             message: `changed recipe ${title}`,
-            content: btoa(content),
+            content: Buffer.from(content, "utf8").toString("base64"),
             headers: {
                 "X-GitHub-Api-Version": "2022-11-28",
                 authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
