@@ -8,5 +8,7 @@ import vue from "@astrojs/vue";
 export default defineConfig({
     output: "server",
     integrations: [vue(), tailwind()],
-    adapter: vercel(),
+    adapter: vercel({
+        imageService: true,
+    }),
 });
