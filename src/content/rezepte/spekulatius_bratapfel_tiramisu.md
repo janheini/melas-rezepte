@@ -1,6 +1,7 @@
 ---
 {
   "title": "Spekulatius Bratapfel Tiramisu",
+  "image": "./img/spekulatius_bratapfel_tiramisu.jpg",
   "tags": ["Dessert"],
   "ingredients":
     [
@@ -33,4 +34,3 @@ _Zusammenbau_:
 1. Nun die Spekulatiuskekse nacheinander kurz in den aufgefangenen Apfelsud tunken (sofern man nur sehr wenig Sud hat, diesen einfach mit dem Apfelsaft strecken) und eine Schicht davon in eine größere Dessert- oder Auflaufform auslegen.
 2. Auf die erste Schicht Spekulatius gibt man nun die Hälfte der Creme und verteilt diese gut. Auf der Creme werden die Apfelstückchen verteilt.
 3. Im Anschluss die zweite Hälfte der Spekulatius in den Apfelsud tunken und auf die Masse schichten. Sodann auch die zweite Hälfte der Creme darauf verteilen und die Oberfläche glattstreichen. Das Tiramisu sollte nun mindestens über Nacht im Kühlschrank durchziehen.
-
