@@ -17,12 +17,13 @@ export const tags = z.enum([
 
 const rezepte = defineCollection({
     type: "content",
-    schema: z.object({
-        title: z.string(),
-        image: z.string().optional(),
-        tags: z.array(tags).optional(),
-        ingredients: z.array(z.string()),
-    }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            image: image().optional(),
+            tags: z.array(tags).optional(),
+            ingredients: z.array(z.string()),
+        }),
 });
 
 export const collections = {
