@@ -3,18 +3,31 @@
   "title": "Spekulatius Bratapfel Tiramisu",
   "image": "./img/spekulatius_bratapfel_tiramisu.jpg",
   "tags": ["Dessert"],
-  "ingredients":
+  "ingredientList":
     [
-      "6 Äpfel",
-      "2 EL Butter",
-      "150g brauner Zucker",
-      "1 TL Zimt",
-      "500g Mascarpone",
-      "500g Quark (Mager- oder 20 %)",
-      "200g Sahne",
-      "150g weißer Zucker",
-      "200g Spekulatius",
-      "1 Glas Apfelsaft (evtl benötigt zum Strecken des Apfelsuds, der bei der Zubereitung entsteht)",
+      {
+        "title": "Für die Zimtäpfel",
+        "ingredients":
+          ["6 Äpfel", "2 EL Butter", "150g brauner Zucker", "1 TL Zimt"],
+      },
+      {
+        "title": "Für die Creme",
+        "ingredients":
+          [
+            "500g Mascarpone",
+            "500g Quark (Mager- oder 20 %)",
+            "200g Sahne",
+            "150g weißer Zucker",
+          ],
+      },
+      {
+        "title": "Zudem",
+        "ingredients":
+          [
+            "200g Spekulatius",
+            "1 Glas Apfelsaft (evtl benötigt zum Strecken des Apfelsuds, der bei der Zubereitung entsteht)",
+          ],
+      },
     ],
 }
 ---
