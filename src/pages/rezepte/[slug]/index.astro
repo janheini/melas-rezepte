@@ -53,7 +53,7 @@ const session = await Astro.locals.auth.validate();
         </h2>
         {post.data.image && <Image src={post.data.image} alt="" />}
         <content>
-            {ingredients || (ingredientList && <h3>Zutaten</h3>)}
+            {(ingredients || ingredientList) && <h3>Zutaten</h3>}
             {
                 ingredients && (
                     <>
