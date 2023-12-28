@@ -1,7 +1,14 @@
 ---
-{"title":"Einene Titel eingeben","tags":["Dessert","Fisch","Huhn"],"ingredientList":[{"title":"Hier Liste","ingredients":["eins","zwei","drei","vier"]},{"title":"Neue Liste","ingredients":[]}]}
+{
+  "title": "Einene Titel eingeben",
+  "tags": ["Dessert", "Fisch", "Huhn"],
+  "ingredientList":
+    [{ "title": "", "ingredients": ["eins", "zwei", "drei", "vier"] }],
+}
 ---
+
 Die Anleitung
 
 - foo
 - djaskjda
+
