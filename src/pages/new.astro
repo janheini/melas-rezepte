@@ -2,6 +2,20 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { tags } from "../content/config.ts";
 import { request } from "@octokit/request";
+import NewRecipe from "@/components/NewRecipe.vue";
+import { z } from "astro:content";
+
+type IngredientList = {
+    title: string;
+    ingredients: Array<string>;
+};
+
+export type Recipe = {
+    title: string;
+    tagList: Array<z.infer<typeof tags>>;
+    ingredientList: Array<IngredientList>;
+    instructions: string;
+};
 
 const session = await Astro.locals.auth.validate();
 if (!session) return Astro.redirect("/login", 302);
@@ -21,52 +35,37 @@ function createValidFilename(str: string) {
 }
 
 if (Astro.request.method === "POST") {
-    const formData = await Astro.request.formData();
-    console.log(formData);
+    const recipe = (await Astro.request.json()) as Recipe;
 
-    let ingredients = formData.getAll("ingredients") as Array<string>;
-    ingredients = ingredients
-        .map((ingredient) => ingredient.trim())
-        .filter((ingredient) => ingredient.length > 0);
-
-    const title = formData.get("title")?.toString().trim() as string;
-    console.log(title);
-
-    const filename = createValidFilename(title);
-    console.log(filename);
-
+    recipe.title = recipe.title.trim();
+    for (const ingredientList of recipe.ingredientList) {
+        ingredientList.title = ingredientList.title.trim();
+        ingredientList.ingredients = ingredientList.ingredients
+            .map((ingredient) => ingredient.trim())
+            .filter((ingredient) => ingredient.length > 0);
+    }
+    recipe.instructions = recipe.instructions.trim();
+    const filename = createValidFilename(recipe.title);
     const path = `src/content/rezepte/${filename}`;
-    console.log(path);
-
-    const tags = formData.getAll("tags") as Array<string>;
-    console.log(tags);
-
-    const body = formData.get("body") as string;
-    console.log(body);
-
-    const frontmatter = {
-        title: title,
-        tags: tags,
-        ingredients: ingredients,
-    };
-    console.log(frontmatter);
-
     const content = `
 ---
-${JSON.stringify(frontmatter)}
+${JSON.stringify({
+    title: recipe.title,
+    tags: recipe.tagList,
+    ingredientList: recipe.ingredientList,
+})}
 ---
-
-${body}
+${recipe.instructions}
 `.trim();
-    console.log(content);
 
+    console.log(content);
     const result = await request(
         `PUT /repos/janheini/melas-rezepte/contents/${path}`,
         {
             owner: "janheini",
             repo: "melas-rezepte",
             path: path,
-            message: `added recipe ${title}`,
+            message: `added recipe ${recipe.title}`,
             content: Buffer.from(content, "utf8").toString("base64"),
             headers: {
                 "X-GitHub-Api-Version": "2022-11-28",
@@ -75,9 +74,9 @@ ${body}
         },
     );
 
-    if (result.status == 201) {
-        return Astro.redirect(".");
-    }
+    // if (result.status == 201) {
+    //     return Astro.redirect(".");
+    // }
 
     console.log(result);
     return new Response(JSON.stringify(result));
@@ -85,72 +84,5 @@ ${body}
 ---
 
 <BaseLayout>
-    <h2 class="pb-2 font-black dark:text-white">Neues Rezept erstellen</h2>
-    <form class="prose grid max-w-md gap-4 dark:prose-invert" method="post">
-        <input
-            id="title"
-            name="title"
-            type="text"
-            class="border p-1 dark:bg-black"
-            placeholder="Titel"
-            autofocus
-            required
-        />
-        <div class="flex flex-wrap gap-2">
-            {
-                tags.options.map((tag) => (
-                    <div class="py-2">
-                        <input
-                            id={tag}
-                            name="tags"
-                            value={tag}
-                            type="checkbox"
-                            class="peer appearance-none"
-                        />
-                        <label
-                            for={tag}
-                            class="rounded-full border border-gray-300 p-2 peer-checked:bg-gray-300 peer-checked:text-black dark:peer-checked:border-white dark:peer-checked:bg-white"
-                        >
-                            {tag}
-                        </label>
-                    </div>
-                ))
-            }
-        </div>
-        <input
-            id="ingredients"
-            name="ingredients"
-            type="text"
-            class="border p-1 dark:bg-black"
-            placeholder="Zutat"
-        />
-        <textarea
-            id="body"
-            name="body"
-            class="border p-1 leading-4 dark:bg-black"
-            placeholder="Anleitung"
-            rows="10"></textarea>
-        <input
-            type="submit"
-            class="cursor-pointer border p-1 hover:bg-white hover:text-black"
-            value="Speichern"
-        />
-    </form>
+    <NewRecipe client:load />
 </BaseLayout>
-
-<script>
-    const addNewField = (event: Event) => {
-        const node = event.target as HTMLInputElement;
-        if (node.value == "") return;
-        let clone = node.cloneNode(true) as HTMLInputElement;
-        clone.value = "";
-        clone.addEventListener("keyup", addNewField);
-        node.parentNode?.insertBefore(clone, node.nextSibling);
-        node.removeEventListener("keyup", addNewField);
-    };
-
-    const zutaten = document.querySelectorAll("#ingredients");
-    zutaten.forEach((zutat) => {
-        zutat.addEventListener("keyup", addNewField);
-    });
-</script>
