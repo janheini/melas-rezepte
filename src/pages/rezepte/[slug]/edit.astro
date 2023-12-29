@@ -36,7 +36,6 @@ if (Astro.request.method === "POST") {
     const recipe = trimRecipe(await Astro.request.json());
     const filename = `${slug}.md`;
     const newFilename = createValidFilename(recipe.title);
-    const path = `src/content/rezepte/${filename}`;
     const content = createContent(recipe);
 
     if (filename === newFilename) {
@@ -47,7 +46,11 @@ if (Astro.request.method === "POST") {
         console.log(
             `Result of deleting old recipe:\n${JSON.stringify(deleteResult)}`,
         );
-        const createResult = await createNewRecipe(path, recipe.title, content);
+        const createResult = await createNewRecipe(
+            newFilename,
+            recipe.title,
+            content,
+        );
         console.log(
             `Result of creating new recipe:\n${JSON.stringify(createResult)}`,
         );
