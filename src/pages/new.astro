@@ -17,10 +17,7 @@ export type Recipe = {
     instructions: string;
 };
 
-const session = await Astro.locals.auth.validate();
-if (!session) return Astro.redirect("/login", 302);
-
-function createValidFilename(str: string) {
+export function createValidFilename(str: string) {
     str =
         str
             .replace(/[\/\\:*?"<>|]/g, "_") // Replace invalid characters with underscores
@@ -34,9 +31,7 @@ function createValidFilename(str: string) {
     return str;
 }
 
-if (Astro.request.method === "POST") {
-    const recipe = (await Astro.request.json()) as Recipe;
-
+export function trimRecipe(recipe: Recipe): Recipe {
     recipe.title = recipe.title.trim();
     for (const ingredientList of recipe.ingredientList) {
         ingredientList.title = ingredientList.title.trim();
@@ -45,9 +40,11 @@ if (Astro.request.method === "POST") {
             .filter((ingredient) => ingredient.length > 0);
     }
     recipe.instructions = recipe.instructions.trim();
-    const filename = createValidFilename(recipe.title);
-    const path = `src/content/rezepte/${filename}`;
-    const content = `
+    return recipe;
+}
+
+export function createContent(recipe: Recipe): string {
+    return `
 ---
 ${JSON.stringify({
     title: recipe.title,
@@ -57,22 +54,36 @@ ${JSON.stringify({
 ---
 ${recipe.instructions}
 `.trim();
+}
 
-    console.log(content);
-    const result = await request(
-        `PUT /repos/janheini/melas-rezepte/contents/${path}`,
-        {
-            owner: "janheini",
-            repo: "melas-rezepte",
-            path: path,
-            message: `added recipe ${recipe.title}`,
-            content: Buffer.from(content, "utf8").toString("base64"),
-            headers: {
-                "X-GitHub-Api-Version": "2022-11-28",
-                authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
-            },
+export async function createNewRecipe(
+    filename: string,
+    title: string,
+    content: string,
+) {
+    const path = `src/content/rezepte/${filename}`;
+    return await request(`PUT /repos/janheini/melas-rezepte/contents/${path}`, {
+        owner: "janheini",
+        repo: "melas-rezepte",
+        path: path,
+        message: `added recipe ${title}`,
+        content: Buffer.from(content, "utf8").toString("base64"),
+        headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+            accept: "application/vnd.github+json",
+            authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
         },
-    );
+    });
+}
+
+const session = await Astro.locals.auth.validate();
+if (!session) return Astro.redirect("/login", 302);
+
+if (Astro.request.method === "POST") {
+    const recipe = trimRecipe(await Astro.request.json());
+    const filename = createValidFilename(recipe.title);
+    const content = createContent(recipe);
+    const result = await createNewRecipe(filename, recipe.title, content);
 
     // if (result.status == 201) {
     //     return Astro.redirect(".");

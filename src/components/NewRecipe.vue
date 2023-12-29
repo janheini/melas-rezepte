@@ -4,19 +4,26 @@ import { tags } from "../content/config";
 import { Switch } from "@headlessui/vue";
 import { z } from "astro:content";
 import { PlusCircleIcon } from "@heroicons/vue/24/solid";
+import type { CollectionEntry } from "astro:content";
 
 type IngredientList = {
     title: string;
     ingredients: Array<string>;
 };
 
-export type Recipe = {
+type Recipe = {
     title: string;
     tagList: Array<z.infer<typeof tags>>;
     ingredientList: Array<IngredientList>;
     instructions: string;
 };
 
+const props = defineProps<{
+    recipe?: CollectionEntry<"rezepte">;
+}>();
+
+// initial values / no prop
+const heading = ref("Neues Rezept");
 const title = ref("");
 const tagList = ref<Array<z.infer<typeof tags>>>([]);
 const ingredientList = ref<Array<IngredientList>>([
@@ -32,6 +39,21 @@ function toggleTag(name: z.infer<typeof tags>, state: boolean) {
     if (state == true) {
         tagList.value.push(name);
     }
+}
+
+// fill from props
+if (props.recipe) {
+    heading.value = "Rezept ändern";
+    title.value = props.recipe.data.title;
+    tagList.value = props.recipe.data.tags;
+    if (props.recipe.data.ingredients) {
+        ingredientList.value = [
+            { title: "", ingredients: props.recipe.data.ingredients },
+        ];
+    } else if (props.recipe.data.ingredientList) {
+        ingredientList.value = props.recipe.data.ingredientList;
+    }
+    instructions.value = props.recipe.body.trim();
 }
 
 async function save() {
@@ -58,7 +80,7 @@ async function save() {
 
 <template>
     <div class="prose grid max-w-md gap-4 pb-40 dark:prose-invert">
-        <h2>Neues Rezept erstellen</h2>
+        <h2>{{ heading }}</h2>
         <input
             class="border p-1 pl-2 font-black dark:bg-black"
             v-model="title"
@@ -68,7 +90,7 @@ async function save() {
         <div class="flex flex-wrap gap-5 gap-y-6">
             <Switch
                 v-for="tag in tags.options"
-                :default-checked="false"
+                :default-checked="tagList.indexOf(tag) > -1"
                 @update:model-value="(value) => toggleTag(tag, value)"
                 v-slot="{ checked }"
             >
