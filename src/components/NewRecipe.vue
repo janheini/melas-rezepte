@@ -54,6 +54,11 @@ if (props.recipe) {
     } else if (props.recipe.data.ingredientList) {
         ingredientList.value = props.recipe.data.ingredientList;
     }
+    for (const list of ingredientList.value) {
+        if (list.ingredients.length === 0) {
+            list.ingredients = [""];
+        }
+    }
     instructions.value = props.recipe.body.trim();
 }
 
