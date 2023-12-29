@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { tags } from "../content/config";
-import { Switch } from "@headlessui/vue";
+import { Switch, Dialog, DialogPanel, DialogTitle } from "@headlessui/vue";
 import { z } from "astro:content";
 import { PlusCircleIcon } from "@heroicons/vue/24/solid";
 import type { CollectionEntry } from "astro:content";
@@ -31,6 +31,7 @@ const ingredientList = ref<Array<IngredientList>>([
 ]);
 const instructions = ref("");
 const titleError = ref("");
+const confirmDialogVisible = ref(false);
 
 function toggleTag(name: z.infer<typeof tags>, state: boolean) {
     if (state == false) {
@@ -181,12 +182,31 @@ async function deleteRecipe() {
         <button class="mt-4 w-full border p-1" @click="save">Speichern</button>
         <div class="font-black text-red-600">{{ titleError }}</div>
         <div v-if="props.recipe">
-            <button
-                class="mt-4 w-full border border-red-600 p-1"
-                @click="deleteRecipe"
-            >
+            <button class="mt-4 w-full border border-red-600 p-1" @click="">
                 Rezept Löschen
             </button>
+            <Dialog
+                :open="confirmDialogVisible"
+                @close="confirmDialogVisible = false"
+            >
+                <DialogPanel>
+                    <DialogTitle>Deactivate account</DialogTitle>
+                    <DialogDescription>
+                        This will permanently deactivate your account
+                    </DialogDescription>
+
+                    <p>
+                        Are you sure you want to deactivate your account? All of
+                        your data will be permanently removed. This action
+                        cannot be undone.
+                    </p>
+
+                    <button @click="deleteRecipe">Deactivate</button>
+                    <button @click="confirmDialogVisible = false">
+                        Cancel
+                    </button>
+                </DialogPanel>
+            </Dialog>
         </div>
     </div>
 </template>
