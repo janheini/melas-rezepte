@@ -30,6 +30,9 @@ export function createValidFilename(str: string) {
 
 export function trimRecipe(recipe: Recipe): Recipe {
     recipe.title = recipe.title.trim();
+    if (recipe.title === "") {
+        throw new Error("Missing title");
+    }
     for (const ingredientList of recipe.ingredientList) {
         ingredientList.title = ingredientList.title.trim();
         ingredientList.ingredients = ingredientList.ingredients

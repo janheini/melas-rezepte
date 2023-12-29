@@ -59,8 +59,9 @@ if (props.recipe) {
 
 async function save() {
     titleError.value = "";
-    if (!(title.value.length > 0)) {
+    if (title.value.trim() === "") {
         titleError.value = "Titel fehlt";
+        return;
     }
     const recipe: Recipe = {
         title: title.value,
