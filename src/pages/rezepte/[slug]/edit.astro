@@ -42,34 +42,21 @@ if (Astro.request.method === "POST") {
     try {
         if (filename === newFilename) {
             const result = await changeRecipe(filename, recipe.title, content);
-            console.log(
-                `Result of changing recipe:\n${JSON.stringify(result)}`,
-            );
-            if (result.status == 200) {
-                return Astro.redirect(".");
+            if (result.status !== 200) {
+                return new Response(JSON.stringify(result));
             }
-            return new Response(JSON.stringify(result));
         } else {
             const deleteResult = await deleteRecipe(filename);
-            console.log(
-                `Result of deleting old recipe:\n${JSON.stringify(
-                    deleteResult,
-                )}`,
-            );
-            if (deleteResult.status !== 200) {
-                return new Response(JSON.stringify(deleteResult));
-            }
-
             const createResult = await createNewRecipe(
                 newFilename,
                 recipe.title,
                 content,
             );
-            console.log(
-                `Result of creating new recipe:\n${JSON.stringify(
-                    createResult,
-                )}`,
-            );
+
+            if (deleteResult.status !== 200) {
+                return new Response(JSON.stringify(deleteResult));
+            }
+
             if (createResult.status !== 201) {
                 return new Response(JSON.stringify(createResult));
             }
@@ -77,10 +64,19 @@ if (Astro.request.method === "POST") {
     } catch (error) {
         return new Response(JSON.stringify(error));
     }
+    return Astro.redirect(".");
 }
 
 if (Astro.request.method === "DELETE") {
-    return new Response(await deleteRecipe(`${slug}.md`));
+    try {
+        const result = await deleteRecipe(`${slug}.md`);
+        if (result.status !== 200) {
+            return new Response(JSON.stringify(result));
+        }
+    } catch (error) {
+        return new Response(JSON.stringify(error));
+    }
+    return Astro.redirect(".");
 }
 ---
 
