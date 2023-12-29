@@ -21,7 +21,7 @@ const rezepte = defineCollection({
         z.object({
             title: z.string(),
             image: image().optional(),
-            tags: z.array(tags).optional(),
+            tags: z.array(tags),
             ingredients: z.array(z.string()).optional(),
             ingredientList: z
                 .array(
