@@ -1,68 +1,15 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
-import { request } from "@octokit/request";
 import NewRecipe from "@/components/NewRecipe.vue";
-import type { Recipe } from "@/pages/new.astro";
 import {
+    deleteRecipe,
+    changeRecipe,
     createValidFilename,
     trimRecipe,
     createContent,
     createNewRecipe,
-} from "@/pages/new.astro";
-
-async function getSha(path: string): Promise<string> {
-    return (
-        await request(`GET /repos/janheini/melas-rezepte/contents/${path}`, {
-            owner: "janheini",
-            repo: "melas-rezepte",
-            path: path,
-            headers: {
-                "X-GitHub-Api-Version": "2022-11-28",
-            },
-        })
-    ).data.sha as string;
-}
-
-export async function deleteRecipe(filename: string) {
-    const path = `src/content/rezepte/${filename}`;
-    return await request(
-        `DELETE /repos/janheini/melas-rezepte/contents/${path}`,
-        {
-            owner: "janheini",
-            repo: "melas-rezepte",
-            path: path,
-            message: `deleted ${path}`,
-            sha: await getSha(path),
-            headers: {
-                "X-GitHub-Api-Version": "2022-11-28",
-                accept: "application/vnd.github+json",
-                authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
-            },
-        },
-    );
-}
-
-export async function changeRecipe(
-    filename: string,
-    title: string,
-    content: string,
-) {
-    const path = `src/content/rezepte/${filename}`;
-    return await request(`PUT /repos/janheini/melas-rezepte/contents/${path}`, {
-        owner: "janheini",
-        repo: "melas-rezepte",
-        path: path,
-        sha: await getSha(path),
-        message: `changed recipe ${title}`,
-        content: Buffer.from(content, "utf8").toString("base64"),
-        headers: {
-            "X-GitHub-Api-Version": "2022-11-28",
-            accept: "application/vnd.github+json",
-            authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
-        },
-    });
-}
+} from "@/lib/utils";
 
 const session = await Astro.locals.auth.validate();
 if (!session) return Astro.redirect("/login", 302);
@@ -86,7 +33,7 @@ if (!post) {
 }
 
 if (Astro.request.method === "POST") {
-    const recipe = trimRecipe(await Astro.request.json()) as Recipe;
+    const recipe = trimRecipe(await Astro.request.json());
     const filename = `${slug}.md`;
     const newFilename = createValidFilename(recipe.title);
     const path = `src/content/rezepte/${filename}`;
