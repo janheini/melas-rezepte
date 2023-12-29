@@ -62,6 +62,10 @@ if (Astro.request.method === "POST") {
 
     return new Response();
 }
+
+if (Astro.request.method === "DELETE") {
+    return new Response(await deleteRecipe(`${slug}.md`));
+}
 ---
 
 <BaseLayout><NewRecipe recipe={post} client:load /></BaseLayout>

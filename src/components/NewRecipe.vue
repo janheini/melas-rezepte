@@ -76,6 +76,17 @@ async function save() {
     });
     console.log(await response);
 }
+
+async function deleteRecipe() {
+    console.log(
+        await fetch("", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }),
+    );
+}
 </script>
 
 <template>
@@ -169,5 +180,13 @@ async function save() {
         />
         <button class="mt-4 w-full border p-1" @click="save">Speichern</button>
         <div class="font-black text-red-600">{{ titleError }}</div>
+        <div v-if="props.recipe">
+            <button
+                class="mt-4 w-full border border-red-600 p-1"
+                @click="deleteRecipe"
+            >
+                Rezept Löschen
+            </button>
+        </div>
     </div>
 </template>
