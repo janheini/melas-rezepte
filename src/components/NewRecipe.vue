@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { tags } from "../content/config";
-import { Switch, Dialog, DialogPanel, DialogTitle } from "@headlessui/vue";
+import { Switch } from "@headlessui/vue";
 import { z } from "astro:content";
 import { PlusCircleIcon } from "@heroicons/vue/24/solid";
 import type { CollectionEntry } from "astro:content";
@@ -31,7 +31,6 @@ const ingredientList = ref<Array<IngredientList>>([
 ]);
 const instructions = ref("");
 const titleError = ref("");
-const confirmDialogVisible = ref(false);
 
 function toggleTag(name: z.infer<typeof tags>, state: boolean) {
     if (state == false) {
@@ -77,136 +76,97 @@ async function save() {
     });
     console.log(await response);
 }
-
-async function deleteRecipe() {
-    console.log(
-        await fetch("", {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }),
-    );
-}
 </script>
 
 <template>
-    <div class="prose grid max-w-md gap-4 pb-40 dark:prose-invert">
-        <h2>{{ heading }}</h2>
-        <input
-            class="border p-1 pl-2 font-black dark:bg-black"
-            v-model="title"
-            placeholder="Titel"
-            :class="{ 'border-red-600': titleError.length > 0 }"
-        />
-        <div class="flex flex-wrap gap-5 gap-y-6">
-            <Switch
-                v-for="tag in tags.options"
-                :default-checked="tagList.indexOf(tag) > -1"
-                @update:model-value="(value) => toggleTag(tag, value)"
-                v-slot="{ checked }"
-            >
-                <div
-                    class="rounded-full border border-gray-300 px-2 py-1"
-                    :class="{
-                        'dark:border-white dark:bg-white dark:text-black':
-                            checked,
-                        'border-gray-300 bg-gray-300 text-black': checked,
-                    }"
-                >
-                    {{ tag }}
-                </div>
-            </Switch>
-        </div>
-        <div>
+    <h2>{{ heading }}</h2>
+    <input
+        class="border p-1 pl-2 font-black dark:bg-black"
+        v-model="title"
+        placeholder="Titel"
+        :class="{ 'border-red-600': titleError.length > 0 }"
+    />
+    <div class="flex flex-wrap gap-5 gap-y-6">
+        <Switch
+            v-for="tag in tags.options"
+            :default-checked="tagList.indexOf(tag) > -1"
+            @update:model-value="(value) => toggleTag(tag, value)"
+            v-slot="{ checked }"
+        >
             <div
-                v-for="(iList, index) in ingredientList"
-                class="flex flex-col gap-2 py-2"
+                class="rounded-full border border-gray-300 px-2 py-1"
+                :class="{
+                    'dark:border-white dark:bg-white dark:text-black': checked,
+                    'border-gray-300 bg-gray-300 text-black': checked,
+                }"
             >
-                <div class="flex flex-col gap-2">
-                    <div class="flex gap-2">
+                {{ tag }}
+            </div>
+        </Switch>
+    </div>
+    <div>
+        <div
+            v-for="(iList, index) in ingredientList"
+            class="flex flex-col gap-2 py-2"
+        >
+            <div class="flex flex-col gap-2">
+                <div class="flex gap-2">
+                    <input
+                        class="grow border p-1 pl-2 dark:bg-black"
+                        v-model="iList.title"
+                        placeholder="Titel (leer für einfache Liste)"
+                    />
+                    <button
+                        v-if="index === ingredientList.length - 1"
+                        @click="
+                            ingredientList.push({
+                                title: '',
+                                ingredients: [''],
+                            })
+                        "
+                    >
+                        <PlusCircleIcon class="h-5 w-5" />
+                    </button>
+                </div>
+                <div class="flex flex-col gap-2 pl-4">
+                    <div
+                        class="flex gap-2"
+                        v-for="(item, index) in iList.ingredients"
+                    >
                         <input
                             class="grow border p-1 pl-2 dark:bg-black"
-                            v-model="iList.title"
-                            placeholder="Titel (leer für einfache Liste)"
+                            placeholder="Zutat"
+                            v-model="iList.ingredients[index]"
+                            @keyup="
+                                () => {
+                                    if (
+                                        index ===
+                                            iList.ingredients.length - 1 &&
+                                        item.length > 0
+                                    ) {
+                                        iList.ingredients.push('');
+                                    }
+                                }
+                            "
                         />
                         <button
-                            v-if="index === ingredientList.length - 1"
-                            @click="
-                                ingredientList.push({
-                                    title: '',
-                                    ingredients: [''],
-                                })
-                            "
+                            v-if="index === iList.ingredients.length - 1"
+                            @click="iList.ingredients.push('')"
                         >
                             <PlusCircleIcon class="h-5 w-5" />
                         </button>
                     </div>
-                    <div class="flex flex-col gap-2 pl-4">
-                        <div
-                            class="flex gap-2"
-                            v-for="(item, index) in iList.ingredients"
-                        >
-                            <input
-                                class="grow border p-1 pl-2 dark:bg-black"
-                                placeholder="Zutat"
-                                v-model="iList.ingredients[index]"
-                                @keyup="
-                                    () => {
-                                        if (
-                                            index ===
-                                                iList.ingredients.length - 1 &&
-                                            item.length > 0
-                                        ) {
-                                            iList.ingredients.push('');
-                                        }
-                                    }
-                                "
-                            />
-                            <button
-                                v-if="index === iList.ingredients.length - 1"
-                                @click="iList.ingredients.push('')"
-                            >
-                                <PlusCircleIcon class="h-5 w-5" />
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <textarea
-            class="min-h-80 border p-2 leading-snug dark:bg-black"
-            v-model="instructions"
-            placeholder="Anleitung"
-        />
-        <button class="mt-4 w-full border p-1" @click="save">Speichern</button>
-        <div class="font-black text-red-600">{{ titleError }}</div>
-        <div v-if="props.recipe">
-            <button class="mt-4 w-full border border-red-600 p-1" @click="">
-                Rezept Löschen
-            </button>
-            <Dialog
-                :open="confirmDialogVisible"
-                @close="confirmDialogVisible = false"
-            >
-                <DialogPanel>
-                    <DialogTitle>Deactivate account</DialogTitle>
-                    <DialogDescription>
-                        This will permanently deactivate your account
-                    </DialogDescription>
-
-                    <p>
-                        Are you sure you want to deactivate your account? All of
-                        your data will be permanently removed. This action
-                        cannot be undone.
-                    </p>
-
-                    <button @click="deleteRecipe">Deactivate</button>
-                    <button @click="confirmDialogVisible = false">
-                        Cancel
-                    </button>
-                </DialogPanel>
-            </Dialog>
-        </div>
+    </div>
+    <textarea
+        class="min-h-80 border p-2 leading-snug dark:bg-black"
+        v-model="instructions"
+        placeholder="Anleitung"
+    />
+    <button class="w-full border p-1" @click="save">Speichern</button>
+    <div v-if="titleError.length > 0" class="font-black text-red-600">
+        {{ titleError }}
     </div>
 </template>

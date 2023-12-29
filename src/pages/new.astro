@@ -27,5 +27,7 @@ if (Astro.request.method === "POST") {
 ---
 
 <BaseLayout>
-    <NewRecipe client:load />
+    <div class="prose grid max-w-md gap-4 dark:prose-invert">
+        <NewRecipe client:load />
+    </div>
 </BaseLayout>

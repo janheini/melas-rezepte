@@ -1,0 +1,63 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import {
+    Dialog,
+    DialogPanel,
+    DialogTitle,
+    DialogDescription,
+} from "@headlessui/vue";
+
+async function deleteRecipe() {
+    console.log(
+        await fetch("", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }),
+    );
+}
+
+const confirmDialogVisible = ref(false);
+</script>
+<template>
+    <button
+        class="w-full border border-red-600 p-1"
+        @click="confirmDialogVisible = true"
+    >
+        Rezept Löschen
+    </button>
+    <Dialog :open="confirmDialogVisible" @close="confirmDialogVisible = false">
+        <div
+            class="prose fixed inset-y-1/2 z-50 flex items-center justify-center dark:prose-invert"
+        >
+            <DialogPanel
+                class="w-full rounded-md border bg-white p-4 shadow dark:bg-black"
+            >
+                <DialogTitle class="m-0 p-0">Rezept löschen</DialogTitle>
+                <DialogDescription>
+                    Das Rezept wird entgültig gelöscht.
+                </DialogDescription>
+                <div class="flex gap-4">
+                    <button
+                        class="rounded-md border border-red-600 p-1"
+                        @click="
+                            () => {
+                                deleteRecipe();
+                                confirmDialogVisible = false;
+                            }
+                        "
+                    >
+                        Löschen
+                    </button>
+                    <button
+                        class="rounded-md border p-1"
+                        @click="confirmDialogVisible = false"
+                    >
+                        Abbrechen
+                    </button>
+                </div>
+            </DialogPanel>
+        </div>
+    </Dialog>
+</template>

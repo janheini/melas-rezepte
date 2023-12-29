@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
 import NewRecipe from "@/components/NewRecipe.vue";
+import ConfirmDeleteDialog from "@/components/ConfirmDeleteDialog.vue";
 import {
     deleteRecipe,
     changeRecipe,
@@ -68,4 +69,9 @@ if (Astro.request.method === "DELETE") {
 }
 ---
 
-<BaseLayout><NewRecipe recipe={post} client:load /></BaseLayout>
+<BaseLayout>
+    <div class="prose grid max-w-md gap-4 dark:prose-invert">
+        <NewRecipe recipe={post} client:load />
+        <ConfirmDeleteDialog client:only />
+    </div>
+</BaseLayout>
