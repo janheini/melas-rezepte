@@ -19,7 +19,7 @@ if (Astro.request.method === "POST") {
         const result = await createNewRecipe(filename, recipe.title, content);
         console.log(result);
         if (result.status === 201) {
-            return Astro.redirect(".");
+            return Astro.redirect("/");
         }
         return new Response(JSON.stringify(result));
     } catch (error) {

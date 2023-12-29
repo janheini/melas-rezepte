@@ -64,7 +64,7 @@ if (Astro.request.method === "POST") {
     } catch (error) {
         return new Response(JSON.stringify(error));
     }
-    return Astro.redirect(".");
+    return Astro.redirect("/");
 }
 
 if (Astro.request.method === "DELETE") {
@@ -76,7 +76,7 @@ if (Astro.request.method === "DELETE") {
     } catch (error) {
         return new Response(JSON.stringify(error));
     }
-    return Astro.redirect(".");
+    return Astro.redirect("/");
 }
 ---
 
