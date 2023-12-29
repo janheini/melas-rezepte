@@ -8,17 +8,20 @@ import {
 } from "@headlessui/vue";
 
 async function deleteRecipe() {
-    console.log(
-        await fetch("", {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }),
-    );
+    const response = await fetch("", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    error.value = (await response.json()).response.data.message;
+    if (response.redirected) {
+        window.location.assign(response.url);
+    }
 }
 
 const confirmDialogVisible = ref(false);
+const error = ref("");
 </script>
 <template>
     <button
@@ -60,4 +63,5 @@ const confirmDialogVisible = ref(false);
             </DialogPanel>
         </div>
     </Dialog>
+    <div v-if="error !== ''" class="font-black text-red-600">{{ error }}</div>
 </template>
