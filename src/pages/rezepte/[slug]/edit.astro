@@ -39,29 +39,44 @@ if (Astro.request.method === "POST") {
     const newFilename = createValidFilename(recipe.title);
     const content = createContent(recipe);
 
-    if (filename === newFilename) {
-        const result = await changeRecipe(filename, recipe.title, content);
-        console.log(`Result of changing recipe:\n${JSON.stringify(result)}`);
-    } else {
-        const deleteResult = await deleteRecipe(filename);
-        console.log(
-            `Result of deleting old recipe:\n${JSON.stringify(deleteResult)}`,
-        );
-        const createResult = await createNewRecipe(
-            newFilename,
-            recipe.title,
-            content,
-        );
-        console.log(
-            `Result of creating new recipe:\n${JSON.stringify(createResult)}`,
-        );
+    try {
+        if (filename === newFilename) {
+            const result = await changeRecipe(filename, recipe.title, content);
+            console.log(
+                `Result of changing recipe:\n${JSON.stringify(result)}`,
+            );
+            if (result.status == 200) {
+                return Astro.redirect(".");
+            }
+            return new Response(JSON.stringify(result));
+        } else {
+            const deleteResult = await deleteRecipe(filename);
+            console.log(
+                `Result of deleting old recipe:\n${JSON.stringify(
+                    deleteResult,
+                )}`,
+            );
+            if (deleteResult.status !== 200) {
+                return new Response(JSON.stringify(deleteResult));
+            }
+
+            const createResult = await createNewRecipe(
+                newFilename,
+                recipe.title,
+                content,
+            );
+            console.log(
+                `Result of creating new recipe:\n${JSON.stringify(
+                    createResult,
+                )}`,
+            );
+            if (createResult.status !== 201) {
+                return new Response(JSON.stringify(createResult));
+            }
+        }
+    } catch (error) {
+        return new Response(JSON.stringify(error));
     }
-
-    // if (result.status == 200) {
-    //     return Astro.redirect(".");
-    // }
-
-    return new Response();
 }
 
 if (Astro.request.method === "DELETE") {

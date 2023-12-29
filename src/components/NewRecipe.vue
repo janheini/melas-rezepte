@@ -31,6 +31,7 @@ const ingredientList = ref<Array<IngredientList>>([
 ]);
 const instructions = ref("");
 const titleError = ref("");
+const genericError = ref("");
 
 function toggleTag(name: z.infer<typeof tags>, state: boolean) {
     if (state == false) {
@@ -67,14 +68,18 @@ async function save() {
         ingredientList: ingredientList.value,
         instructions: instructions.value,
     };
-    const response = fetch("", {
+    const response = await fetch("", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(recipe),
     });
-    console.log(await response);
+    console.log(response);
+    if (response.redirected) {
+        window.location.assign(response.url);
+    }
+    genericError.value = (await response.json()).response.data.message;
 }
 </script>
 
@@ -168,5 +173,8 @@ async function save() {
     <button class="w-full border p-1" @click="save">Speichern</button>
     <div v-if="titleError.length > 0" class="font-black text-red-600">
         {{ titleError }}
+    </div>
+    <div v-if="genericError.length > 0" class="font-black text-red-600">
+        {{ genericError }}
     </div>
 </template>
