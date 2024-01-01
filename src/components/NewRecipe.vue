@@ -4,6 +4,7 @@ import { tags } from "../content/config";
 import { Switch } from "@headlessui/vue";
 import { z } from "astro:content";
 import { PlusCircleIcon } from "@heroicons/vue/24/solid";
+import { store } from "@/components/store";
 import type { CollectionEntry } from "astro:content";
 
 type IngredientList = {
@@ -183,4 +184,10 @@ async function save() {
     <div v-if="genericError.length > 0" class="font-black text-red-600">
         {{ genericError }}
     </div>
+    <button
+        class="w-full border border-red-600 p-1"
+        @click="store.confirmDeleteDialogVisible = true"
+    >
+        Rezept Löschen
+    </button>
 </template>

@@ -6,6 +6,7 @@ import {
     DialogTitle,
     DialogDescription,
 } from "@headlessui/vue";
+import { store } from "@/components/store";
 
 async function deleteRecipe() {
     const response = await fetch("", {
@@ -20,17 +21,13 @@ async function deleteRecipe() {
     }
 }
 
-const confirmDialogVisible = ref(false);
 const error = ref("");
 </script>
 <template>
-    <button
-        class="w-full border border-red-600 p-1"
-        @click="confirmDialogVisible = true"
+    <Dialog
+        :open="store.confirmDeleteDialogVisible"
+        @close="store.confirmDeleteDialogVisible = false"
     >
-        Rezept Löschen
-    </button>
-    <Dialog :open="confirmDialogVisible" @close="confirmDialogVisible = false">
         <div
             class="prose fixed inset-y-1/2 z-50 flex items-center justify-center dark:prose-invert"
         >
@@ -47,7 +44,7 @@ const error = ref("");
                         @click="
                             () => {
                                 deleteRecipe();
-                                confirmDialogVisible = false;
+                                store.confirmDeleteDialogVisible = false;
                             }
                         "
                     >
@@ -55,7 +52,7 @@ const error = ref("");
                     </button>
                     <button
                         class="rounded-md border p-1"
-                        @click="confirmDialogVisible = false"
+                        @click="store.confirmDeleteDialogVisible = false"
                     >
                         Abbrechen
                     </button>
