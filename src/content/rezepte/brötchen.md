@@ -1,5 +1,5 @@
 ---
-{"title":"Brötchen","tags":["Vegetarisch","Backen"],"ingredientList":[{"title":"","ingredients":["500-550g Weizenmehl oder Dinkelmehl Typ 630","300ml lauwarmes Wasser","1/2 Würfel frische Hefe","1 TL Honig oder Zucker","1 EL Olivenöl","1 TL Salz"]}]}
+{"title":"Brötchen","tags":["Backen"],"ingredientList":[{"title":"","ingredients":["500-550g Weizenmehl oder Dinkelmehl Typ 630","300ml lauwarmes Wasser","1/2 Würfel frische Hefe","1 TL Honig oder Zucker","1 EL Olivenöl","1 TL Salz"]}]}
 ---
 Aus den Zutaten einen geschmeidigen Teig kneten und in eine mit ca. 2 EL Olivenöl gefettete Schüssel den Teig hineingeben und abgedeckt für 1 Stunde gehen lassen.
 
