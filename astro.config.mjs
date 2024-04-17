@@ -8,8 +8,8 @@ import vue from "@astrojs/vue";
 export default defineConfig({
     output: "server",
     integrations: [vue(), tailwind()],
-    adapter: import.meta.env.NETLIFY
-        ? netlify({ imageCDN: true, edgeMiddleware: true })
-        : vercel({ imageService: true }),
+    adapter:
+        process.argv[process.argv.length - 1] === "netlify"
+            ? netlify({ imageCDN: true, edgeMiddleware: false })
+            : vercel({ imageService: true }),
 });
-
