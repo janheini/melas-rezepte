@@ -34,7 +34,7 @@ const ingredientList =
 
 const { Content } = await post.render();
 
-const session = await Astro.locals.auth.validate();
+const user = Astro.locals.user;
 ---
 
 <BaseLayout>
@@ -44,7 +44,7 @@ const session = await Astro.locals.auth.validate();
         <h2 class="flex items-center justify-between">
             {post.data.title}
             {
-                session && (
+                user && (
                     <a href="edit">
                         <PencilSquareIcon class="h-5 w-5" />
                     </a>

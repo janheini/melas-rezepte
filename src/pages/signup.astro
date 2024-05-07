@@ -1,7 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { auth } from "../lib/lucia";
 
+import { lucia, db } from "@/lib/lucia";
+import { generateId } from "lucia";
+import { Argon2id } from "oslo/password";
+import { LibsqlError } from "@libsql/client";
+
+// only allow signup in dev
 if (import.meta.env.PROD) {
     return new Response(null, {
         status: 404,
@@ -9,63 +14,75 @@ if (import.meta.env.PROD) {
     });
 }
 
-let usernameInput = "";
+if (Astro.locals.user) {
+    return Astro.redirect("/");
+}
+
 let errorMessage = "";
 
-// check for form submissions
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
     const username = formData.get("username");
     const password = formData.get("password");
-    if (typeof username === "string") {
-        usernameInput = username;
-    }
-    // basic check
-    const validUsername =
-        typeof username === "string" &&
-        username.length >= 4 &&
-        username.length <= 31;
-    const validPassword =
-        typeof password === "string" &&
-        password.length >= 6 &&
-        password.length <= 255;
-    if (validUsername && validPassword) {
-        try {
-            const user = await auth.createUser({
-                key: {
-                    providerId: "username", // auth method
-                    providerUserId: username.toLowerCase(), // unique id when using "username" auth method
-                    password, // hashed by Lucia
-                },
-                attributes: {
-                    username,
-                },
-            });
-            const session = await auth.createSession({
-                userId: user.userId,
-                attributes: {},
-            });
-            Astro.locals.auth.setSession(session); // set session cookie
-            return Astro.redirect("/", 302); // redirect to profile page
-        } catch (e) {
-            // this part depends on the database you're using
-            // check for unique constraint error in user table
-            // if (e instanceof SqliteError && e.code === "SQLITE_CONSTRAINT_UNIQUE") {
-            // 	errorMessage = "Username already taken";
-            // 	Astro.response.status = 400;
-            // } else {
-            errorMessage = "An unknown error occurred";
-            Astro.response.status = 500;
-            // }
+
+    try {
+        if (
+            typeof username !== "string" ||
+            username.length < 3 ||
+            username.length > 31 ||
+            !/^[a-z0-9_-]+$/.test(username)
+        ) {
+            Astro.response.status = 400;
+            throw "Invalid username";
         }
-    } else {
-        errorMessage = "Invalid input";
-        Astro.response.status = 400;
+        if (
+            typeof password !== "string" ||
+            password.length < 6 ||
+            password.length > 255
+        ) {
+            Astro.response.status = 400;
+            throw "Invalid password";
+        }
+
+        const hashedPassword = await new Argon2id().hash(password);
+        const userId = generateId(15);
+        await db.batch(
+            [
+                {
+                    sql: "INSERT INTO user (id, username) VALUES(?, ?)",
+                    args: [userId, username],
+                },
+                {
+                    sql: "INSERT INTO password (user_id, hashed_password) VALUES(?, ?)",
+                    args: [userId, hashedPassword],
+                },
+            ],
+            "write",
+        );
+
+        const session = await lucia.createSession(userId, {});
+        const sessionCookie = lucia.createSessionCookie(session.id);
+        Astro.cookies.set(
+            sessionCookie.name,
+            sessionCookie.value,
+            sessionCookie.attributes,
+        );
+
+        return Astro.redirect("/");
+    } catch (e) {
+        console.log(e);
+        if (e instanceof LibsqlError && e.code === "SQLITE_CONSTRAINT") {
+            Astro.response.status = 400;
+            errorMessage = "Username already used";
+        } else if (typeof e === "string") {
+            Astro.response.status = 400;
+            errorMessage = e;
+        } else {
+            Astro.response.status = 500;
+            errorMessage = "An unknown error occurred";
+        }
     }
 }
-
-const session = await Astro.locals.auth.validate();
-if (session) return Astro.redirect("/", 302); // redirect to profile page
 ---
 
 <BaseLayout>

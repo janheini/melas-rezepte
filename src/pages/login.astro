@@ -1,66 +1,83 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { auth } from "../lib/lucia";
-import { LuciaError } from "lucia";
+import { lucia, db } from "@/lib/lucia";
+import { Argon2id } from "oslo/password";
+import { LegacyScrypt } from "lucia";
 
-let errorMessage: string | null = null;
-let usernameInput = "";
+import type { DatabaseUser } from "@/lib/lucia";
 
-// check for form submissions
+let errorMessage = "";
+
+if (Astro.locals.user) {
+    return Astro.redirect("/");
+}
+
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
     const username = formData.get("username");
     const password = formData.get("password");
-    // basic check
-    if (typeof username === "string") {
-        usernameInput = username;
-    }
-    const validUsername =
-        typeof username === "string" &&
-        username.length >= 4 &&
-        username.length <= 31;
-    const validPassword =
-        typeof password === "string" &&
-        password.length >= 6 &&
-        password.length <= 255;
-    if (validUsername && validPassword) {
-        try {
-            // find user by key
-            // and validate password
-            const key = await auth.useKey(
-                "username",
-                username.toLowerCase(),
-                password,
-            );
-            const session = await auth.createSession({
-                userId: key.userId,
-                attributes: {},
-            });
-            Astro.locals.auth.setSession(session); // set session cookie
-            return Astro.redirect("/", 302); // redirect to main page
-        } catch (e) {
-            if (
-                e instanceof LuciaError &&
-                (e.message === "AUTH_INVALID_KEY_ID" ||
-                    e.message === "AUTH_INVALID_PASSWORD")
-            ) {
-                // user does not exist
-                // or invalid password
-                errorMessage = "Incorrect username or password";
-                Astro.response.status = 400;
-            } else {
-                errorMessage = "An unknown error occurred";
-                Astro.response.status = 500;
-            }
+
+    try {
+        if (
+            typeof username !== "string" ||
+            username.length < 3 ||
+            username.length > 31 ||
+            !/^[a-z0-9_-]+$/.test(username)
+        ) {
+            errorMessage = "Invalid username";
+            Astro.response.status = 400;
+            throw errorMessage;
         }
-    } else {
-        errorMessage = "Invalid input";
-        Astro.response.status = 400;
+
+        if (
+            typeof password !== "string" ||
+            password.length < 6 ||
+            password.length > 255
+        ) {
+            errorMessage = "Invalid password";
+            Astro.response.status = 400;
+            throw errorMessage;
+        }
+
+        const existingUser = (
+            await db.execute({
+                sql: "SELECT id, username, hashed_password as password FROM user JOIN password on user.id = password.user_id WHERE username = ?",
+                args: [username],
+            })
+        ).rows[0] as unknown as DatabaseUser | undefined;
+
+        if (!existingUser) {
+            Astro.response.status = 400;
+            errorMessage = "Incorrect username or password";
+            throw errorMessage;
+        }
+
+        const validPassword =
+            (await new LegacyScrypt().verify(
+                existingUser.password,
+                password,
+            )) ||
+            (await new Argon2id().verify(existingUser.password, password));
+
+        if (!validPassword) {
+            Astro.response.status = 400;
+            errorMessage = "Incorrect username or password";
+            throw errorMessage;
+        }
+
+        const session = await lucia.createSession(existingUser.id, {});
+        const sessionCookie = lucia.createSessionCookie(session.id);
+        Astro.cookies.set(
+            sessionCookie.name,
+            sessionCookie.value,
+            sessionCookie.attributes,
+        );
+
+        return Astro.redirect("/");
+    } catch (e) {
+        console.log(e);
     }
 }
-
-const session = await Astro.locals.auth.validate();
-if (session) return Astro.redirect("/", 302);
 ---
 
 <BaseLayout>

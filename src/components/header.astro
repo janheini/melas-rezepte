@@ -1,5 +1,5 @@
 ---
-const session = await Astro.locals.auth.validate();
+const user = Astro.locals.user;
 import UserDropdown from "./UserDropdown.vue";
 ---
 
@@ -7,6 +7,6 @@ import UserDropdown from "./UserDropdown.vue";
     <h1 class="text-4xl font-black text-black dark:text-white">
         <a href="/">Melas Rezepte</a>
     </h1>
-    {session && <UserDropdown client:load user={session.user.username} />}
-    {!session && <a href="/login">login</a>}
+    {user && <UserDropdown client:load user={user.username} />}
+    {!user && <a href="/login">login</a>}
 </div>

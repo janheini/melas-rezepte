@@ -12,8 +12,7 @@ import {
     createNewRecipe,
 } from "@/lib/utils";
 
-const session = await Astro.locals.auth.validate();
-if (!session) return Astro.redirect("/login", 302);
+if (!Astro.locals.user) return Astro.redirect("/login", 302);
 
 const slug = Astro.params.slug;
 
