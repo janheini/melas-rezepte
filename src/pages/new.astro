@@ -1,12 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import NewRecipe from "@/components/NewRecipe.vue";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import NewRecipe from "@components/NewRecipe.vue";
 import {
     createValidFilename,
     trimRecipe,
     createContent,
     createNewRecipe,
-} from "@/lib/utils";
+} from "@lib/utils";
 
 if (!Astro.locals.user) return Astro.redirect("/login", 302);
 

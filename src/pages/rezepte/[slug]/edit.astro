@@ -1,8 +1,8 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
-import NewRecipe from "@/components/NewRecipe.vue";
-import ConfirmDeleteDialog from "@/components/ConfirmDeleteDialog.vue";
+import NewRecipe from "@components/NewRecipe.vue";
+import ConfirmDeleteDialog from "@components/ConfirmDeleteDialog.vue";
 import {
     deleteRecipe,
     changeRecipe,
@@ -10,7 +10,7 @@ import {
     trimRecipe,
     createContent,
     createNewRecipe,
-} from "@/lib/utils";
+} from "@lib/utils";
 
 if (!Astro.locals.user) return Astro.redirect("/login", 302);
 

@@ -1,10 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { lucia, db } from "@/lib/lucia";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { lucia, db } from "@lib/lucia";
 import { Argon2id } from "oslo/password";
 import { LegacyScrypt } from "lucia";
 
-import type { DatabaseUser } from "@/lib/lucia";
+import type { DatabaseUser } from "@lib/lucia";
 
 let errorMessage = "";
 

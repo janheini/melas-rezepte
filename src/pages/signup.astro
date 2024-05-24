@@ -1,7 +1,7 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
-import { lucia, db } from "@/lib/lucia";
+import { lucia, db } from "@lib/lucia";
 import { generateId } from "lucia";
 import { Argon2id } from "oslo/password";
 import { LibsqlError } from "@libsql/client";
