@@ -8,6 +8,8 @@ Kaltes Wasser nehmen, warme Temperatur macht den Teig klebrig.
 
 Zunächst Hefe und Zucker / Honig in Wasser auflösen. Dann die Hälfte des Mehls hinzugeben und mit einem Holzlöffel verrühren. Sollte ein flüssiger Teig werden, ähnlich zu Crepes. Für ca. 10min stehen lassen.
 
+In der Zeit den Mozzarella zum Abtropfen in ein Sieb legen.
+
 Das Salz dazugeben, verrühren. Dann das restliche Mehl hinzugeben und verrühren. Wenn der Teig einigermaßen fest ist, auf die Arbeitsfläche packen und dort 10min gehen lassen, dann ist er nicht mehr so klebrig.
 
 Eine Stunde abgedeckt gehen lassen und dann in zwei Teile aufteilen. Die können dann für zwölf Stunden in einer Tuppadose im Kühlschrank Geschmack entwickeln. Der Teig sollte vier Stunden vor dem Pizzabacken wieder aus dem Kühlschrank geholt werden.
