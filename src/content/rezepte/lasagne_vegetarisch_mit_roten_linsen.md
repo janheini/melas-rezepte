@@ -1,0 +1,3 @@
+---
+{"title":"Lasagne vegetarisch mit roten Linsen","tags":["Vegetarisch","Nudeln","Backen"],"ingredientList":[{"title":"","ingredients":["12 Lasagne Platten","2 Zwiebeln","2 Knoblauchzehen","2 Möhren","200g Staudensellerie","150g rote Linsen","2 Dosen gestückelte Tomaten","400ml Gemüsebrühe","200ml Weißwein","40g Tomatenmark","2 TL Oregano","1 TL Thymian","Pfeffer","Salz","1 Becher Creme Fraiche / Schmand","Geriebener Käse"]}]}
+---
