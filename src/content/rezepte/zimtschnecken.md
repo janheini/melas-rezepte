@@ -10,3 +10,6 @@ Die Zimtfüllung vermischen und auf den ausgerollten Teig geben. Zu einer Rolle 
 Bei 180° ca. 35 Min. backen. 
 
 Kurz abkühlen lassen, dann mit dem Frischkäsefrosting bestreichen.
+
+Alternativfüllung: 200g Frischkäse, 1 Schuss Milch, 8 Biscoffkekse, 2 EL Biscoffcreme 
+Die Kekse zerkleinern. Den Teig mit 100g Butter bestreichen und dann die Creme drauf und verteilen
