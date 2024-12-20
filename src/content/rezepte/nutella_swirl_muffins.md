@@ -15,6 +15,6 @@
 
 7. Nimm eine Gabel zur Hand und vermische das/die Nutella mit dem Teig. Rühre nur auf der Oberfläche, damit du den Nutellakern nicht zerstörst und der Swirl entsteht. 
 
-8. Backe die Muffings für 18 Minuten auf 180°C. Überprüfe mithilfe eines Holzstäbchens, ob noch Teig daran kleben bleibt. 
+8. Backe die Muffins für 18 Minuten auf 180°C. Überprüfe mithilfe eines Holzstäbchens, ob noch Teig daran kleben bleibt. 
 
 7. Muffins vor dem Verzehr auskühlen lassen.
