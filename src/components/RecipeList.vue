@@ -6,6 +6,7 @@ import { Switch } from "@headlessui/vue";
 import { z } from "astro:content";
 
 const props = defineProps<{
+    // TODO: make a custom type for this, maybe back on index.astro
     recipes: CollectionEntry<"rezepte">[];
 }>();
 
