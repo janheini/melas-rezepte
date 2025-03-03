@@ -2,12 +2,13 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import RecipeList from "@components/RecipeList.vue";
 import { getCollection } from "astro:content";
+import { tags } from "@content/config.ts";
 
 const recipes = await getCollection("rezepte");
 ---
 
 <BaseLayout>
     <div class="prose-default prose dark:prose-invert">
-        <RecipeList recipes={recipes} client:load />
+        <RecipeList recipes={recipes} tags={tags.options} client:load />
     </div>
 </BaseLayout>

@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { CollectionEntry } from "astro:content";
-import { tags } from "../content/config.ts";
 import { Switch } from "@headlessui/vue";
-import { z } from "astro:content";
+
+type RecipeListEntry = {
+    slug: string;
+    data: {
+        title: string;
+        tags: string[];
+    };
+};
 
 const props = defineProps<{
-    // TODO: make a custom type for this, maybe back on index.astro
-    recipes: CollectionEntry<"rezepte">[];
+    recipes: RecipeListEntry[];
+    tags: string[];
 }>();
 
 const recipes = ref(props.recipes);
@@ -32,7 +37,8 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
 <template>
     <div class="flex flex-wrap gap-5 gap-y-6">
         <Switch
-            v-for="tag in tags.options"
+            id="{tag}"
+            v-for="tag in props.tags"
             :default-checked="false"
             @update:model-value="(value) => filter(tag, value)"
             v-slot="{ checked }"

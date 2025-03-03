@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { tags } from "@content/config.ts";
 import NewRecipe from "@components/NewRecipe.vue";
 import {
     createValidFilename,
@@ -16,7 +17,6 @@ if (Astro.request.method === "POST") {
     const content = createContent(recipe);
     try {
         const result = await createNewRecipe(filename, recipe.title, content);
-        console.log(result);
         if (result.status === 201) {
             return Astro.redirect("/");
         }
@@ -29,6 +29,6 @@ if (Astro.request.method === "POST") {
 
 <BaseLayout>
     <div class="prose grid max-w-md gap-4 dark:prose-invert">
-        <NewRecipe client:load />
+        <NewRecipe tags={tags.options} client:load />
     </div>
 </BaseLayout>

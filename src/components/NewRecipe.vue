@@ -1,32 +1,30 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { tags } from "../content/config";
 import { Switch } from "@headlessui/vue";
-import { z } from "astro:content";
 import { PlusCircleIcon } from "@heroicons/vue/24/solid";
 import { store } from "@/components/store";
-import type { CollectionEntry } from "astro:content";
 
 type IngredientList = {
     title: string;
-    ingredients: Array<string>;
+    ingredients: string[];
 };
 
 type Recipe = {
     title: string;
-    tagList: Array<z.infer<typeof tags>>;
-    ingredientList: Array<IngredientList>;
+    tagList: string[];
+    ingredientList: IngredientList[];
     instructions: string;
 };
 
 const props = defineProps<{
-    recipe?: CollectionEntry<"rezepte">;
+    tags: string[];
+    recipe?: CollectionEntry<"rezepte">; // TODO: this needs a different type
 }>();
 
 // initial values / no prop
 const heading = ref("Neues Rezept");
 const title = ref("");
-const tagList = ref<Array<z.infer<typeof tags>>>([]);
+const tagList = ref<Array<string>>([]);
 const ingredientList = ref<Array<IngredientList>>([
     { title: "", ingredients: [""] },
 ]);
@@ -34,7 +32,7 @@ const instructions = ref("");
 const titleError = ref("");
 const genericError = ref("");
 
-function toggleTag(name: z.infer<typeof tags>, state: boolean) {
+function toggleTag(name: string, state: boolean) {
     if (state == false) {
         tagList.value.splice(tagList.value.indexOf(name), 1);
     }
@@ -82,7 +80,6 @@ async function save() {
         },
         body: JSON.stringify(recipe),
     });
-    console.log(response);
     if (response.redirected) {
         window.location.assign(response.url);
     }
@@ -100,7 +97,8 @@ async function save() {
     />
     <div class="flex flex-wrap gap-5 gap-y-6">
         <Switch
-            v-for="tag in tags.options"
+            id="{tag}"
+            v-for="tag in props.tags"
             :default-checked="tagList.indexOf(tag) > -1"
             @update:model-value="(value) => toggleTag(tag, value)"
             v-slot="{ checked }"

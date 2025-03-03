@@ -21,7 +21,7 @@ async function logout() {
 
 <template>
     <Menu as="div" class="relative">
-        <MenuButton class="text-black dark:text-white">{{
+        <MenuButton id="loginmenu" class="text-black dark:text-white">{{
             props.user
         }}</MenuButton>
         <MenuItems
