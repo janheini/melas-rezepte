@@ -11,20 +11,19 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",
-        "@astrojs/tailwind": "^6.0.0",
         "@astrojs/vercel": "^8.1.1",
         "@astrojs/vue": "^5.0.7",
-        "@headlessui/tailwindcss": "^0.2.2",
         "@headlessui/vue": "^1.7.23",
         "@heroicons/vue": "^2.2.0",
         "@libsql/client": "0.3.6",
         "@lucia-auth/adapter-sqlite": "^3.0.2",
         "@octokit/request": "^9.2.2",
+        "@tailwindcss/vite": "^4.0.10",
         "astro": "^5.4.2",
         "lucia": "^3.2.2",
         "oslo": "^1.2.1",
         "simple-oauth2": "^5.1.0",
-        "tailwindcss": "^3.4.17",
+        "tailwindcss": "^4.0.10",
         "vue": "^3.5.13"
     },
     "devDependencies": {
