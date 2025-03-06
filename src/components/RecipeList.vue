@@ -35,7 +35,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
 </script>
 
 <template>
-    <div class="flex flex-wrap justify-between gap-x-6 gap-y-4 pr-58">
+    <div class="flex flex-wrap justify-between gap-x-6 gap-y-4 md:pr-58">
         <Switch
             id="{tag}"
             v-for="tag in props.tags"
