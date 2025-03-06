@@ -90,7 +90,7 @@ async function save() {
 <template>
     <h2>{{ heading }}</h2>
     <input
-        class="border p-1 pl-2 font-black dark:bg-black"
+        class="border p-1 pl-2 font-black"
         v-model="title"
         placeholder="Titel"
         :class="{ 'border-red-600': titleError.length > 0 }"
@@ -106,7 +106,6 @@ async function save() {
             <div
                 class="rounded-full border border-gray-300 px-2 py-1"
                 :class="{
-                    'dark:border-white dark:bg-white dark:text-black': checked,
                     'border-gray-300 bg-gray-300 text-black': checked,
                 }"
             >
@@ -122,7 +121,7 @@ async function save() {
             <div class="flex flex-col gap-2">
                 <div class="flex gap-2">
                     <input
-                        class="grow border p-1 pl-2 dark:bg-black"
+                        class="grow border p-1 pl-2"
                         v-model="iList.title"
                         placeholder="Titel (leer für einfache Liste)"
                     />
@@ -144,7 +143,7 @@ async function save() {
                         v-for="(item, index) in iList.ingredients"
                     >
                         <input
-                            class="grow border p-1 pl-2 dark:bg-black"
+                            class="grow border p-1 pl-2"
                             placeholder="Zutat"
                             v-model="iList.ingredients[index]"
                             @keyup="
@@ -171,7 +170,7 @@ async function save() {
         </div>
     </div>
     <textarea
-        class="min-h-80 border p-2 leading-snug dark:bg-black"
+        class="min-h-80 border p-2 leading-snug"
         v-model="instructions"
         placeholder="Anleitung"
     />

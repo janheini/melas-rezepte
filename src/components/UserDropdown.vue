@@ -21,13 +21,11 @@ async function logout() {
 
 <template>
     <Menu as="div" class="relative">
-        <MenuButton
-            id="loginmenu"
-            class="cursor-pointer text-black dark:text-white"
-            >{{ props.user }}</MenuButton
-        >
+        <MenuButton id="loginmenu" class="cursor-pointer text-black">{{
+            props.user
+        }}</MenuButton>
         <MenuItems
-            class="absolute right-0 mt-1 min-w-max rounded border border-gray-800 bg-white dark:border-gray-300 dark:bg-black"
+            class="absolute right-0 mt-1 min-w-max rounded border border-gray-800 bg-white"
         >
             <MenuItem v-slot="{ active }">
                 <a href="/new">

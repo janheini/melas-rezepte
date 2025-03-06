@@ -35,7 +35,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
 </script>
 
 <template>
-    <div class="flex flex-wrap gap-5 gap-y-6">
+    <div class="flex flex-wrap justify-between gap-x-6 gap-y-4 pr-58">
         <Switch
             id="{tag}"
             v-for="tag in props.tags"
@@ -44,10 +44,9 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
             v-slot="{ checked }"
         >
             <div
-                class="rounded-full border border-gray-300 px-2 py-1"
+                class="h-8 border border-dashed px-4"
                 :class="{
-                    'dark:border-white dark:bg-white dark:text-black': checked,
-                    'border-gray-300 bg-gray-300 text-black': checked,
+                    'border border-dashed bg-gray-300 text-black': checked,
                 }"
             >
                 {{ tag }}
@@ -58,7 +57,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
         <li v-for="recipe of recipes" :key="recipe.slug">
             <a
                 :href="`/rezepte/${recipe.slug}/`"
-                class="no-underline hover:underline dark:text-gray-300"
+                class="no-underline hover:underline"
                 >{{ recipe.data.title }}</a
             >
         </li>

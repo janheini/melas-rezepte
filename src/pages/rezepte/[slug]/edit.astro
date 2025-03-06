@@ -81,7 +81,7 @@ if (Astro.request.method === "DELETE") {
 ---
 
 <BaseLayout>
-    <div class="prose grid max-w-md gap-4 dark:prose-invert">
+    <div class="prose grid max-w-md gap-4">
         <NewRecipe tags={tags.options} recipe={post} client:load />
         <ConfirmDeleteDialog client:only />
     </div>

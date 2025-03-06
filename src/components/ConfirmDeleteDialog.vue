@@ -29,11 +29,9 @@ const error = ref("");
         @close="store.confirmDeleteDialogVisible = false"
     >
         <div
-            class="prose fixed inset-y-1/2 z-50 flex items-center justify-center dark:prose-invert"
+            class="prose fixed inset-y-1/2 z-50 flex items-center justify-center"
         >
-            <DialogPanel
-                class="w-full rounded-md border bg-white p-4 shadow dark:bg-black"
-            >
+            <DialogPanel class="w-full rounded-md border bg-white p-4 shadow">
                 <DialogTitle class="m-0 p-0">Rezept löschen</DialogTitle>
                 <DialogDescription>
                     Das Rezept wird entgültig gelöscht.
