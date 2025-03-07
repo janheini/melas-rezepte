@@ -35,7 +35,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
 </script>
 
 <template>
-    <div class="flex flex-wrap justify-between gap-x-6 gap-y-4 px-2 md:pr-58">
+    <div class="flex flex-wrap justify-between gap-x-6 gap-y-4">
         <Switch
             id="{tag}"
             v-for="tag in props.tags"
@@ -53,7 +53,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
             </div>
         </Switch>
     </div>
-    <ul class="p-4">
+    <ul class="px-4">
         <li v-for="recipe of recipes" :key="recipe.slug">
             <a
                 :href="`/rezepte/${recipe.slug}/`"

@@ -3,10 +3,14 @@ const user = Astro.locals.user;
 import UserDropdown from "./UserDropdown.vue";
 ---
 
-<div class="flex flex-wrap items-center justify-between pr-4 pb-8">
-    <h1 class="text-5xl text-black">
+<div class="flex items-end justify-between pb-8">
+    <h1 class="text-5xl xl:text-6xl">
         <a href="/">Melas Rezepte</a>
     </h1>
-    {user && <UserDropdown client:load user={user.username} />}
-    {!user && <a href="/login">login</a>}
+    <div class="flex justify-end">
+        <div class="flex items-center">
+            {user && <UserDropdown client:load user={user.username} />}
+            {!user && <a href="/login">login</a>}
+        </div>
+    </div>
 </div>
