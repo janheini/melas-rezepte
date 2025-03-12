@@ -1,5 +1,5 @@
 import { z } from "astro:content";
-import { tags } from "@content/config.ts";
+import { tags } from "@content.config.ts";
 import { request } from "@octokit/request";
 
 type IngredientList = {

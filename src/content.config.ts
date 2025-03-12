@@ -1,4 +1,5 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 export const tags = z.enum([
     "Reis",
@@ -14,7 +15,7 @@ export const tags = z.enum([
 ]);
 
 const rezepte = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "*.md", base: "src/content/rezepte/" }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),

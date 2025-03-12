@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import { Image } from "astro:assets";
 
@@ -32,7 +32,7 @@ const ingredientList =
         ? post.data.ingredientList
         : undefined;
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const user = Astro.locals.user;
 ---

@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { Switch } from "@headlessui/vue";
 
 type RecipeListEntry = {
-    slug: string;
+    id: string;
     data: {
         title: string;
         tags: string[];
@@ -54,9 +54,9 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
         </Switch>
     </div>
     <ul class="px-4">
-        <li v-for="recipe of recipes" :key="recipe.slug">
+        <li v-for="recipe of recipes" :key="recipe.id">
             <a
-                :href="`/rezepte/${recipe.slug}/`"
+                :href="`/rezepte/${recipe.id}/`"
                 class="no-underline hover:underline"
                 >{{ recipe.data.title }}</a
             >
