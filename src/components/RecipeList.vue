@@ -34,7 +34,7 @@ function filter() {
     recipes.value = recipes.value.filter((recipe) =>
         recipe.data.title
             .toLowerCase()
-            .includes(search_input.value.toLowerCase()),
+            .includes(search_input.value.trim().toLowerCase()),
     );
 }
 
