@@ -16,21 +16,36 @@ const props = defineProps<{
 }>();
 
 const recipes = ref(props.recipes);
-const filters = ref<Array<z.infer<typeof tags>>>([]);
+const filters = ref<Array<string>>([]);
+const search_input = ref("");
 
-function filter(name: z.infer<typeof tags>, state: boolean) {
+function filter() {
+    // 1. reset list to default from props
+    recipes.value = props.recipes;
+
+    // 2. filter by tags
+    for (const f of filters.value) {
+        recipes.value = recipes.value.filter(
+            (recipe) => recipe.data.tags && recipe.data.tags.indexOf(f) > -1,
+        );
+    }
+
+    // 3. filter by search_input (case-insensitive)
+    recipes.value = recipes.value.filter((recipe) =>
+        recipe.data.title
+            .toLowerCase()
+            .includes(search_input.value.toLowerCase()),
+    );
+}
+
+function toggleTag(name: string, state: boolean) {
     if (state == false) {
         filters.value.splice(filters.value.indexOf(name), 1);
     }
     if (state == true) {
         filters.value.push(name);
     }
-    recipes.value = props.recipes;
-    for (const f of filters.value) {
-        recipes.value = recipes.value.filter(
-            (recipe) => recipe.data.tags && recipe.data.tags.indexOf(f) > -1,
-        );
-    }
+    filter();
 }
 </script>
 
@@ -40,7 +55,7 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
             id="{tag}"
             v-for="tag in props.tags"
             :default-checked="false"
-            @update:model-value="(value) => filter(tag, value)"
+            @update:model-value="(value) => toggleTag(tag, value)"
             v-slot="{ checked }"
         >
             <div
@@ -52,6 +67,14 @@ function filter(name: z.infer<typeof tags>, state: boolean) {
                 {{ tag }}
             </div>
         </Switch>
+    </div>
+    <div class="pt-6">
+        <input
+            placeholder="Suche"
+            v-model="search_input"
+            @input="filter"
+            class="w-full border border-dotted px-2 focus:border-solid focus:outline-0"
+        />
     </div>
     <ul class="px-4">
         <li v-for="recipe of recipes" :key="recipe.id">
