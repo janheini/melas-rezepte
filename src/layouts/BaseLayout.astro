@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/header.astro";
 import "@styles/global.css";
 ---
@@ -11,6 +12,7 @@ import "@styles/global.css";
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
         <Font cssVariable="--font-merriweather" preload />
+        <ClientRouter />
         <link
             rel="apple-touch-icon"
             sizes="180x180"

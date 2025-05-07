@@ -47,6 +47,14 @@ function toggleTag(name: string, state: boolean) {
     }
     filter();
 }
+
+// NOTE: on View-Transitions
+// Astro's 'transition-name' attribute does not work in client-side js
+// frameworks. We therefore manually set
+// :style="`view-transition-name: ${recipe.id.replaceAll('_', '__')};`"
+// on each entry of the recipe list. This adds the same CSS style that astro
+// ultimately also sets. This may break with an update.
+// See: https://github.com/withastro/astro/blob/main/packages/astro/src/runtime/server/transition.ts#L143
 </script>
 
 <template>
@@ -81,6 +89,7 @@ function toggleTag(name: string, state: boolean) {
             <a
                 :href="`/rezepte/${recipe.id}/`"
                 class="no-underline hover:underline"
+                :style="`view-transition-name: ${recipe.id.replaceAll('_', '__')};`"
                 >{{ recipe.data.title }}</a
             >
         </li>

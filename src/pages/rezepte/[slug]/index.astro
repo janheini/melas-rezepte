@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { getEntry, render } from "astro:content";
 import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import { Image } from "astro:assets";
+import { fade } from "astro:transitions";
 
 const { slug } = Astro.params;
 
@@ -39,7 +40,7 @@ const user = Astro.locals.user;
 
 <BaseLayout>
     <div class="prose">
-        <h2 class="flex items-center justify-between">
+        <h2 class="flex items-center justify-between" transition:name={post.id}>
             {post.data.title}
             {
                 user && (
@@ -50,7 +51,7 @@ const user = Astro.locals.user;
             }
         </h2>
         {post.data.image && <Image src={post.data.image} alt="" />}
-        <content>
+        <content transition:animate={fade({ duration: "0.75s" })}>
             {(ingredients || ingredientList) && <h3>Zutaten</h3>}
             {
                 ingredients && (
