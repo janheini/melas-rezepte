@@ -1,5 +1,5 @@
 ---
-{"title":"Schupfnudeln mit Hack und Käse","tags":[],"ingredientList":[{"title":"","ingredients":["Schupfnudeln","Hackfleisch","Zwiebeln","Tomatenmark","Sahne","Gewürze nach Wahl","geriebener Käse","frische Tomaten"]}]}
+{"title":"Schupfnudeln mit Hack und Käse","tags":["Fleisch","Nudeln","Gnocchi"],"ingredientList":[{"title":"","ingredients":["Schupfnudeln","Hackfleisch","Zwiebeln","Tomatenmark","Sahne","Gewürze nach Wahl","geriebener Käse","frische Tomaten"]}]}
 ---
 1. Schupfnudeln anbraten und aus der Pfanne nehmen. 
 
