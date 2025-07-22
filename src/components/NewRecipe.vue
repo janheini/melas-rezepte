@@ -185,6 +185,6 @@ async function save() {
         class="w-full border border-red-600 p-1"
         @click="store.confirmDeleteDialogVisible = true"
     >
-        Rezept Löschen
+        Rezept löschen
     </button>
 </template>
