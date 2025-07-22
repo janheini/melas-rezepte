@@ -7,6 +7,11 @@ type RecipeListEntry = {
     data: {
         title: string;
         tags: string[];
+        ingredients?: string[];
+        ingredientList?: Array<{
+            title: string;
+            ingredients: string[];
+        }>;
     };
 };
 
@@ -18,6 +23,22 @@ const props = defineProps<{
 const recipes = ref(props.recipes);
 const filters = ref<Array<string>>([]);
 const search_input = ref("");
+
+function ingredients_contain_str(recipe) {
+    let ingredients =
+        recipe.data.ingredients ||
+        recipe.data.ingredientList.flatMap((i) => i.ingredients);
+
+    return ingredients.some((i) =>
+        i.toLowerCase().includes(search_input.value.trim().toLowerCase()),
+    );
+}
+
+function title_contains_str(recipe) {
+    return recipe.data.title
+        .toLowerCase()
+        .includes(search_input.value.trim().toLowerCase());
+}
 
 function filter() {
     // 1. reset list to default from props
@@ -31,10 +52,9 @@ function filter() {
     }
 
     // 3. filter by search_input (case-insensitive)
-    recipes.value = recipes.value.filter((recipe) =>
-        recipe.data.title
-            .toLowerCase()
-            .includes(search_input.value.trim().toLowerCase()),
+    recipes.value = recipes.value.filter(
+        (recipe) =>
+            title_contains_str(recipe) || ingredients_contain_str(recipe),
     );
 }
 
