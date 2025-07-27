@@ -1,5 +1,5 @@
 ---
-{"title":"Zitronenkuchen mit Blaubeeren","tags":["Backen"],"ingredientList":[{"title":"","ingredients":["200g Butter","250g Zucker","1 TL Vanilleextrakt","5 Eier","400g Mehl","2 TL Backpulver","1 Prise Salz","4 große Bio Zitronen","300g TK Blaubeeren"]},{"title":"Für den Guss","ingredients":["200g Puderzucker","4-5 EL Zitronensaft"]}]}
+{"title":"Zitronenkuchen mit Blaubeeren","image": "./img/zitronenkuchen_mit_blaubeeren.jpg","tags":["Backen"],"ingredientList":[{"title":"","ingredients":["200g Butter","250g Zucker","1 TL Vanilleextrakt","5 Eier","400g Mehl","2 TL Backpulver","1 Prise Salz","4 große Bio Zitronen","300g TK Blaubeeren"]},{"title":"Für den Guss","ingredients":["200g Puderzucker","4-5 EL Zitronensaft"]}]}
 ---
 1. Den Backofen auf 180° O/U Hitze vorheizen, eine eckige Backform (ca. 30x40cm) einfetten und mit Backpapier auslegen.
 
