@@ -1,6 +1,28 @@
 ---
-{"title":"Kartoffel-Spinat-Auflauf mit Hack und Feta","tags":["Kartoffeln","Fleisch"],"ingredientList":[{"title":"Zutaten für 4 Personen","ingredients":["400g Rinderhack","650 g Blattspinat TK, aufgetaut und ausgedrückt","1 -2 Zwiebel, gewürfelt","1 - 2 Konblauchzehen, fein geschnitten","Salz, Pfeffer, Öl","ca. 150 g Feta, gewürfelt","250 ml Sahne, 7 oder 15 %","geriebener Käse","800 g mehlig kochende Kartoffeln"]}]}
+{
+  "title": "Kartoffel-Spinat-Auflauf mit Hack und Feta",
+  "tags": ["Kartoffeln", "Fleisch"],
+  "ingredientList":
+    [
+      {
+        "title": "Zutaten für 4 Personen",
+        "ingredients":
+          [
+            "400g Rinderhack",
+            "650 g Blattspinat TK, aufgetaut und ausgedrückt",
+            "1 -2 Zwiebel, gewürfelt",
+            "1 - 2 Konblauchzehen, fein geschnitten",
+            "Salz, Pfeffer, Öl",
+            "ca. 150 g Feta, gewürfelt",
+            "250 ml Sahne, 7 oder 15 %",
+            "geriebener Käse",
+            "800 g mehlig kochende Kartoffeln",
+          ],
+      },
+    ],
+}
 ---
+
 1. Etwas Öl in einer Pfanne erhitzen und das Hack krümelig braun braten. Zum Ende hin die Hälfte der Zwiebeln dazugeben und etwas mitbraten. Mit Salz und Pfeffer würzen. Aus der Pfanne nehmen.
 
 2. Wieder etwas Öl in die Pfanne geben und die andere Hälfte der Zwiebeln und eine Knobizehe glasig werden lassen. Spinat dazu, alles verrühren und mit Salz und Pfeffer würzen.

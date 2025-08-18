@@ -1,7 +1,29 @@
 ---
-{"title":"Vegetarische Wrap-Röllchen mit Rucola und Tomaten","tags":[],"ingredientList":[{"title":"Zutaten für 6 Personen","ingredients":["6 Wraps","400 g Frischkäse","90 g getrocknete Tomaten in Öl, abgestropft","3 Knoblauchzehen","70 g Rucola","1 Prise Salz","1 Prise Pfeffer","Abrieb einer Zitrone (optional)","2 Stiele Minze (optional)"]}]}
+{
+  "title": "Vegetarische Wrap-Röllchen mit Rucola und Tomaten",
+  "tags": [],
+  "ingredientList":
+    [
+      {
+        "title": "Zutaten für 6 Personen",
+        "ingredients":
+          [
+            "6 Wraps",
+            "400 g Frischkäse",
+            "90 g getrocknete Tomaten in Öl, abgestropft",
+            "3 Knoblauchzehen",
+            "70 g Rucola",
+            "1 Prise Salz",
+            "1 Prise Pfeffer",
+            "Abrieb einer Zitrone (optional)",
+            "2 Stiele Minze (optional)",
+          ],
+      },
+    ],
+}
 ---
-1. Wasche zuerst den Rucola. Falls dieser nicht mehr ganz so knackig wirkt, legst du ihn einfach für ein paar Minuten in Wasser, zu dem du einen Esslöffel Zucker hinzufügst. Du wirst sehen, dass der Rucola nach ein paar Minuten wieder schön knackig ist. Falls du eine Salatschleuder hast, verwende diese, um den Salat trocken zu schleudern. Wenn nicht, kannst du ihn auf ein Tuch legen und abtropfen lassen. 
+
+1. Wasche zuerst den Rucola. Falls dieser nicht mehr ganz so knackig wirkt, legst du ihn einfach für ein paar Minuten in Wasser, zu dem du einen Esslöffel Zucker hinzufügst. Du wirst sehen, dass der Rucola nach ein paar Minuten wieder schön knackig ist. Falls du eine Salatschleuder hast, verwende diese, um den Salat trocken zu schleudern. Wenn nicht, kannst du ihn auf ein Tuch legen und abtropfen lassen.
 
 2. Als nächstes nimmst du eine größere Schüssel und gibst den Frischkäse hinein. Hier gibt es auch einen einfachen, aber genialen Tipp, damit du den Frischkäse nicht aus der Verpackung kratzen musst: Nachdem du die Packung geöffnet hast, drehst du diese vorsichtig über der Schüssel um und stichst mit einem Messer ein- bis dreimal in die Rückseite. So rutscht der Frischkäse problemlos aus der Verpackung.
 

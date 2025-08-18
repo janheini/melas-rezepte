@@ -1,6 +1,35 @@
 ---
-{"title":"Zimtschnecken Weihnachtsplätzchen","tags":["Backen"],"ingredientList":[{"title":"Für den Plätzenteig:","ingredients":["125g weiche Butter","1 Ei, raumtemperiert","150g Zucker","1 Päckchen Vanillezucker","1 Prise Salz","250g Mehl","1 gestr. TL Backpulver"]},{"title":"für den Zimtteig außerdem:","ingredients":["1 TL gemahlener Zimt","1 TL Backkakaopulver","1 verquirltes Eiweiß"]}]}
+{
+  "title": "Zimtschnecken Weihnachtsplätzchen",
+  "tags": ["Backen"],
+  "ingredientList":
+    [
+      {
+        "title": "Für den Plätzenteig:",
+        "ingredients":
+          [
+            "125g weiche Butter",
+            "1 Ei, raumtemperiert",
+            "150g Zucker",
+            "1 Päckchen Vanillezucker",
+            "1 Prise Salz",
+            "250g Mehl",
+            "1 gestr. TL Backpulver",
+          ],
+      },
+      {
+        "title": "für den Zimtteig außerdem:",
+        "ingredients":
+          [
+            "1 TL gemahlener Zimt",
+            "1 TL Backkakaopulver",
+            "1 verquirltes Eiweiß",
+          ],
+      },
+    ],
+}
 ---
+
 1. Weiche Butter, Ei, Zucker und Bourbon-Vanillezucker in einer Rührschüssel mit den Quirlen eines Handmixers cremig mixen.
 
 2. Salz, Mehl, und Backpulver mischen und zum Teig geben. Alles zu einem glatten Teig vermengen, gerne erst mit den Knethaken des Handmixers, dann mit den Händen und diesen kurz halbieren.Eine der Teighälften zunächst zu einer Teigkugel, dann einem flachen Ziegel formen und in Frischhaltefolie einschlagen, in den Kühlschrank geben.

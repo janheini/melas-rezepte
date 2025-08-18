@@ -1,5 +1,16 @@
 ---
-{"title":"Spaghetti Carbonara","tags":["Fleisch","Nudeln"],"ingredients":["250g Spaghetti","100g Kochschinken","75g Parmesan","4 Eier","1 Sahne"]}
+{
+  "title": "Spaghetti Carbonara",
+  "tags": ["Fleisch", "Nudeln"],
+  "ingredients":
+    [
+      "250g Spaghetti",
+      "100g Kochschinken",
+      "75g Parmesan",
+      "4 Eier",
+      "1 Sahne",
+    ],
+}
 ---
 
 1. Spaghetti kochen.

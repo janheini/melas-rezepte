@@ -1,6 +1,25 @@
 ---
-{"title":"Puddingplätzchen | ca. 65 Plätzchen","tags":["Backen"],"ingredientList":[{"title":"","ingredients":["250g Mehl","100g Puderzucker","2 Pck. Vanillezucker","2 Pck. Vanillepuddingpulver bzw. 1x Vanille, 1x Schoko","250g Butter","etwas Puderzucker"]}]}
+{
+  "title": "Puddingplätzchen | ca. 65 Plätzchen",
+  "tags": ["Backen"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          [
+            "250g Mehl",
+            "100g Puderzucker",
+            "2 Pck. Vanillezucker",
+            "2 Pck. Vanillepuddingpulver bzw. 1x Vanille, 1x Schoko",
+            "250g Butter",
+            "etwas Puderzucker",
+          ],
+      },
+    ],
+}
 ---
+
 1. Alle trockenen Zutaten in eine Schüssel geben und miteinander verrühren.
 
 2. Weiche Butter hinzugeben. Alles zu einem einheitlichen Teig verkneten und diesen abgedeckt für 30 - 60 Minuten im Kühlschrank ruhen lassen.
@@ -11,7 +30,8 @@
 
 5. Backblech aus dem Ofen nehmen und die Puddingkekse darauf auskühlen lassen, bis sie fest sind. Im Anschluss nach Belieben mit Puderzucker bestreuen.
 
-Hinweise: 
+Hinweise:
+
 - Die Teigmenge reicht für zwei Backbleche, also 65 Kekse.
 - Bei Verwendung von kalter Butter, muss der Plätzchenteig nur 30 Minuten im Kühlschrank ruhen. Bei weicher Butter eher 60 Minuten.
 - Bitte ein kaltes Backblech nutzen, da der Teig sonst zerläuft und kein Gabelmuster entsteht.

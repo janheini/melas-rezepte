@@ -1,6 +1,25 @@
 ---
-{"title":"Brötchen","tags":["Backen"],"ingredientList":[{"title":"","ingredients":["500-550g Weizenmehl oder Dinkelmehl Typ 630","300ml lauwarmes Wasser","1/2 Würfel frische Hefe","1 TL Honig oder Zucker","1 EL Olivenöl","1 TL Salz"]}]}
+{
+  "title": "Brötchen",
+  "tags": ["Backen"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          [
+            "500-550g Weizenmehl oder Dinkelmehl Typ 630",
+            "300ml lauwarmes Wasser",
+            "1/2 Würfel frische Hefe",
+            "1 TL Honig oder Zucker",
+            "1 EL Olivenöl",
+            "1 TL Salz",
+          ],
+      },
+    ],
+}
 ---
+
 Hefe und Zucker/Honig im Wasser auflösen. Dann aus den Zutaten einen geschmeidigen Teig kneten und in eine mit ca. 2 EL Olivenöl gefettete Schüssel den Teig hineingeben und abgedeckt für 1 Stunde gehen lassen.
 
 Ein Backblech mit Backpapier auslegen. Den Teig in 6-7 gleichgroße Stücke einteilen und dann zuerst rund formen, dann leicht Oval formen oder etwas längliche Brötchen formen. Auf das Bachblech legen und dann mit einem Messer in der Mitte oder an der Seite ca. 1,5 cm Tief einschneiden. Nun die Brötchen mit etwas Wasser bepinseln und mit etwas Mehl bestäuben. Mit einem Tuch abgedeckt weitere 15 Minuten gehen lassen.

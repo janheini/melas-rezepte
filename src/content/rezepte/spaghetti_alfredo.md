@@ -1,5 +1,15 @@
 ---
-{"title":"Spaghetti Alfredo","tags":["Vegetarisch","Nudeln"],"ingredients":["80 g Butter","100 g Crème fraîche","120 g Parmesan (frisch gerieben)","500 g Spaghetti"]}
+{
+  "title": "Spaghetti Alfredo",
+  "tags": ["Vegetarisch", "Nudeln"],
+  "ingredients":
+    [
+      "80 g Butter",
+      "100 g Crème fraîche",
+      "120 g Parmesan (frisch gerieben)",
+      "500 g Spaghetti",
+    ],
+}
 ---
 
 1. Die Spaghetti werden in kochendem Salzwasser laut Packungsanleitung bissfest gekocht, abgeseiht und gut abtropfen gelassen.

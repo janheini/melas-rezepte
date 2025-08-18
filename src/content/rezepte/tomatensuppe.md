@@ -1,5 +1,21 @@
 ---
-{"title":"Tomatensuppe","tags":["Vegetarisch"],"ingredients":["500 g Tomaten","1 Zwiebel","1 Stange Sellerie","Olivenöl","1 Lorbeerblatt","350 ml Gemüsebrühe","Salz, Pfeffer","Chiliflocken","frische Petersilie, optional","Croutons, optional"]}
+{
+  "title": "Tomatensuppe",
+  "tags": ["Vegetarisch"],
+  "ingredients":
+    [
+      "500 g Tomaten",
+      "1 Zwiebel",
+      "1 Stange Sellerie",
+      "Olivenöl",
+      "1 Lorbeerblatt",
+      "350 ml Gemüsebrühe",
+      "Salz, Pfeffer",
+      "Chiliflocken",
+      "frische Petersilie, optional",
+      "Croutons, optional",
+    ],
+}
 ---
 
 1. Zunächst die Tomaten waschen, das Grün entfernen und die Haut kreuzweise mit einem Messer vorsichtig einritzen. Dann mit kochendem Wasser übergießen und danach die Haut entfernen und die Tomaten grob würfeln.

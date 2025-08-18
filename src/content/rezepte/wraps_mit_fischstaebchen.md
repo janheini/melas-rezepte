@@ -1,5 +1,16 @@
 ---
-{"title":"Wraps mit Fischstäbchen","tags":["Fisch"],"ingredients":["Fisch-/Lachsstäbchen","Tortillas/Wraps","Schmand","Salat","Salz, Pfeffer"]}
+{
+  "title": "Wraps mit Fischstäbchen",
+  "tags": ["Fisch"],
+  "ingredients":
+    [
+      "Fisch-/Lachsstäbchen",
+      "Tortillas/Wraps",
+      "Schmand",
+      "Salat",
+      "Salz, Pfeffer",
+    ],
+}
 ---
 
 1. Fisch-/Lachsstäbchen im Backofen oder in der Pfanne nach Packungsanleitung

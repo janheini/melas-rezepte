@@ -1,6 +1,29 @@
 ---
-{"title":"Nudel-Pilz Pfanne","tags":["Vegetarisch","Nudeln"],"ingredientList":[{"title":"","ingredients":["250g Bandnudeln","250g Champignons","1 Schalotten","1 Knoblauchzehen","1 Becher Schmand / Crème fraîche","1 El Tomatenmark","1 TL Paprikapulver (süß)","2 TL Gemüsebrühe","Schnittlauch","Salz, Pfeffer"]}]}
+{
+  "title": "Nudel-Pilz Pfanne",
+  "tags": ["Vegetarisch", "Nudeln"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          [
+            "250g Bandnudeln",
+            "250g Champignons",
+            "1 Schalotten",
+            "1 Knoblauchzehen",
+            "1 Becher Schmand / Crème fraîche",
+            "1 El Tomatenmark",
+            "1 TL Paprikapulver (süß)",
+            "2 TL Gemüsebrühe",
+            "Schnittlauch",
+            "Salz, Pfeffer",
+          ],
+      },
+    ],
+}
 ---
+
 1. Champignons waschen und putzen, sowie die Enden der Stiele abschneiden. Dann je nach Größe halbieren oder vierteln. Schalotte und Knoblauch schälen und fein hacken. Schnittlauch waschen und fein hacken.
 
 2. Schmand, Tomatenmark, Paprikapulver und Gemüsebrühe in einer Schüssel verrühren. Einen kleinen Schuss Wasser zugeben.

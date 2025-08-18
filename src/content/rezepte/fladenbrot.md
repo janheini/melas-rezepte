@@ -1,6 +1,26 @@
 ---
-{"title":"Fladenbrot","tags":["Backen"],"ingredientList":[{"title":"","ingredients":["250g Weizenmehl 550","175ml lauwarmes Wasser","1 TL Zucker","1 TL Salz","1 TL Trockenhefe oder ¼ frische Hefe","2-3 EL Olivenöl","Sesam"]}]}
+{
+  "title": "Fladenbrot",
+  "tags": ["Backen"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          [
+            "250g Weizenmehl 550",
+            "175ml lauwarmes Wasser",
+            "1 TL Zucker",
+            "1 TL Salz",
+            "1 TL Trockenhefe oder ¼ frische Hefe",
+            "2-3 EL Olivenöl",
+            "Sesam",
+          ],
+      },
+    ],
+}
 ---
+
 1. Erst die trockenen Zutaten vermengen. Hefe im Wasser auflösen
 
 2. Wasser und einen Esslöffel Olivenöl hinzugeben und zu einem geschmeidigen Teig kneten

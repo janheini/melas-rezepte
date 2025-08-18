@@ -1,5 +1,17 @@
 ---
-{"title":"Nudeln in Spinatsauce (mit Hähnchen)","tags":["Huhn","Nudeln"],"ingredients":["50g Nudeln","200g Spinat (frisch oder tiefgekühlt)","65ml Cremefine 7%","Salz, Pfeffer","1/2 - 1 Knoblauchzehe","150g Hähnchenfleisch"]}
+{
+  "title": "Nudeln in Spinatsauce (mit Hähnchen)",
+  "tags": ["Huhn", "Nudeln"],
+  "ingredients":
+    [
+      "50g Nudeln",
+      "200g Spinat (frisch oder tiefgekühlt)",
+      "65ml Cremefine 7%",
+      "Salz, Pfeffer",
+      "1/2 - 1 Knoblauchzehe",
+      "150g Hähnchenfleisch",
+    ],
+}
 ---
 
 1. Frischen Spinat, Hähnchenfleisch und Knoblauch kleinschneiden

@@ -1,24 +1,23 @@
 ---
 {
   "title": "Belgische Waffeln",
-  "tags": [
-    "Dessert",
-    "Backen"
-  ],
-  "ingredientList": [
-    {
-      "title": "",
-      "ingredients": [
-        "300g Mehl",
-        "10g Backpulver",
-        "Salz",
-        "75g Puderzucker",
-        "100g Butter",
-        "2 Eier",
-        "500ml Milch"
-      ]
-    }
-  ]
+  "tags": ["Dessert", "Backen"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          [
+            "300g Mehl",
+            "10g Backpulver",
+            "Salz",
+            "75g Puderzucker",
+            "100g Butter",
+            "2 Eier",
+            "500ml Milch",
+          ],
+      },
+    ],
 }
 ---
 

@@ -1,7 +1,30 @@
 ---
-{"title":"Apfel-Pudding-Kuchen mit Streuseln","tags":["Dessert","Backen"],"ingredientList":[{"title":"","ingredients":["550g Mehl","320g Butter","175g Zucker","1 Packung Vanillezucker","2 Eier","2 Prisen Salz","2 Packungen Vanillepudding","500ml Milch","6 EL Zucker","5 Äpfel"]}]}
+{
+  "title": "Apfel-Pudding-Kuchen mit Streuseln",
+  "tags": ["Dessert", "Backen"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          [
+            "550g Mehl",
+            "320g Butter",
+            "175g Zucker",
+            "1 Packung Vanillezucker",
+            "2 Eier",
+            "2 Prisen Salz",
+            "2 Packungen Vanillepudding",
+            "500ml Milch",
+            "6 EL Zucker",
+            "5 Äpfel",
+          ],
+      },
+    ],
+}
 ---
-*Für eine 26er Springform*
+
+_Für eine 26er Springform_
 
 Bereitet zunächst den Mürbeteig zu. Verknetet dafür 250 g Mehl mit 120 g weicher Butter, einer Prise Salz, einem Päckchen Vanillezucker, 75 g Zucker und einem Ei zu einem glatten Teig. Stellt den Mürbeteig für mindestens eine halbe Stunde kalt.
 

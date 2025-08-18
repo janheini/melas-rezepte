@@ -35,4 +35,3 @@
 Alle Zutaten bis auf die Kerne miteinander vermengen. Dann daraus längliche
 Brötchen formen und in Samen, Kernen oder Flocken wälzen. Auf Backpapier geben
 und ca. 30min bei 180° Umluft backen.
-

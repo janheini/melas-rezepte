@@ -1,7 +1,33 @@
 ---
-{"title":"Cremiger Zucchini-Kartoffel-Eintopf","tags":["Kartoffeln","Vegetarisch"],"ingredientList":[{"title":"Für 2 Portionen","ingredients":["500 g Kartoffeln","1 Stück Zucchini","150 g Crème fraîche","10 ml mittelscharfer Senf","10 g Petersilie","1 Ei","Porree","Hirtenkäse","Sesam","4 g Speisestärke/Kartoffelstärke","Öl","Salz","Pfeffer"]}]}
+{
+  "title": "Cremiger Zucchini-Kartoffel-Eintopf",
+  "tags": ["Kartoffeln", "Vegetarisch"],
+  "ingredientList":
+    [
+      {
+        "title": "Für 2 Portionen",
+        "ingredients":
+          [
+            "500 g Kartoffeln",
+            "1 Stück Zucchini",
+            "150 g Crème fraîche",
+            "10 ml mittelscharfer Senf",
+            "10 g Petersilie",
+            "1 Ei",
+            "Porree",
+            "Hirtenkäse",
+            "Sesam",
+            "4 g Speisestärke/Kartoffelstärke",
+            "Öl",
+            "Salz",
+            "Pfeffer",
+          ],
+      },
+    ],
+}
 ---
-Wasche Gemüse und Kräuter ab. Heize den Backofen auf 220 °C Ober-/Unterhitze (200 °C Umluft) vor. 
+
+Wasche Gemüse und Kräuter ab. Heize den Backofen auf 220 °C Ober-/Unterhitze (200 °C Umluft) vor.
 
 Ungeschälte Kartoffeln in ca. 0,5 cm breite Scheiben schneiden.
 
@@ -15,7 +41,7 @@ Hirtenkäse in Würfel schneiden.
 
 Drei tiefe Teller vorbereiten: Sesam, Mehl und verquirltes Ei in je einen tiefen Teller geben.
 
-Hirtenkäsewürfel nacheinander in Mehl*, Ei und Sesam panieren.
+Hirtenkäsewürfel nacheinander in Mehl\*, Ei und Sesam panieren.
 
 Sesam-Hirtenkäse-Würfel auf einem weiteren mit Backpapier belegten Backblech verteilen bis zum Ende der Kartoffelbackzeit mitbacken.
 

@@ -1,5 +1,20 @@
 ---
-{"title":"Gnocchi Tomate Mozzarella","tags":["Vegetarisch","Gnocchi"],"ingredients":["1 Packung Gnocchi","1 Zwiebel, gewürfelt","1 Knoblauchzehe, gepresst","1 EL Tomatenmark","Salz, Pfeffer, Muskatnuss, Paprikaflocken","250g Kochsahne","Datteltomaten","Basilikum","Mozzarella"]}
+{
+  "title": "Gnocchi Tomate Mozzarella",
+  "tags": ["Vegetarisch", "Gnocchi"],
+  "ingredients":
+    [
+      "1 Packung Gnocchi",
+      "1 Zwiebel, gewürfelt",
+      "1 Knoblauchzehe, gepresst",
+      "1 EL Tomatenmark",
+      "Salz, Pfeffer, Muskatnuss, Paprikaflocken",
+      "250g Kochsahne",
+      "Datteltomaten",
+      "Basilikum",
+      "Mozzarella",
+    ],
+}
 ---
 
 1. Olivenöl in einer Pfanne erhitzen und darin die Zwiebeln mit Knoblauch und

@@ -1,5 +1,22 @@
 ---
-{"title":"Honig Senf Röstkartoffel Salat mit Feta und Tomaten","tags":["Vegetarisch","Kartoffeln"],"ingredients":["750g Kartoffeln","1EL Senf","1EL Honig","2-3El Rapsöl","2 Spritzer Zitrone","1 Knoblauchzehe (gepresst)","Salz und Pfeffer","100g Feta","2-3 Handvoll bunte Kirschtomaten","Feldsalat","Zaziki"]}
+{
+  "title": "Honig Senf Röstkartoffel Salat mit Feta und Tomaten",
+  "tags": ["Vegetarisch", "Kartoffeln"],
+  "ingredients":
+    [
+      "750g Kartoffeln",
+      "1EL Senf",
+      "1EL Honig",
+      "2-3El Rapsöl",
+      "2 Spritzer Zitrone",
+      "1 Knoblauchzehe (gepresst)",
+      "Salz und Pfeffer",
+      "100g Feta",
+      "2-3 Handvoll bunte Kirschtomaten",
+      "Feldsalat",
+      "Zaziki",
+    ],
+}
 ---
 
 1. Die Kartoffeln waschen und in mundgerechte Würfel schneiden. Für die Marinade nun Senf, Honig, Öl und Zitrone vermischen. Den gepressten Knoblauch unterrühren und kräftig mit Salz und Pfeffer würzen. Die Kartoffeln und die Marinade gut vermischen. Anschließend in der Heissluftfritteuse für ca. 20 Minuten bei 180 Grad rösten, alternativ im Backofen ca. 30 Minuten bei 200 Grad Ober-/Unterhitze backen.
