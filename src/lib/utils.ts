@@ -81,6 +81,7 @@ ${JSON.stringify(
     2,
 )}
 ---
+
 ${recipe.instructions}
 `.trim();
 }
