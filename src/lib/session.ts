@@ -110,10 +110,7 @@ export async function validateSessionToken(
     }
 
     const tokenSecretHash = await hashSecret(sessionSecret);
-    const validSecret = constantTimeEqual(
-        tokenSecretHash,
-        new Uint8Array(session.secretHash),
-    );
+    const validSecret = constantTimeEqual(tokenSecretHash, session.secretHash);
     if (!validSecret) {
         return null;
     }
@@ -146,7 +143,7 @@ async function getSession(sessionId: string): Promise<Session | null> {
     const session: Session = {
         id: row[0] as string,
         username: row[1] as string,
-        secretHash: row[2],
+        secretHash: new Uint8Array(row[2] as ArrayBuffer),
         lastVerifiedAt: new Date((row[3] as number) * 1000),
         createdAt: new Date((row[4] as number) * 1000),
     };
