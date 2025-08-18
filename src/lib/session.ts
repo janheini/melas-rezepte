@@ -1,13 +1,14 @@
 import { createClient } from "@libsql/client";
 import type { APIContext } from "astro";
+import { TURSO_URL, TURSO_TOKEN } from "astro:env/server";
 
 const inactivityTimeoutSeconds = 60 * 60 * 24 * 10; // 10 days
 const activityCheckIntervalSeconds = 60 * 60; // 1 hour
 
 export const db = createClient({
     // url: "file:melas-rezepte.sqlite",
-    url: import.meta.env.TURSO_URL,
-    authToken: import.meta.env.TURSO_TOKEN,
+    url: TURSO_URL,
+    authToken: TURSO_TOKEN,
 });
 
 export function setSessionCookie(

@@ -1,12 +1,11 @@
 import { defineMiddleware } from "astro:middleware";
 import { validateSessionToken } from "@lib/session.ts";
-import { site } from "astro:config/server";
 
 export const onRequest = defineMiddleware(async (context, next) => {
     // Check origin for anything but GET
     if (context.request.method !== "GET" && import.meta.env.PROD) {
         const originHeader = context.request.headers.get("Origin");
-        if (!originHeader || originHeader !== site) {
+        if (!originHeader || originHeader !== import.meta.env.SITE) {
             return new Response(null, {
                 status: 403,
             });

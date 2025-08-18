@@ -1,6 +1,7 @@
 import { z } from "astro:content";
 import { tags } from "@content.config.ts";
 import { request } from "@octokit/request";
+import { GITHUB_TOKEN } from "astro:env/server";
 
 export function validateLoginForm(formData: FormData) {
     const username = formData.get("username");
@@ -106,7 +107,7 @@ export async function deleteRecipe(filename: string) {
             headers: {
                 "X-GitHub-Api-Version": "2022-11-28",
                 accept: "application/vnd.github+json",
-                authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
+                authorization: `token ${GITHUB_TOKEN}`,
             },
         },
     );
@@ -128,7 +129,7 @@ export async function changeRecipe(
         headers: {
             "X-GitHub-Api-Version": "2022-11-28",
             accept: "application/vnd.github+json",
-            authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
+            authorization: `token ${GITHUB_TOKEN}`,
         },
     });
 }
@@ -148,7 +149,7 @@ export async function createNewRecipe(
         headers: {
             "X-GitHub-Api-Version": "2022-11-28",
             accept: "application/vnd.github+json",
-            authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
+            authorization: `token ${GITHUB_TOKEN}`,
         },
     });
 }
