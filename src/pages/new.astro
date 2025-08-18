@@ -9,7 +9,7 @@ import {
     createNewRecipe,
 } from "@lib/utils";
 
-if (!Astro.locals.user) return Astro.redirect("/login", 302);
+if (!Astro.locals.session) return Astro.redirect("/login", 302);
 
 if (Astro.request.method === "POST") {
     const recipe = trimRecipe(await Astro.request.json());

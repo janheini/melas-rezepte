@@ -35,7 +35,7 @@ const ingredientList =
 
 const { Content } = await render(post);
 
-const user = Astro.locals.user;
+const session = Astro.locals.session;
 ---
 
 <BaseLayout>
@@ -43,7 +43,7 @@ const user = Astro.locals.user;
         <h2 class="flex items-center justify-between" transition:name={post.id}>
             {post.data.title}
             {
-                user && (
+                session && (
                     <a class="p-2" href="edit">
                         <PencilSquareIcon class="h-5 w-5" />
                     </a>

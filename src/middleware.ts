@@ -1,48 +1,26 @@
-import { lucia } from "./lib/lucia";
-import { verifyRequestOrigin } from "lucia";
 import { defineMiddleware } from "astro:middleware";
+import { validateSessionToken } from "@lib/session.ts";
+import { site } from "astro:config/server";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-    if (context.request.method !== "GET") {
+    // Check origin for anything but GET
+    if (context.request.method !== "GET" && import.meta.env.PROD) {
         const originHeader = context.request.headers.get("Origin");
-        const hostHeader = context.request.headers.get("Host");
-        if (
-            !originHeader ||
-            !hostHeader ||
-            !verifyRequestOrigin(originHeader, [hostHeader])
-        ) {
+        if (!originHeader || originHeader !== site) {
             return new Response(null, {
                 status: 403,
             });
         }
     }
 
-    const sessionId =
-        context.cookies.get(lucia.sessionCookieName)?.value ?? null;
-    if (!sessionId) {
-        context.locals.user = null;
+    // Retrieve the session token
+    const token = context.cookies.get("session")?.value ?? null;
+    if (!token) {
         context.locals.session = null;
         return next();
     }
 
-    const { session, user } = await lucia.validateSession(sessionId);
-    if (session && session.fresh) {
-        const sessionCookie = lucia.createSessionCookie(session.id);
-        context.cookies.set(
-            sessionCookie.name,
-            sessionCookie.value,
-            sessionCookie.attributes,
-        );
-    }
-    if (!session) {
-        const sessionCookie = lucia.createBlankSessionCookie();
-        context.cookies.set(
-            sessionCookie.name,
-            sessionCookie.value,
-            sessionCookie.attributes,
-        );
-    }
-    context.locals.session = session;
-    context.locals.user = user;
+    // Validate the session token
+    context.locals.session = await validateSessionToken(token);
     return next();
 });

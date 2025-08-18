@@ -1,6 +1,5 @@
-import { lucia } from "@/lib/lucia";
-
 import type { APIContext } from "astro";
+import { deleteSession } from "@lib/session";
 
 export async function POST(context: APIContext): Promise<Response> {
     if (!context.locals.session) {
@@ -9,14 +8,9 @@ export async function POST(context: APIContext): Promise<Response> {
         });
     }
 
-    await lucia.invalidateSession(context.locals.session.id);
+    await deleteSession(context.locals.session.id);
+    context.cookies.delete("session");
 
-    const sessionCookie = lucia.createBlankSessionCookie();
-    context.cookies.set(
-        sessionCookie.name,
-        sessionCookie.value,
-        sessionCookie.attributes,
-    );
-
+    // will redirect to '/' ?
     return new Response();
 }

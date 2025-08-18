@@ -2,6 +2,30 @@ import { z } from "astro:content";
 import { tags } from "@content.config.ts";
 import { request } from "@octokit/request";
 
+export function validateLoginForm(formData: FormData) {
+    const username = formData.get("username");
+    const password = formData.get("password");
+
+    if (
+        typeof username !== "string" ||
+        username.length < 3 ||
+        username.length > 31 ||
+        !/^[a-z0-9_-]+$/.test(username)
+    ) {
+        throw "Invalid username";
+    }
+
+    if (
+        typeof password !== "string" ||
+        password.length < 6 ||
+        password.length > 255
+    ) {
+        throw "Invalid password";
+    }
+
+    return [username, password];
+}
+
 type IngredientList = {
     title: string;
     ingredients: Array<string>;

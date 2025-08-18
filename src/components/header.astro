@@ -1,5 +1,5 @@
 ---
-const user = Astro.locals.user;
+const session = Astro.locals.session;
 import UserDropdown from "./UserDropdown.vue";
 ---
 
@@ -9,8 +9,8 @@ import UserDropdown from "./UserDropdown.vue";
     </h1>
     <div class="flex justify-end">
         <div class="flex items-center">
-            {user && <UserDropdown client:load user={user.username} />}
-            {!user && <a href="/login">login</a>}
+            {session && <UserDropdown client:load user={session.username} />}
+            {!session && <a href="/login">login</a>}
         </div>
     </div>
 </div>

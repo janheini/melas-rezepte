@@ -1,63 +1,33 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { lucia, db } from "@lib/lucia";
-import { Argon2id } from "oslo/password";
-import { LegacyScrypt } from "lucia";
-
-import type { DatabaseUser } from "@lib/lucia";
+import { verify } from "@node-rs/argon2";
+import { db, setSessionCookie, createSession } from "@lib/session";
+import { validateLoginForm } from "@lib/utils";
 
 let errorMessage = "";
 
-if (Astro.locals.user) {
+if (Astro.locals.session) {
     return Astro.redirect("/");
 }
 
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
-    const username = formData.get("username");
-    const password = formData.get("password");
 
     try {
-        if (
-            typeof username !== "string" ||
-            username.length < 3 ||
-            username.length > 31 ||
-            !/^[a-z0-9_-]+$/.test(username)
-        ) {
-            errorMessage = "Invalid username";
-            Astro.response.status = 400;
-            throw errorMessage;
-        }
+        const [username, password] = validateLoginForm(formData);
+        const result = await db.execute({
+            sql: "SELECT username, hashed_password FROM user WHERE username = ?",
+            args: [username],
+        });
 
-        if (
-            typeof password !== "string" ||
-            password.length < 6 ||
-            password.length > 255
-        ) {
-            errorMessage = "Invalid password";
-            Astro.response.status = 400;
-            throw errorMessage;
-        }
-
-        const existingUser = (
-            await db.execute({
-                sql: "SELECT id, username, hashed_password as password FROM user JOIN password on user.id = password.user_id WHERE username = ?",
-                args: [username],
-            })
-        ).rows[0] as unknown as DatabaseUser | undefined;
-
-        if (!existingUser) {
+        if (result.rows.length !== 1) {
             Astro.response.status = 400;
             errorMessage = "Incorrect username or password";
             throw errorMessage;
         }
 
-        const validPassword =
-            (await new LegacyScrypt().verify(
-                existingUser.password,
-                password,
-            )) ||
-            (await new Argon2id().verify(existingUser.password, password));
+        const hashed_password = result.rows[0]["hashed_password"] as string;
+        const validPassword = await verify(hashed_password, password);
 
         if (!validPassword) {
             Astro.response.status = 400;
@@ -65,14 +35,8 @@ if (Astro.request.method === "POST") {
             throw errorMessage;
         }
 
-        const session = await lucia.createSession(existingUser.id, {});
-        const sessionCookie = lucia.createSessionCookie(session.id);
-        Astro.cookies.set(
-            sessionCookie.name,
-            sessionCookie.value,
-            sessionCookie.attributes,
-        );
-
+        const session = await createSession(username);
+        setSessionCookie(Astro.cookies, session.token);
         return Astro.redirect("/");
     } catch (e) {
         console.log(e);
