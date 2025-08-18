@@ -68,8 +68,8 @@ export function trimRecipe(recipe: Recipe): Recipe {
     return recipe;
 }
 
-export function createContent(recipe: Recipe): string {
-    return `
+export const createContent = (recipe: Recipe) =>
+    `
 ---
 ${JSON.stringify(
     {
@@ -82,9 +82,7 @@ ${JSON.stringify(
 )}
 ---
 
-${recipe.instructions}
-`.trim();
-}
+${recipe.instructions}`.trimStart();
 
 export async function getSha(path: string): Promise<string> {
     return (
