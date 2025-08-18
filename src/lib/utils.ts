@@ -71,11 +71,15 @@ export function trimRecipe(recipe: Recipe): Recipe {
 export function createContent(recipe: Recipe): string {
     return `
 ---
-${JSON.stringify({
-    title: recipe.title,
-    tags: recipe.tagList,
-    ingredientList: recipe.ingredientList,
-})}
+${JSON.stringify(
+    {
+        title: recipe.title,
+        tags: recipe.tagList,
+        ingredientList: recipe.ingredientList,
+    },
+    null,
+    2,
+)}
 ---
 ${recipe.instructions}
 `.trim();
