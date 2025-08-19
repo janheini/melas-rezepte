@@ -1,22 +1,22 @@
 ---
 {
   "title": "Brötchen",
-  "tags": ["Backen"],
-  "ingredientList":
-    [
-      {
-        "title": "",
-        "ingredients":
-          [
-            "500-550g Weizenmehl oder Dinkelmehl Typ 630",
-            "300ml lauwarmes Wasser",
-            "1/2 Würfel frische Hefe",
-            "1 TL Honig oder Zucker",
-            "1 EL Olivenöl",
-            "1 TL Salz",
-          ],
-      },
-    ],
+  "tags": [
+    "Backen"
+  ],
+  "ingredientList": [
+    {
+      "title": "",
+      "ingredients": [
+        "500-550g Weizenmehl oder Dinkelmehl Typ 630",
+        "300ml lauwarmes Wasser",
+        "½ Würfel frische Hefe",
+        "1 TL Honig oder Zucker",
+        "1 EL Olivenöl",
+        "1 TL Salz"
+      ]
+    }
+  ]
 }
 ---
 
