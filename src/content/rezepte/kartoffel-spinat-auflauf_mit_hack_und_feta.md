@@ -1,25 +1,26 @@
 ---
 {
   "title": "Kartoffel-Spinat-Auflauf mit Hack und Feta",
-  "tags": ["Kartoffeln", "Fleisch"],
-  "ingredientList":
-    [
-      {
-        "title": "Zutaten für 4 Personen",
-        "ingredients":
-          [
-            "400g Rinderhack",
-            "650 g Blattspinat TK, aufgetaut und ausgedrückt",
-            "1 -2 Zwiebel, gewürfelt",
-            "1 - 2 Konblauchzehen, fein geschnitten",
-            "Salz, Pfeffer, Öl",
-            "ca. 150 g Feta, gewürfelt",
-            "250 ml Sahne, 7 oder 15 %",
-            "geriebener Käse",
-            "800 g mehlig kochende Kartoffeln",
-          ],
-      },
-    ],
+  "tags": [
+    "Kartoffeln",
+    "Fleisch"
+  ],
+  "ingredientList": [
+    {
+      "title": "Zutaten für 4 Personen",
+      "ingredients": [
+        "400g Rinderhack",
+        "650 g Blattspinat TK, aufgetaut und ausgedrückt",
+        "1-2 Zwiebel, gewürfelt",
+        "1-2 Konblauchzehen, fein geschnitten",
+        "Salz, Pfeffer, Öl",
+        "ca. 150 g Feta, gewürfelt",
+        "250 ml Sahne, 7 oder 15 %",
+        "geriebener Käse",
+        "800 g mehlig kochende Kartoffeln"
+      ]
+    }
+  ]
 }
 ---
 
