@@ -3,19 +3,21 @@ title: Gnocchi mit Tomaten-Käsesoße und Rucola
 tags:
   - Gnocchi
   - Vegetarisch
-ingredients:
-  - 1 Zwiebel
-  - 1 Knoblauchzehe
-  - 6 EL Butter oder Margarine
-  - 20g Mehl
-  - 200ml Gemüsebrühe
-  - 200ml Milch
-  - 100g Doppelrahm Frischkäse
-  - Salz
-  - Muskatnuss
-  - 600g frische Gnocchi
-  - 400g Kirschtomaten
-  - 100g Rucola
+ingredientList:
+  - title: ""
+    ingredients:
+      - 1 Zwiebel
+      - 1 Knoblauchzehe
+      - 6 EL Butter oder Margarine
+      - 20g Mehl
+      - 200ml Gemüsebrühe
+      - 200ml Milch
+      - 100g Doppelrahm Frischkäse
+      - Salz
+      - Muskatnuss
+      - 600g frische Gnocchi
+      - 400g Kirschtomaten
+      - 100g Rucola
 ---
 
 1. Zwiebel und Knoblauch schälen und fein würfeln. Zwiebel und Knoblauch in

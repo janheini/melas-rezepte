@@ -3,12 +3,14 @@ title: Spaghetti mit Garnelen und Brunch Paprika-Peperoni Sauce
 tags:
   - Nudeln
   - Fisch
-ingredients:
-  - 1 Packung Brunch Paprika-Peperoni
-  - 500g Spaghetti
-  - 1 Knoblauchzehe
-  - 1 Packung Cocktailtomaten
-  - 250g Garnelen
+ingredientList:
+  - title: ""
+    ingredients:
+      - 1 Packung Brunch Paprika-Peperoni
+      - 500g Spaghetti
+      - 1 Knoblauchzehe
+      - 1 Packung Cocktailtomaten
+      - 250g Garnelen
 ---
 
 1. Nudeln kochen

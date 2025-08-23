@@ -2,7 +2,13 @@
 {
   "title": "Ofengemüse",
   "tags": ["Vegetarisch"],
-  "ingredients": ["Süßkartoffeln", "Paprika", "Zucchini", "Zwiebeln"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients": ["Süßkartoffeln", "Paprika", "Zucchini", "Zwiebeln"],
+      },
+    ],
 }
 ---
 

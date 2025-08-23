@@ -2,13 +2,19 @@
 {
   "title": "Wraps mit Fischstäbchen",
   "tags": ["Fisch"],
-  "ingredients":
+  "ingredientList":
     [
-      "Fisch-/Lachsstäbchen",
-      "Tortillas/Wraps",
-      "Schmand",
-      "Salat",
-      "Salz, Pfeffer",
+      {
+        "title": "",
+        "ingredients":
+          [
+            "Fisch-/Lachsstäbchen",
+            "Tortillas/Wraps",
+            "Schmand",
+            "Salat",
+            "Salz, Pfeffer",
+          ],
+      },
     ],
 }
 ---

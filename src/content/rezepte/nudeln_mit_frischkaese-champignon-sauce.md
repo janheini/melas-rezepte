@@ -3,13 +3,15 @@ title: Nudeln mit Frischkäse-Champignon-Sauce
 tags:
   - Nudeln
   - Vegetarisch
-ingredients:
-  - 500g Nudeln
-  - 700g Champignons
-  - 4 Tomaten
-  - 200g Frischkäse, fettreduziert
-  - 150g passierte Tomaten
-  - Thymian, Salz und Pfeffer
+ingredientList:
+  - title: ""
+    ingredients:
+      - 500g Nudeln
+      - 700g Champignons
+      - 4 Tomaten
+      - 200g Frischkäse, fettreduziert
+      - 150g passierte Tomaten
+      - Thymian, Salz und Pfeffer
 ---
 
 Nudeln kochen. Währenddessen die Champignons putzen, schälen und in Scheiben

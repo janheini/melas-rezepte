@@ -2,16 +2,18 @@
 title: Nudelsalat mit getrockneten Tomaten und Feta
 tags:
   - Vegetarisch
-ingredients:
-  - 500g Penne
-  - Salz
-  - 150-200g getrocknete Tomaten in Öl eingelegt
-  - 2 Handvoll Rucola, ca. 80g
-  - 150g Feta
-  - 1 Zitrone
-  - Pfeffer
-  - 1 Prise Cayennepfeffer
-  - 1 Prise Zucker
+ingredientList:
+  - title: ""
+    ingredients:
+      - 500g Penne
+      - Salz
+      - 150-200g getrocknete Tomaten in Öl eingelegt
+      - 2 Handvoll Rucola, ca. 80g
+      - 150g Feta
+      - 1 Zitrone
+      - Pfeffer
+      - 1 Prise Cayennepfeffer
+      - 1 Prise Zucker
 ---
 
 1. Penne kochen

@@ -2,13 +2,19 @@
 {
   "title": "Spaghetti Carbonara",
   "tags": ["Fleisch", "Nudeln"],
-  "ingredients":
+  "ingredientList":
     [
-      "250g Spaghetti",
-      "100g Kochschinken",
-      "75g Parmesan",
-      "4 Eier",
-      "1 Sahne",
+      {
+        "title": "",
+        "ingredients":
+          [
+            "250g Spaghetti",
+            "100g Kochschinken",
+            "75g Parmesan",
+            "4 Eier",
+            "1 Sahne",
+          ],
+      },
     ],
 }
 ---

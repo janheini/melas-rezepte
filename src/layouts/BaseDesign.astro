@@ -1,0 +1,54 @@
+---
+// This extends BaseLayout with some content that is present on all sites
+import BaseLayout from "@layouts/BaseLayout.astro";
+const session = Astro.locals.session;
+---
+
+<BaseLayout>
+    <div class="flex min-h-dvh flex-col px-2">
+        <header class="py-3">
+            <ul class="grid grid-cols-2 gap-5 xl:gap-24">
+                <li class="w-full border-t">
+                    <div class="px-1">
+                        <a class="px-1" href="/">melas rezepte</a>
+                    </div>
+                </li>
+                <li class="flex w-full justify-end border-t">
+                    <div class="px-1">
+                        {session && session.username}
+                        {!session && <a href="/login">login</a>}
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <main class="grow">
+            <slot />
+        </main>
+        <footer class="pt-2 pb-5 xl:pb-3">
+            <ul class="grid grow grid-cols-2 gap-5 xl:gap-24">
+                <li class="w-full border-t">
+                    <div class="px-1">
+                        {
+                            session && (
+                                <slot name="bottom-left">
+                                    <a href="/new">neues rezept</a>
+                                </slot>
+                            )
+                        }
+                    </div>
+                </li>
+                <li class="flex w-full justify-end border-t">
+                    <div class="px-1">
+                        {
+                            session && (
+                                <slot name="bottom-right">
+                                    <a href="/logout">logout</a>
+                                </slot>
+                            )
+                        }
+                    </div>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</BaseLayout>

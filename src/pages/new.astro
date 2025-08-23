@@ -1,34 +1,14 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { tags } from "@content.config.ts";
-import NewRecipe from "@components/NewRecipe.vue";
-import {
-    createValidFilename,
-    trimRecipe,
-    createContent,
-    createNewRecipe,
-} from "@lib/utils";
+import BaseDesign from "@layouts/BaseDesign.astro";
+import RecipeEdit from "@components/RecipeEdit.svelte";
 
 if (!Astro.locals.session) return Astro.redirect("/login", 302);
-
-if (Astro.request.method === "POST") {
-    const recipe = trimRecipe(await Astro.request.json());
-    const filename = createValidFilename(recipe.title);
-    const content = createContent(recipe);
-    try {
-        const result = await createNewRecipe(filename, recipe.title, content);
-        if (result.status === 201) {
-            return Astro.redirect("/");
-        }
-        return new Response(JSON.stringify(result));
-    } catch (error) {
-        return new Response(JSON.stringify(error));
-    }
-}
 ---
 
-<BaseLayout>
-    <div class="prose grid max-w-md gap-4">
-        <NewRecipe tags={tags.options} client:load />
+<BaseDesign>
+    <div class="flex justify-center py-1">
+        <div class="prose w-full">
+            <RecipeEdit client:load />
+        </div>
     </div>
-</BaseLayout>
+</BaseDesign>

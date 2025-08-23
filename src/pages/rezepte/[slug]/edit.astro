@@ -1,17 +1,7 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import BaseDesign from "@layouts/BaseDesign.astro";
 import { getEntry } from "astro:content";
-import NewRecipe from "@components/NewRecipe.vue";
-import ConfirmDeleteDialog from "@components/ConfirmDeleteDialog.vue";
-import { tags } from "@content.config.ts";
-import {
-    deleteRecipe,
-    changeRecipe,
-    createValidFilename,
-    trimRecipe,
-    createContent,
-    createNewRecipe,
-} from "@lib/utils";
+import RecipeEdit from "@components/RecipeEdit.svelte";
 
 if (!Astro.locals.session) return Astro.redirect("/login", 302);
 
@@ -24,65 +14,20 @@ if (!slug) {
     });
 }
 
-const post = await getEntry("rezepte", slug);
+const recipe = await getEntry("rezepte", slug);
 
-if (!post) {
+if (!recipe) {
     return new Response(null, {
         status: 404,
         statusText: "Not found",
     });
 }
-
-if (Astro.request.method === "POST") {
-    const recipe = trimRecipe(await Astro.request.json());
-    const filename = `${slug}.md`;
-    const newFilename = createValidFilename(recipe.title);
-    const content = createContent(recipe);
-
-    try {
-        if (filename === newFilename) {
-            const result = await changeRecipe(filename, recipe.title, content);
-            if (result.status !== 200) {
-                return new Response(JSON.stringify(result));
-            }
-        } else {
-            const deleteResult = await deleteRecipe(filename);
-            const createResult = await createNewRecipe(
-                newFilename,
-                recipe.title,
-                content,
-            );
-
-            if (deleteResult.status !== 200) {
-                return new Response(JSON.stringify(deleteResult));
-            }
-
-            if (createResult.status !== 201) {
-                return new Response(JSON.stringify(createResult));
-            }
-        }
-    } catch (error) {
-        return new Response(JSON.stringify(error));
-    }
-    return Astro.redirect("/");
-}
-
-if (Astro.request.method === "DELETE") {
-    try {
-        const result = await deleteRecipe(`${slug}.md`);
-        if (result.status !== 200) {
-            return new Response(JSON.stringify(result));
-        }
-    } catch (error) {
-        return new Response(JSON.stringify(error));
-    }
-    return Astro.redirect("/");
-}
 ---
 
-<BaseLayout>
-    <div class="prose grid max-w-md gap-4">
-        <NewRecipe tags={tags.options} recipe={post} client:load />
-        <ConfirmDeleteDialog client:only />
+<BaseDesign>
+    <div class="flex justify-center py-1">
+        <div class="prose w-full">
+            <RecipeEdit {recipe} client:load />
+        </div>
     </div>
-</BaseLayout>
+</BaseDesign>

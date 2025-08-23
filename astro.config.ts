@@ -34,10 +34,9 @@ export default defineConfig({
         fonts: [
             {
                 provider: fontProviders.fontsource(),
-                name: "Merriweather",
-                cssVariable: "--font-merriweather",
+                name: "Inter Tight",
+                cssVariable: "--font-inter",
             },
         ],
     },
 });
-

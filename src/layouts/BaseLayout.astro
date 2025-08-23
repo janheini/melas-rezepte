@@ -1,7 +1,8 @@
 ---
+// This is just the core framework: html, head, body
+// Include BaseDesign for actual content
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
-import Header from "../components/header.astro";
 import "@styles/global.css";
 ---
 
@@ -11,7 +12,7 @@ import "@styles/global.css";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
-        <Font cssVariable="--font-merriweather" preload />
+        <Font cssVariable="--font-inter" preload />
         <ClientRouter />
         <link
             rel="apple-touch-icon"
@@ -33,10 +34,7 @@ import "@styles/global.css";
         <link rel="manifest" href="/site.webmanifest" />
         <title>Melas Rezepte</title>
     </head>
-    <body class="m-auto max-w-xl p-4 font-serif">
-        <Header />
-        <main>
-            <slot />
-        </main>
+    <body>
+        <slot />
     </body>
 </html>

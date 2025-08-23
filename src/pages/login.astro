@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import BaseDesign from "@layouts/BaseDesign.astro";
 import { verify } from "@node-rs/argon2";
 import { db, setSessionCookie, createSession } from "@lib/session";
 import { validateLoginForm } from "@lib/utils";
@@ -11,6 +11,7 @@ if (Astro.locals.session) {
 }
 
 if (Astro.request.method === "POST") {
+    // TODO: Server Actions?
     const formData = await Astro.request.formData();
 
     try {
@@ -38,65 +39,50 @@ if (Astro.request.method === "POST") {
         const session = await createSession(username);
         setSessionCookie(Astro.cookies, session.token);
         return Astro.redirect("/");
-    } catch (e) {
+    } catch (e: any) {
+        errorMessage = e;
         console.log(e);
     }
 }
 ---
 
-<BaseLayout>
-    <h2 class="pb-2 font-black">Login</h2>
-    <form class="grid max-w-xs gap-2" method="post">
-        <input
-            id="username"
-            name="username"
-            type="text"
-            class="border p-1"
-            placeholder="username"
-        />
-        <input
-            id="password"
-            name="password"
-            type="password"
-            class="border p-1"
-            placeholder="password"
-        />
-        <input
-            type="submit"
-            class="cursor-pointer border p-1 hover:bg-gray-300 hover:text-black"
-            value="Login"
-        />
-        {
-            import.meta.env.DEV && (
-                <a
-                    class="cursor-pointer border p-1 text-center hover:bg-gray-300 hover:text-black"
-                    href="/signup"
-                >
-                    Create an account
-                </a>
-            )
-        }
-    </form>
-    {
-        errorMessage && (
-            <div class="py-4">
-                <div class="alert alert-error max-w-xs">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6 shrink-0 stroke-current"
-                        fill="none"
-                        viewBox="0 0 24 24"
+<BaseDesign>
+    <div class="flex justify-center py-20">
+        <form class="grid w-xs gap-2" method="post">
+            <input
+                id="username"
+                name="username"
+                type="text"
+                class="border p-1"
+                placeholder="username"
+            />
+            <input
+                id="password"
+                name="password"
+                type="password"
+                class="border p-1"
+                placeholder="password"
+            />
+            <input
+                type="submit"
+                class="cursor-pointer border p-1 hover:bg-gray-300 hover:text-black"
+                value="Login"
+            />
+            {
+                import.meta.env.DEV && (
+                    <a
+                        class="cursor-pointer border p-1 text-center hover:bg-gray-300 hover:text-black"
+                        href="/signup"
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                    </svg>
-                    <span>{errorMessage}</span>
-                </div>
-            </div>
-        )
-    }
-</BaseLayout>
+                        Create an account
+                    </a>
+                )
+            }
+            {
+                errorMessage && (
+                    <div class="w-xs py-4 text-red-700">{errorMessage}</div>
+                )
+            }
+        </form>
+    </div>
+</BaseDesign>

@@ -2,19 +2,25 @@
 {
   "title": "Honig Senf Röstkartoffel Salat mit Feta und Tomaten",
   "tags": ["Vegetarisch", "Kartoffeln"],
-  "ingredients":
+  "ingredientList":
     [
-      "750g Kartoffeln",
-      "1EL Senf",
-      "1EL Honig",
-      "2-3El Rapsöl",
-      "2 Spritzer Zitrone",
-      "1 Knoblauchzehe (gepresst)",
-      "Salz und Pfeffer",
-      "100g Feta",
-      "2-3 Handvoll bunte Kirschtomaten",
-      "Feldsalat",
-      "Zaziki",
+      {
+        "title": "",
+        "ingredients":
+          [
+            "750g Kartoffeln",
+            "1EL Senf",
+            "1EL Honig",
+            "2-3El Rapsöl",
+            "2 Spritzer Zitrone",
+            "1 Knoblauchzehe (gepresst)",
+            "Salz und Pfeffer",
+            "100g Feta",
+            "2-3 Handvoll bunte Kirschtomaten",
+            "Feldsalat",
+            "Zaziki",
+          ],
+      },
     ],
 }
 ---

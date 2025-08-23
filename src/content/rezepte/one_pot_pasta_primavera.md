@@ -3,15 +3,17 @@ title: One Pot Pasta Primavera
 tags:
   - Nudeln
   - Vegetarisch
-ingredients:
-  - 250g braune Champignons
-  - 1 Brokkoli
-  - 2 Handvoll Spinat
-  - 1 Zwiebel
-  - 500g Pasta
-  - 1 TL Gemüsebrühe
-  - 200ml Sahne
-  - Salz, Pfeffer
+ingredientList:
+  - title: ""
+    ingredients:
+      - 250g braune Champignons
+      - 1 Brokkoli
+      - 2 Handvoll Spinat
+      - 1 Zwiebel
+      - 500g Pasta
+      - 1 TL Gemüsebrühe
+      - 200ml Sahne
+      - Salz, Pfeffer
 ---
 
 1. Champignons putzen und in Scheiben schneiden. Bokkoli waschen und in Röschen

@@ -1,7 +1,8 @@
-import { z } from "astro:content";
+import { z, type CollectionEntry } from "astro:content";
 import { tags } from "@content.config.ts";
 import { request } from "@octokit/request";
 import { GITHUB_TOKEN } from "astro:env/server";
+import { ActionError } from "astro:actions";
 
 export function validateLoginForm(formData: FormData) {
     const username = formData.get("username");
@@ -34,7 +35,7 @@ type IngredientList = {
 
 type Recipe = {
     title: string;
-    tagList: Array<z.infer<typeof tags>>;
+    tagList?: Array<z.infer<typeof tags>>;
     ingredientList: Array<IngredientList>;
     instructions: string;
 };
@@ -51,21 +52,6 @@ export function createValidFilename(str: string) {
         return str.slice(0, 255);
     }
     return str;
-}
-
-export function trimRecipe(recipe: Recipe): Recipe {
-    recipe.title = recipe.title.trim();
-    if (recipe.title === "") {
-        throw new Error("Missing title");
-    }
-    for (const ingredientList of recipe.ingredientList) {
-        ingredientList.title = ingredientList.title.trim();
-        ingredientList.ingredients = ingredientList.ingredients
-            .map((ingredient) => ingredient.trim())
-            .filter((ingredient) => ingredient.length > 0);
-    }
-    recipe.instructions = recipe.instructions.trim();
-    return recipe;
 }
 
 export const createContent = (recipe: Recipe) =>
@@ -97,8 +83,10 @@ export async function getSha(path: string): Promise<string> {
     ).data.sha as string;
 }
 
-export async function deleteRecipe(filename: string) {
-    const path = `src/content/rezepte/${filename}`;
+export async function deleteRecipe(recipe: CollectionEntry<"rezepte">) {
+    // TODO: changeRecipe should work like this
+    const path = recipe.filePath;
+    if (!path) throw new ActionError({ code: "NOT_FOUND" });
     return await request(
         `DELETE /repos/janheini/melas-rezepte/contents/${path}`,
         {

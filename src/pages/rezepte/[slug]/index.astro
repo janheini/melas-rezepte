@@ -1,7 +1,6 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import BaseDesign from "@layouts/BaseDesign.astro";
 import { getEntry, render } from "astro:content";
-import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import { Image } from "astro:assets";
 import { fade } from "astro:transitions";
 
@@ -14,74 +13,35 @@ if (!slug) {
     });
 }
 
-const post = await getEntry("rezepte", slug);
+const recipe = await getEntry("rezepte", slug);
 
-if (!post) {
+if (!recipe) {
     return new Response(null, {
         status: 404,
         statusText: "Not found",
     });
 }
 
-const ingredients =
-    post.data.ingredients && post.data.ingredients.length > 0
-        ? post.data.ingredients
-        : undefined;
-
-const ingredientList =
-    post.data.ingredientList && post.data.ingredientList.length > 0
-        ? post.data.ingredientList
-        : undefined;
-
-const { Content } = await render(post);
+const { Content } = await render(recipe);
 
 const session = Astro.locals.session;
 ---
 
-<BaseLayout>
-    <div class="prose">
-        <h2 class="flex items-center justify-between" transition:name={post.id}>
-            {post.data.title}
-            {
-                session && (
-                    <a class="p-2" href="edit">
-                        <PencilSquareIcon class="h-5 w-5" />
-                    </a>
-                )
-            }
-        </h2>
-        {post.data.image && <Image src={post.data.image} alt="" />}
-        <content transition:animate={fade({ duration: "0.75s" })}>
-            {(ingredients || ingredientList) && <h3>Zutaten</h3>}
-            {
-                ingredients && (
-                    <>
-                        <ul>
-                            {ingredients.map((i) => (
-                                <li>{i}</li>
-                            ))}
-                        </ul>
-                    </>
-                )
-            }
-            {
-                ingredientList && (
-                    <>
-                        {ingredientList.map((item) => (
-                            <>
-                                <h4>{item.title}</h4>
-                                <ul>
-                                    {item.ingredients.map((i) => (
-                                        <li>{i}</li>
-                                    ))}
-                                </ul>
-                            </>
-                        ))}
-                    </>
-                )
-            }
-            <h3>Anleitung</h3>
+<BaseDesign>
+    <div class="flex justify-center py-1">
+        <div class="prose">
+            <h2 transition:name={recipe.id}>{recipe.data.title}</h2>
+            {recipe.data.image && <Image src={recipe.data.image} alt="" />}
+            <content transition:animate={fade({ duration: "0.75s" })}>
+            {recipe.data.ingredientList.map((item) => (
+                <div>
+                    { item.title && <h4>{item.title}</h4>}
+                    <ul>{item.ingredients.map((i) => (<li>{i}</li>))}</ul>
+                </div>
+            ))}
             <Content />
-        </content>
+            </content>
+        </div>
     </div>
-</BaseLayout>
+{session && <a slot="bottom-left" href=`/rezepte/${recipe.id}/edit`>bearbeiten</a>}
+</BaseDesign>

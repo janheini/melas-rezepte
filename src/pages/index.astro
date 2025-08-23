@@ -1,14 +1,13 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import RecipeList from "@components/RecipeList.vue";
+import BaseDesign from "@layouts/BaseDesign.astro";
+// import RecipeList from "@components/RecipeList.vue";
+import RecipeList from "@components/RecipeList.svelte";
 import { getCollection } from "astro:content";
 import { tags } from "@content.config.ts";
 
 const recipes = await getCollection("rezepte");
 ---
 
-<BaseLayout>
-    <div class="prose">
-        <RecipeList recipes={recipes} tags={tags.options} client:load />
-    </div>
-</BaseLayout>
+<BaseDesign>
+    <RecipeList recipes={recipes} tags={tags.options} client:load />
+</BaseDesign>

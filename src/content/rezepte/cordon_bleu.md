@@ -2,7 +2,14 @@
 {
   "title": "Cordon Bleu",
   "tags": ["Fleisch", "Huhn"],
-  "ingredients": ["Schnitzel Hähnchen oder Schwein", "Käse", "Kochschinken"],
+  "ingredientList":
+    [
+      {
+        "title": "",
+        "ingredients":
+          ["Schnitzel Hähnchen oder Schwein", "Käse", "Kochschinken"],
+      },
+    ],
 }
 ---
 

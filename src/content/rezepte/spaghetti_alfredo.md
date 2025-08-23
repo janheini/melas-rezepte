@@ -2,12 +2,18 @@
 {
   "title": "Spaghetti Alfredo",
   "tags": ["Vegetarisch", "Nudeln"],
-  "ingredients":
+  "ingredientList":
     [
-      "80 g Butter",
-      "100 g Crème fraîche",
-      "120 g Parmesan (frisch gerieben)",
-      "500 g Spaghetti",
+      {
+        "title": "",
+        "ingredients":
+          [
+            "80 g Butter",
+            "100 g Crème fraîche",
+            "120 g Parmesan (frisch gerieben)",
+            "500 g Spaghetti",
+          ],
+      },
     ],
 }
 ---

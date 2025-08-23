@@ -3,15 +3,17 @@ title: Pasta mit Rahmspinat-Frischkäse-Sauce
 tags:
   - Nudeln
   - Vegetarisch
-ingredients:
-  - 500g Nudeln
-  - 1 kleine Zwiebel
-  - 1 Knoblauchzehe
-  - 750g Rahmspinat
-  - 50g Creme fraiche Kräuter
-  - 100g Frischkäse
-  - 1-2EL Zitronensaft
-  - 1 Schuss Milch (nur vielleicht)
+ingredientList:
+  - title: ""
+    ingredients:
+      - 500g Nudeln
+      - 1 kleine Zwiebel
+      - 1 Knoblauchzehe
+      - 750g Rahmspinat
+      - 50g Creme fraiche Kräuter
+      - 100g Frischkäse
+      - 1-2EL Zitronensaft
+      - 1 Schuss Milch (nur vielleicht)
 ---
 
 1. Nudeln kochen
