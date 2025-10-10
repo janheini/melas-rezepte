@@ -1,14 +1,13 @@
 import { defineConfig, envField, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
-import vue from "@astrojs/vue";
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
     site: "https://melas-rezepte.vercel.app",
     output: "server",
-    integrations: [vue(), svelte()],
+    integrations: [svelte()],
     adapter: vercel({ imageService: true }),
     vite: { plugins: [tailwindcss()] },
     env: {

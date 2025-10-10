@@ -13,17 +13,13 @@
         "@astrojs/check": "^0.9.4",
         "@astrojs/svelte": "^7.2.0",
         "@astrojs/vercel": "^8.2.9",
-        "@astrojs/vue": "^5.1.1",
-        "@headlessui/vue": "^1.7.23",
-        "@heroicons/vue": "^2.2.0",
         "@libsql/client": "^0.15.15",
         "@node-rs/argon2": "^2.0.2",
         "@octokit/request": "^9.2.4",
         "@tailwindcss/vite": "^4.1.14",
         "astro": "^5.14.3",
         "svelte": "^5.39.11",
-        "tailwindcss": "^4.1.14",
-        "vue": "^3.5.22"
+        "tailwindcss": "^4.1.14"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.19",
