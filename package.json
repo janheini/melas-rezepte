@@ -11,27 +11,27 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",
-        "@astrojs/svelte": "^7.1.0",
-        "@astrojs/vercel": "^8.2.6",
-        "@astrojs/vue": "^5.1.0",
+        "@astrojs/svelte": "^7.2.0",
+        "@astrojs/vercel": "^8.2.9",
+        "@astrojs/vue": "^5.1.1",
         "@headlessui/vue": "^1.7.23",
         "@heroicons/vue": "^2.2.0",
-        "@libsql/client": "^0.15.12",
+        "@libsql/client": "^0.15.15",
         "@node-rs/argon2": "^2.0.2",
         "@octokit/request": "^9.2.4",
-        "@tailwindcss/vite": "^4.1.12",
-        "astro": "^5.13.2",
-        "svelte": "^5.38.2",
-        "tailwindcss": "^4.1.12",
-        "vue": "^3.5.18"
+        "@tailwindcss/vite": "^4.1.14",
+        "astro": "^5.14.3",
+        "svelte": "^5.39.11",
+        "tailwindcss": "^4.1.14",
+        "vue": "^3.5.22"
     },
     "devDependencies": {
-        "@tailwindcss/typography": "^0.5.16",
+        "@tailwindcss/typography": "^0.5.19",
         "@types/simple-oauth2": "^5.0.7",
         "prettier": "^3.6.2",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.6.14",
-        "typescript": "^5.9.2"
+        "typescript": "^5.9.3"
     },
     "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
     "pnpm": {
