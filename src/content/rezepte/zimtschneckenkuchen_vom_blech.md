@@ -1,6 +1,7 @@
 ---
 {
   "title": "Zimtschneckenkuchen vom Blech",
+  "image": "./img/zimtschneckenkuchen_vom_blech.jpg",
   "ingredientList": [
     {
       "title": "Für den Kuchenteig:",
