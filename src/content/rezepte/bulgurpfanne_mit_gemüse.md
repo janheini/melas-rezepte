@@ -39,7 +39,7 @@
 
 2. Den Bulgur in einem Sieb abspülen, dazugeben und gut würzen. Einmal aufkochen lassen, umrühren und dann bei kleiner Hitze zugedeckt rund 20 Min. köcheln lassen.
 
-3. In der Zwischenzeit die Zucchini in grobe Stücke schneiden und mit Olivenöl und den Gewürzen vermischen. Auf ein Blech legen und im Backofen bei 200° Ober- und Unterhitze goldbraun hacken.
+3. In der Zwischenzeit die Zucchini in grobe Stücke schneiden und mit Olivenöl und den Gewürzen vermischen. Auf ein Blech legen und im Backofen bei 200° Ober- und Unterhitze goldbraun backen.
 
 4. Für den Dip alle Zutaten gut miteinander verrühren.
 
