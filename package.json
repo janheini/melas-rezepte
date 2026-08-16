@@ -11,13 +11,13 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.10",
-        "@astrojs/svelte": "^7.2.5",
-        "@astrojs/vercel": "^8.2.11",
+        "@astrojs/svelte": "^9.0.1",
+        "@astrojs/vercel": "^11.0.5",
         "@libsql/client": "^0.15.15",
         "@node-rs/argon2": "^2.1.0",
         "@octokit/request": "^9.2.4",
         "@tailwindcss/vite": "^4.3.3",
-        "astro": "^5.18.2",
+        "astro": "^7.2.2",
         "svelte": "^5.56.9",
         "tailwindcss": "^4.3.3"
     },
