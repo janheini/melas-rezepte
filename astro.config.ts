@@ -1,4 +1,4 @@
-import { defineConfig, envField, fontProviders } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import svelte from "@astrojs/svelte";
@@ -28,14 +28,5 @@ export default defineConfig({
                 optional: false,
             }),
         },
-    },
-    experimental: {
-        fonts: [
-            {
-                provider: fontProviders.fontsource(),
-                name: "Inter Tight",
-                cssVariable: "--font-inter",
-            },
-        ],
     },
 });
