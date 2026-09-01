@@ -1,4 +1,5 @@
-import { z, type CollectionEntry } from "astro:content";
+import { type CollectionEntry } from "astro:content";
+import { z } from "astro/zod";
 import { tags } from "@content.config.ts";
 import { request } from "@octokit/request";
 import { GITHUB_TOKEN } from "astro:env/server";

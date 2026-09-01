@@ -7,7 +7,7 @@ import {
 } from "@lib/utils";
 import { getEntry } from "astro:content";
 import { defineAction, ActionError } from "astro:actions";
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 
 export const server = {
     editRecipe: defineAction({
