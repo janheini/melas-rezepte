@@ -27,7 +27,7 @@ export default defineConfig({
             TURSO_TOKEN: envField.string({
                 context: "server",
                 access: "secret",
-                optional: false,
+                optional: true,
             }),
             GITHUB_TOKEN: envField.string({
                 context: "server",
