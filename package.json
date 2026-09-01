@@ -13,9 +13,9 @@
         "@astrojs/check": "^0.9.10",
         "@astrojs/svelte": "^9.0.1",
         "@astrojs/vercel": "^11.0.9",
-        "@libsql/client": "^0.15.15",
+        "@libsql/client": "^0.17.4",
         "@node-rs/argon2": "^2.2.0",
-        "@octokit/request": "^9.2.4",
+        "@octokit/request": "^10.0.16",
         "@tailwindcss/vite": "^4.3.3",
         "astro": "^7.2.10",
         "svelte": "^5.57.0",
@@ -26,15 +26,8 @@
         "@types/simple-oauth2": "^5.0.8",
         "prettier": "^3.9.6",
         "prettier-plugin-astro": "^0.14.1",
-        "prettier-plugin-tailwindcss": "^0.6.14",
-        "typescript": "^5.9.3"
+        "prettier-plugin-tailwindcss": "^0.8.1",
+        "typescript": "^7.0.2"
     },
-    "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "@tailwindcss/oxide",
-            "esbuild",
-            "sharp"
-        ]
-    }
+    "packageManager": "pnpm@11.25.0+sha512.5cde925b4f075f725eb71fbae18a42ffe784524789f19b61c731cb8721ec28aaee160e01a8d5af4fedb2a42cdbf300efe23db356b0d4a17b4d63e11f8ab7c956"
 }
